@@ -9,6 +9,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
 import Schedule from './pages/Schedule';
+import EventDetail from './pages/EventDetail';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +33,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/schedule" element={<Schedule />} />
+            <Route path="/events/:eventId" element={<EventDetail />} />
           </Routes>
           <Footer/>
         </>

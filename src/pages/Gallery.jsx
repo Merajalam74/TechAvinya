@@ -3,16 +3,18 @@ import gallary from '../assets/gallary.mp4';
 
 export default function Gallery() {
   const [photos] = useState([
-    { id: 1, src: 'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/396e9/MainBefore.jpg', alt: 'TechFest Event 1' },
-    { id: 2, src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQykzoZeCE0p7LeuyHnLYCdPP2jju9d5PaMeA&s', alt: 'TechFest Event 2' },
-    { id: 3, src: 'https://cdn.pixabay.com/photo/2018/08/04/11/30/draw-3583548_1280.png', alt: 'TechFest Event 3' },
-    { id: 4, src: 'https://media.istockphoto.com/id/500221637/photo/digital-world.jpg?s=612x612&w=0&k=20&c=wbMfTwRUtss0B5KSWRlH-ivSm8BAjMCBUKSi30d6rYo=', alt: 'TechFest Event 4' },
-    { id: 5, src: 'https://th.bing.com/th/id/OIG3.a12MEqsVpd1xwcZrqeB8', alt: 'TechFest Event 5' },
-    { id: 6, src: 'https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp', alt: 'TechFest Event 6' },
-    { id: 7, src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoFRQjM-wM_nXMA03AGDXgJK3VeX7vtD3ctA&s', alt: 'TechFest Event 7' },
-    { id: 8, src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFYqoKTu_o3Zns2yExbst2Co84Gpc2Q1RJbA&s', alt: 'TechFest Event 8' },
-    { id: 9, src: 'https://media.gettyimages.com/id/1215119911/photo/looking-directly-up-at-the-skyline-of-the-financial-district-in-central-london-stock-image.jpg?s=612x612&w=gi&k=20&c=rIsNW_iVWpfHt77QBOI40_0bz8ea3XetPsy0kplL2FQ=', alt: 'TechFest Event 9' },
-    { id: 10, src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_FWF2judaujT30K9sMf-tZFhMWpgP6xCemw&s', alt: 'TechFest Event 10' },
+    { id: 1, src: '/gallary/1.jpg', alt: 'TechFest Event 1' },
+    { id: 2, src: '/gallary/2.jpg', alt: 'TechFest Event 2' },
+    { id: 3, src: '/gallary/3.jpg', alt: 'TechFest Event 3' },
+    { id: 4, src: '/gallary/4.jpg', alt: 'TechFest Event 4' },
+    { id: 5, src: '/gallary/5.jpg', alt: 'TechFest Event 5' },
+    { id: 6, src: '/gallary/6.jpg', alt: 'TechFest Event 6' },
+    { id: 7, src: '/gallary/7.jpg', alt: 'TechFest Event 7' },
+    { id: 8, src: '/gallary/8.jpg', alt: 'TechFest Event 8' },
+    { id: 9, src: '/gallary/9.jpg', alt: 'TechFest Event 9' },
+    { id: 10, src: '/gallary/10.jpg', alt: 'TechFest Event 10' },
+    { id: 11, src: '/gallary/11.jpg', alt: 'TechFest Event 11' },
+    { id: 12, src: '/gallary/12.jpg', alt: 'TechFest Event 12' },
   ]);
   const [isVisible, setIsVisible] = useState({});
   const photoRefs = useRef([]);

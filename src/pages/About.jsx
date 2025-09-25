@@ -5,7 +5,7 @@ export default function About() {
     <div className="relative w-full min-h-screen">
       {/* Background Image */}
       <video
-        className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-115"
+        className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-135"
         src={about}
         autoPlay
         loop
@@ -14,7 +14,7 @@ export default function About() {
       />
       
       {/* Overlay to ensure text readability */}
-      <div className="fixed inset-0 z-0"></div>
+      <div className="fixed inset-0 z-0 backdrop-blur-[3px] "></div>
 
       {/* Main Content Container with top margin */}
       <div className="relative z-10 w-full h-full flex flex-col pt-20 px-6 md:px-12 lg:px-20">

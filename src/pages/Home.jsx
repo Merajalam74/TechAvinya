@@ -1,6 +1,6 @@
 import React from 'react';
 import homeVideo from '../assets/aboutvid.mp4'; // Replace with your video file path
-import backvideo from '../assets/backgroundst.mp4';
+import backvideo from '../assets/events.mp4';
 import AftermovieCard from '../components/AftermovieCard';
 import Aboutus from '../components/Aboutus';
 import NitMap from '../components/NitMap';

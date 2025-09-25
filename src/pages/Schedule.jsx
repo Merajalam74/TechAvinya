@@ -36,19 +36,19 @@ export default function Schedule() {
       {/* Overlay to ensure text readability */}
       <div className="fixed inset-0 z-0"></div>
       {/* Main Title */}
-      <h1 className="text-5xl md:text-6xl font-bold text-center mb-12 text-red-200 uppercase tracking-wide mt-8">
+      <h1 className="text-5xl md:text-6xl font-bold text-center mb-12 text-red-300 uppercase tracking-wide mt-8">
         Tech Avinya 2025 Schedule
       </h1>
 
       {/* Schedule Days */}
       {scheduleData.map((dayData, index) => (
-        <div key={index} className="max-w-4xl mx-auto mb-16 px-4">
+        <div key={index} className="max-w-4xl mx-auto mb-16 px-4 ">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 uppercase">
             {dayData.day} - {dayData.date}
           </h2>
 
           {/* Events for the day */}
-          <div className="border-t border-b border-gray-700">
+          <div className="border-t border-b border-gray-700 backdrop-blur-[5px]">
             {dayData.events.map((event, eventIndex) => (
               <div 
                 key={eventIndex} 
