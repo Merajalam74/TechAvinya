@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
 import Schedule from './pages/Schedule';
 import EventDetail from './pages/EventDetail';
+import RegistrationForm from './pages/RegistrationForm';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +35,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/events/:eventId" element={<EventDetail />} />
+            <Route path="/register/:eventId" element={<RegistrationForm />} />
           </Routes>
           <Footer/>
         </>

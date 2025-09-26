@@ -34,7 +34,7 @@ export default function Schedule() {
       />
       
       {/* Overlay to ensure text readability */}
-      <div className="fixed inset-0 z-0"></div>
+      <div className="fixed inset-0 z-0 bg-gradient-to-br from-[#1a1a3a]/35 to-[#0a0a2a]/35"></div>
       {/* Main Title */}
       <h1 className="text-5xl md:text-6xl font-bold text-center mb-12 text-red-300 uppercase tracking-wide mt-8">
         Tech Avinya 2025 Schedule
@@ -48,7 +48,7 @@ export default function Schedule() {
           </h2>
 
           {/* Events for the day */}
-          <div className="border-t border-b border-gray-700 backdrop-blur-[5px]">
+          <div className="border-t border-b border-gray-700">
             {dayData.events.map((event, eventIndex) => (
               <div 
                 key={eventIndex} 

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import comingsoon from '../assets/comingsoon.mp4';
+import eventdetail from '../assets/eventdetail.mp4'; 
+
+// IMPORTANT: Ensure all 'id' values in your event data are strings!
 const allEventsData = [
   {
-      // NOTE: ID must be a string or converted to match useParams() output
       id: "1", 
       title: "Code Raze",
       prize: "₹ 20,000/-",
@@ -23,7 +24,6 @@ const allEventsData = [
       rules: ["Submissions must be high-resolution.", "Originality is judged heavily.", "Theme announced one week prior."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
     },
-    // ... all other events must have string IDs now ("3", "4", etc.)
     {
       id: "3",
       title: "Aerial Adrenaline",
@@ -146,81 +146,101 @@ const allEventsData = [
     },
 ];
 
-
 export default function EventDetail() {
-  // Fix 1: eventId from URL is a string, so we must find a string ID in the data.
   const { eventId } = useParams(); 
   const event = allEventsData.find(e => e.id === eventId);
 
   if (!event) {
     return (
-      <div className="min-h-screen pt-32 bg-gray-900 text-white text-center">
-        <h1 className="text-5xl font-anton text-red-500">404 - Event Not Found 😥</h1>
-        <p className="mt-4"><Link to="/events" className="text-cyan-400 hover:underline">Go back to Events</Link></p>
+      <div className="min-h-screen pt-32 flex flex-col items-center justify-center bg-gray-900 text-white text-center">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-red-500 font-anton animate-pulse">404 - Event Not Found 😥</h1>
+        <p className="mt-4 text-xl"><Link to="/events" className="text-cyan-400 hover:underline hover:text-cyan-300 transition-colors duration-300">Go back to Events</Link></p>
       </div>
     );
   }
 
   return (
-   <div className="relative w-full min-h-screen  text-white overflow-hidden">
-         {/* Background Video and Overlay */}
-         <video
-           className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-100"
-           src={comingsoon}
-           autoPlay
-           loop
-           muted
-           playsInline
-         />
-         
-         {/* Overlay to ensure text readability */}
-         <div className="fixed inset-0 z-0"></div>
+    <div className="relative min-h-screen pt-32 pb-16 text-white overflow-hidden">
+      {/* Background Video (Fixed and Scaled) */}
+      <video
+        className="fixed inset-0 w-full h-full object-cover z-[-2] transform scale-100"
+        src={eventdetail} // Using your provided video
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      
+      {/* Dynamic Overlay for readability and depth */}
+      <div className="fixed inset-0 z-[-1] bg-gradient-to-br from-[#1a1a3a]/50 to-[#0a0a2a]/50"></div>
+      
+      {/* Main Content Container - Elevated above background */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6   rounded-lg p-8  border border-cyan-700/30">
+        
+        <Link 
+          to="/events" 
+          className="text-cyan-400 Gluten hover:text-cyan-200 hover:underline mb-8 flex items-center transition-colors duration-300 text-lg font-mono"
+        >
+          <svg className="w-5 h-5 mr-2 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          Back to All Events
+        </Link>
+        
+        <h1 className="text-5xl md:text-6xl font-extrabold Graduate mb-4 font-['Press_Start_2P'] 
+                       text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 
+                       text-shadow-neon-cyan">
+          {event.title}
+        </h1>
+        <p className="text-3xl font-semibold Graduate text-teal-400 mb-8 font-mono text-shadow-sm-teal">
+          {event.prize}
+        </p>
+
+        {/* Image Display Area (Constrained and Centered) */}
+        <div className="mx-auto w-full md:w-3/4 lg:w-1/2 mb-8">
+            <img 
+              src={event.image} 
+              alt={event.title} 
+              className="w-full h-auto rounded-xl object-cover shadow-2xl shadow-blue-500/20 border border-blue-700/50" 
+            />
+        </div>
+
+        {/* Description */}
+        <section className="mb-8 p-4  rounded-lg ">
+          <h2 className="text-3xl font-bold mb-3 text-cyan-400 font-anton text-shadow-sm-cyan Graduate">About the Competition</h2>
+          <p className="text-lg text-gray-200 font-light leading-relaxed Gluten">{event.description}</p>
+        </section>
+
+        {/* Rules */}
+        <section className="mb-8 p-4 rounded-lg ">
+          <h2 className="text-3xl font-bold mb-3 text-cyan-400 font-anton text-shadow-sm-cyan Graduate">Specific Rules</h2>
+          <ul className="list-disc list-inside text-lg text-gray-200 ml-4 space-y-2">
+            {event.rules.map((rule, index) => (
+              <li key={index} className="flex items-start before:content-['\2022'] before:text-cyan-400 before:mr-2 Gluten">{rule}</li>
+            ))}
+          </ul>
+        </section>
+
+        {/* General Rules */}
+        <section className="p-4  rounded-lg ">
+          <h2 className="text-3xl font-bold mb-3 text-cyan-400 font-anton text-shadow-sm-cyan Graduate">General Guidelines</h2>
+          <p className="text-lg text-gray-200 border-l-4 Gluten border-cyan-500 pl-4  p-3 rounded-lg font-light leading-relaxed">
+            {event.generalRules}
+          </p>
+          <div className="flex justify-center mt-8">
+            <Link 
+              to={`/register/${event.id}`}
+              className="relative group py-3 px-8 Graduate text-lg font-semibold uppercase tracking-widest rounded-lg overflow-hidden
+                         bg-gradient-to-br from-red-800/60 to-pink-800/60 border border-red-600 text-red-300 backdrop-blur-sm
+                         transition-all duration-500 ease-in-out
+                         hover:from-red-600/70 hover:to-pink-600/70 hover:text-white hover:border-red-400
+                         hover:shadow-lg hover:shadow-red-500/40
+                         active:scale-95 active:shadow-sm"
+            >
+              Register Now
+            </Link>
+          </div>
+        </section>
+        
+      </div>
     </div>
-    // <div className="min-h-screen pt-32 pb-16 bg-gray-950 text-white">
-    //   <div className="max-w-4xl mx-auto px-6">
-        
-    //     <Link to="/events" className="text-cyan-400 hover:underline mb-8 flex items-center">
-    //       &larr; Back to All Events
-    //     </Link>
-        
-    //     <h1 className="text-5xl md:text-6xl font-extrabold text-cyan-400 mb-4 font-anton">{event.title}</h1>
-    //     <p className="text-3xl font-semibold text-teal-400 mb-8">{event.prize}</p>
-
-    //     <img src={event.image} alt={event.title} className="w-full h-auto rounded-xl object-cover mb-8 shadow-2xl" />
-
-    //     {/* Description */}
-    //     <section className="mb-8">
-    //       <h2 className="text-3xl font-bold mb-3">About the Competition</h2>
-    //       <p className="text-lg text-gray-300">{event.description}</p>
-    //     </section>
-
-    //     {/* Rules */}
-    //     <section className="mb-8">
-    //       <h2 className="text-3xl font-bold mb-3">Specific Rules</h2>
-    //       <ul className="list-disc list-inside text-lg text-gray-300 ml-4 space-y-2">
-    //         {event.rules.map((rule, index) => (
-    //           <li key={index}>{rule}</li>
-    //         ))}
-    //       </ul>
-    //     </section>
-
-    //     {/* General Rules */}
-    //     <section>
-    //       <h2 className="text-3xl font-bold mb-3">General Guidelines</h2>
-    //       <p className="text-lg text-gray-300 border-l-4 border-cyan-400 pl-4 bg-gray-800/50 p-3 rounded-lg">
-    //         {event.generalRules}
-    //       </p>
-    //       <div className="flex justify-center mt-8 space-x-4">
-    //         <a 
-    //           href={event.registerLink} 
-    //           className="bg-red-700/60 hover:bg-red-600 transition-colors duration-300 py-3 px-6 text-center rounded-lg text-lg font-semibold uppercase tracking-widest border border-red-500"
-    //         >
-    //           Register Now
-    //         </a>
-    //       </div>
-    //     </section>
-        
-    //   </div>
-    // </div>
   );
 }

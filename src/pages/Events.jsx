@@ -197,7 +197,7 @@ export default function Events() {
                     Explore
                   </Link>
                 <Link 
-                  to={`/events/${event.id}`} 
+                  to={`/register/${event.id}`}
                   className="relative group w-1/2 text-center rounded-lg py-2 px-3 text-sm font-semibold uppercase tracking-widest overflow-hidden
                             bg-gradient-to-br Gluten from-red-900/40 to-pink-900/40 border border-red-700/60 text-red-300 backdrop-blur-sm
                             transition-all duration-500 ease-in-out
