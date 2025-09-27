@@ -1,4 +1,13 @@
-routes:
+services:
+  - type: static 
+    name: TechAvinya
+    env: node
+
+    buildCommand: npm install && npm run build
+
+    staticPublishPath: dist
+
+    routes:
       - type: rewrite
         source: /.*
         destination: /index.html
