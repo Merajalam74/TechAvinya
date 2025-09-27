@@ -1,6 +1,0 @@
-services:
-  - type: static
-    name: techavinya
-    env: node
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
