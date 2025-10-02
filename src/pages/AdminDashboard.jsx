@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import backvideo from '../assets/dashboard.mp4';
-const eventOptions = ['All Time', 'Code Raze', 'AI Finance Hackathon', 'Aerial Adrenaline', 'Circuit X', 'Bug Hunt'];
+const eventOptions = ['All Time', 'Code Raze', 'Hackathon', 'Aerial Adrenaline', 'Circuit X','Digital Art' ,'Bug Hunt','Animation','BGMI','MLBB','Free Fire','3D Modelling','Clash of Wheels','Tech Crisis','Infinity Hunt'];
 const statusOptions = ['All', 'Pending', 'Accepted', 'Rejected'];
 const API_URL = 'https://tech-avinya-backend.onrender.com' || 'http://localhost:8080';
 const getSessionData = () => {
