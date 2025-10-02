@@ -5,102 +5,88 @@ import { Link } from 'react-router-dom';
 export default function Events() {
   const eventData = [
     {
-      id: 1,
+      id: "code",
       title: "Code Raze",
-      prize: "₹ 20,000/-",
-      image: "/event/coding.jpg", 
-      registerLink: "#"  
+      prize: "₹ 22,000/-",
+      image: "/event/coding.jpg"  
     },
     {
-      id: 2,
+      id: "digital",
       title: "Digital Art",
-      prize: "₹ 20,000/-",
-      image: "/event/art.jpg",
-      registerLink: "#"
+      prize: "₹ 10,000/-",
+      image: "/event/art.jpg"
     },
     {
-      id: 3,
+      id: "aerial",
       title: "Aerial Adrenaline",
-      prize: "₹ 20,000",
-      image: "/event/drone.jpg",
-      registerLink: "#"
+      prize: "₹ 19,000",
+      image: "/event/drone.jpg"
     },
     {
-      id: 4,
+      id: "circuit",
       title: "Circuit X",
-      prize: "₹ 20,000/-",
-      image: "/event/circuit.jpg",
-      registerLink: "#"
+      prize: "₹ 6,000/-",
+      image: "/event/circuit.jpg"
     },
     {
-      id: 5,
+      id: "bug",
       title: "Bug Hunt",
-      prize: "₹ 20,000/-",
-      image: "/event/bughunt.jpg",
-      registerLink: "#"
+      prize: "₹ 15,000/-",
+      image: "/event/bughunt.jpg"
     },
     {
-      id: 6,
+      id: "animation",
       title: "Animation",
-      prize: "₹ 20,000/-",
-      image: "/event/animation.webp", 
-      registerLink: "#"
+      prize: "₹ 11,000/-",
+      image: "/event/animation.webp"
     },
     {
-      id: 7,
+      id: "bgmi",
       title: "BGMI",
       prize: "₹ 20,000/-",
-      image: "/event/bgmi.jpg",
-      registerLink: "#"
+      image: "/event/bgmi.jpg"
     },
     {
-      id: 8,
+      id: "mlbb",
       title: "MLBB",
       prize: "₹ 20,000",
-      image: "/event/mlbb.jpg",
-      registerLink: "#"
+      image: "/event/mlbb.jpg"
     },
     {
-      id: 9,
+      id: "free",
       title: "Free Fire",
-      prize: "₹ 20,000/-",
-      image: "/event/freefire.jpg",
-      registerLink: "#"
+      prize: "₹ 17,000/-",
+      image: "/event/freefire.jpg"
     },
     {
-      id: 10,
+      id: "modelling",
       title: "3D Modelling",
-      prize: "₹ 20,000/-",
-      image: "/event/3dmodelling.jpg",
-      registerLink: "#"
+      prize: "₹ 8,000/-",
+      image: "/event/3dmodelling.jpg"
     },
     {
-      id: 11,
+      id: "clash",
       title: "Clash of Wheels",
-      prize: "₹ 20,000/-",
-      image: "/event/clashofwheels.jpg", 
-      registerLink: "#"
+      prize: "₹ 16,000/-",
+      image: "/event/clashofwheels.jpg"
     },
     {
-      id: 12,
+      id: "hackathon",
       title: "Hackathon",
-      prize: "₹ 20,000/-",
-      image: "/event/hackathon.jpg",
-      registerLink: "#"
+      prize: "₹ 19,000/-",
+      image: "/event/hackathon.jpg"
     },
     {
-      id: 13,
+      id: "tech",
       title: "Tech Crisis",
-      prize: "₹ 20,000",
-      image: "/event/techcrisis.jpg",
-      registerLink: "#"
+      prize: "₹ 8,000",
+      image: "/event/techcrisis.jpg"
     },
     {
-      id: 14,
+      id: "infinity",
       title: "Infinity Hunt",
-      prize: "₹ 20,000/-",
-      image: "/event/infinityhunt.avif",
-      registerLink: "#"
+      prize: "₹ 8,000/-",
+      image: "/event/infinityhunt.jpg"
     },
     
   ];
@@ -139,7 +125,7 @@ export default function Events() {
     <div className="relative w-full min-h-screen  text-white overflow-hidden">
       {/* Background Video and Overlay */}
       <video
-        className="fixed inset-0 w-screen h-screen object-cover z-[-1]"
+        className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-108"
         src={backvideo}
         autoPlay
         loop
@@ -150,7 +136,9 @@ export default function Events() {
 
       {/* Main Content Container */}
       <div className="relative z-10 w-full pt-20 pb-12 flex flex-col items-center text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-cyan-400 mb-4 tracking-wider font-anton Graduate">
+        <h1 className="text-5xl md:text-6xl font-extrabold Graduate font-['Press_Start_2P'] 
+                        text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 
+                        text-shadow-neon-cyan title-rocking mb-8 mt-4">
           Events & Competitions
         </h1>
 

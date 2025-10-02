@@ -7,7 +7,7 @@ export default function MobileMenu({ open, setOpen, navItems }) {
   const closeMenu = () => setOpen(false);
 
   return (
-    <div className={`fixed top-0 right-0 w-1/2 h-screen backdrop-blur UnifontEX bg-black/10 text-white shadow-xl transform transition-transform duration-500 ease-in-out md:hidden z-40 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
+    <div className={`fixed top-0 right-0 w-1/2 h-screen backdrop-blur UnifontEX bg-black/10 text-white shadow-xl transform transition-transform duration-500 ease-in-out lg:hidden z-40 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
       <div className="p-6 h-full flex flex-col items-end justify-between text-right">
         {/* Header with Close Button and Logo */}
         <div className="flex justify-between items-center w-full mb-10">
@@ -18,7 +18,7 @@ export default function MobileMenu({ open, setOpen, navItems }) {
         </div>
 
         {/* Menu Items */}
-        <nav className="flex-1 overflow-y-auto w-full mt-10">
+        <nav className="flex-1 overflow-y-auto w-full mt-8">
           <ul className="space-y-4 text-lg uppercase font-medium">
             {navItems.map((item) => (
               <li key={item.name} className="relative">

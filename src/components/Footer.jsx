@@ -71,9 +71,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
+      <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-300">
         <p>&copy; 2025 Tech Avinya. All rights reserved.</p>
-        <p>Developed By Ankit Kumar</p>
+        <p>Developed By Web Team</p>
       </div>
     </footer>
   );

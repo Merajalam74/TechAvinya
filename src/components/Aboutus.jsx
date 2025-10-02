@@ -30,8 +30,9 @@ export default function Aboutus() {
         className="max-w-7xl mx-auto px-6 text-center md:text-left"
       >
         <h2 
-          className={`text-4xl md:text-5xl font-bold mb-10 transition-all Graduate duration-2000 ease-in-out text-cyan-400
-            ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+          className="text-4xl md:text-5xl font-extrabold Graduate font-['Press_Start_2P'] 
+                        text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 
+                        text-shadow-neon-cyan title-rocking mb-8 mt-8"
         >
           About
         </h2>

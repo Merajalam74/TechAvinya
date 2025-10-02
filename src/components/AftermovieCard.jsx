@@ -17,7 +17,9 @@ export default function AftermovieCard() {
 
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center py-20">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 Graduate text-cyan-400 neon-text">
+        <h2 className="text-4xl md:text-5xl font-extrabold Graduate font-['Press_Start_2P'] 
+                        text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 
+                        text-shadow-neon-cyan title-rocking mb-8 mt-8">
         Aftermovie
       </h2>
       <div className="relative w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 p-6 rounded-2xl   glow-effect">

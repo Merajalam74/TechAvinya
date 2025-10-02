@@ -71,3 +71,39 @@ body {
 .rokkitt {
   font-family: 'Maname','serif';
 }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+.animate-bounce-slow {
+  animation: bounceSlow 3s ease-in-out infinite;
+}
+.glitch-effect { text-shadow: 2px 2px 0 #0ff, -2px -2px 0 #f0f; animation: glitch 1.5s infinite alternate; }
+        @keyframes glitch {
+          0% { transform: translate(0); }
+          50% { transform: translate(4px, -4px); }
+          100% { transform: translate(-4px, 4px); }
+        }
+        @keyframes bounce-h {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
+        .group:hover .group-hover\\:animate-bounce-h {
+          animation: bounce-h 0.8s ease-in-out infinite;
+        }
+      @keyframes rock-side {
+                0%, 100% { transform: translateX(0); }
+                50% { transform: translateX(20px); } /* Move 10 pixels to the right */
+            }
+            .title-rocking {
+                display: inline-block;
+                animation: rock-side 3s ease-in-out infinite alternate; /* Alternating direction */
+            }

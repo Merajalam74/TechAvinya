@@ -1,5 +1,5 @@
 import React from 'react';
-import homeVideo from '../assets/aboutvid.mp4'; // Replace with your video file path
+import homeVideo from '../assets/aboutvid.mp4';
 import backvideo from '../assets/events.mp4';
 import AftermovieCard from '../components/AftermovieCard';
 import Aboutus from '../components/Aboutus';
@@ -11,7 +11,7 @@ export default function Home() {
     <div className="relative w-full h-screen">
       {/* Background Video */}
       <video
-        className="fixed inset-0 w-screen h-screen object-cover z-[-1]"
+        className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-110"
         src={homeVideo}
         autoPlay
         loop
@@ -25,7 +25,7 @@ export default function Home() {
       <div className="relative w-full h-screen">
         {/* The video is contained within this div and will scroll with it */}
         <video
-          className="absolute inset-0 w-full h-full object-cover z-[1]"
+          className="absolute inset-0 w-screen h-screen object-cover z-[1]"
           src={backvideo}
           autoPlay
           muted
@@ -34,8 +34,12 @@ export default function Home() {
       </div>
     </div>
     <AftermovieCard />
-    <Aboutus/>
-    <NitMap/>
+    <div className="flex flex-col md:flex-row space-y-6 md:space-y-0">
+      <div className="md:w-1/2 p-4  rounded-lg"><Aboutus/></div>
+    <div className="md:w-1/2 p-4  rounded-lg"> <NitMap/></div>
+
+    </div>
+    
     </>
   );
 }

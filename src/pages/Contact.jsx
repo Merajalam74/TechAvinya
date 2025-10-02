@@ -50,23 +50,23 @@ export default function Contact() {
       role: "Robotics Club Secretary",
       image: "/secretary/robotics.jpg",
       contact : "+91 9350229098",
-      social: { instagram: "#", linkedin: "www.linkedin.com/in/dev-yadav-2207022", email: "dev2025roboforge@gmail.com" }
+      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/dev-yadav-2207022", email: "dev2025roboforge@gmail.com" }
     },
     {
       id: 7,
-      name: "PRASHANT KUMAR",
+      name: "Mhademo R Kikon",
       role: "Robotics Club Secretary",
       image: "/secretary/robotics2.jpg",
-      contact: "+91 9876543210",
-      social: { instagram: "prashant.k", linkedin: "prashant-kumar", email: "prashant@example.com" }
+      contact: "+91 9362725370",
+      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/mhademo-r-kikon-5478992a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "mhademok034@gmail.com" }
     },
     {
       id: 8,
-      name: "SAURABH KUMAR",
+      name: "Richa Das",
       role: "Entrepreneurship Club Secretary",
-      image: "/secretary/ecell.jpg",
-      contact: "+91 9876543210",
-      social: { instagram: "saurabh.k", linkedin: "saurabh-kumar", email: "saurabh@example.com" }
+      image: "/secretary/ecell.jpeg",
+      contact: "+91 9864541768",
+      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/richa-das-22636a387", email: "dasricha454@gmail.com" }
     },
     {
       id: 9,
@@ -78,11 +78,11 @@ export default function Contact() {
     },
     {
       id: 10,
-      name: "SAURABH KUMAR",
+      name: "Elias.s.thonger",
       role: "Esports Secretary",
       image: "/secretary/esport.jpg",
-      contact: "+91 9876543210",
-      social: { instagram: "saurabh.k", linkedin: "saurabh-kumar", email: "saurabh@example.com" }
+      contact: "+91 7005383559",
+      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/elias-thonger-410a56292", email: "lolobosti@gmail.com" }
     },
     {
       id: 11,
@@ -94,19 +94,35 @@ export default function Contact() {
     },
     {
       id: 12,
-      name: "SAURABH KUMAR",
+      name: "Kesogi Seb ",
       role: "Digital Art Club Secretary",
       image: "/secretary/art.jpg",
-      contact: "+91 9876543210",
-      social: { instagram: "saurabh.k", linkedin: "saurabh-kumar", email: "saurabh@example.com" }
+      contact: "+91 9362794809",
+      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/kesogi-seb-485375387", email: "kesogiseb@gmail.com" }
     },
     {
       id: 13,
-      name: "SAURABH KUMAR",
+      name: "Shalu Priya Murmu",
       role: "Digital Art Club Secretary",
       image: "/secretary/art2.jpg",
-      contact: "+91 9876543210",
-      social: { instagram: "saurabh.k", linkedin: "saurabh-kumar", email: "saurabh@example.com" }
+      contact: "+91 7488269197",
+      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/shalu-priya-murmu-053000313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "shalumurmu.55@gmail.com" }
+    },
+    {
+      id: 14,
+      name: "Ankit Kumar",
+      role: "Website creator",
+      image: "/secretary/web.jpg",
+      contact: "+91 9229434627",
+      social: { instagram: "https://www.instagram.com/raj_ankit_95/", linkedin: "https://www.linkedin.com/in/ankit-kumar-922ankit/", email: "ankitkumar43975@gmail.com" }
+    },
+    {
+      id: 15,
+      name: "Divyanshu mishra",
+      role: "Animation designer",
+      image: "/secretary/web1.jpg",
+      contact: "+91 7755803253",
+      social: { instagram: "https://www.instagram.com/divyanshu_mishra_1911/", linkedin: "https://www.linkedin.com/in/divyanshu-mishra-nit20241033/", email: "kesogiseb@gmail.com" }
     },
   ];
 
@@ -117,7 +133,8 @@ export default function Contact() {
     { name: "Robotics Club", members: contactPersons.slice(5,7) },
     { name: "Entrepreneurship Club", members: contactPersons.slice(7,9) },
     { name: "Esports Arena", members: contactPersons.slice(9,11) },
-    { name: "Digital Art Club", members: contactPersons.slice(11,13) }
+    { name: "Digital Art Club", members: contactPersons.slice(11,13) },
+    { name: "Web Team", members: contactPersons.slice(13,16) }
   ];
 
   const [tiltStyle, setTiltStyle] = useState({});
@@ -165,7 +182,9 @@ export default function Contact() {
 
       {/* Main Content Container */}
       <div className="relative z-10 w-full pt-20 pb-12 flex flex-col items-center text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold Graduate text-cyan-400 mb-2 tracking-wider font-anton">
+        <h1 className="text-5xl md:text-6xl font-extrabold Graduate font-['Press_Start_2P'] 
+                        text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 
+                        text-shadow-neon-cyan title-rocking">
           TEAM TECH AVINYA'25
         </h1>
         <p className="mt-2 text-lg md:text-xl max-w-2xl mx-auto mb-16 Gluten text-gray-300">

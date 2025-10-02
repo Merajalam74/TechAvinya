@@ -21,7 +21,7 @@ export default function Gallery() {
     { id: 16, src: '/gallary/16.JPG', alt: 'TechFest Event 16' },
     { id: 17, src: '/gallary/17.jpg', alt: 'TechFest Event 17' },
     { id: 18, src: '/gallary/18.JPG', alt: 'TechFest Event 18' },
-    { id: 19, src: '/gallary/19.JPG', alt: 'TechFest Event 19' },
+    { id: 19, src: '/gallary/19.jpg', alt: 'TechFest Event 19' },
     { id: 20, src: '/gallary/20.JPG', alt: 'TechFest Event 20' },
     { id: 21, src: '/gallary/21.JPG', alt: 'TechFest Event 21' },
     { id: 22, src: '/gallary/22.JPG', alt: 'TechFest Event 22' },
@@ -148,7 +148,9 @@ export default function Gallery() {
 
       {/* The content is now on a new layer above the video and overlay */}
       <div className="relative z-10 pt-20 text-center text-white px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8 mt-4 Graduate text-cyan-400">Photo Gallery</h1>
+        <h1 className="text-5xl md:text-6xl font-extrabold Graduate font-['Press_Start_2P'] 
+                        text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 
+                        text-shadow-neon-cyan title-rocking mb-12 mt-8">Photo Gallery</h1>
         
 
         {/* Masonry-style Image Grid with enhanced 3D effect */}
