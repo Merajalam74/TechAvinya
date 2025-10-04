@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import gallary from '../assets/gallary.mp4';
+import gallary from '../assets/gallary.webm';
 
 export default function Gallery() {
   const [photos] = useState([

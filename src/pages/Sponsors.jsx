@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaHandsHelping } from 'react-icons/fa'; 
-import sponsorVideo from '../assets/sponsors.mp4'; 
+import sponsorVideo from '../assets/sponsors.webm'; 
 
 // --- Consolidated Sponsor Data ---
 const allSponsors = [

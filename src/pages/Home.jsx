@@ -1,5 +1,5 @@
 import React from 'react';
-import homeVideo from '../assets/aboutvid.mp4';
+import homeVideo from '../assets/aboutvid.webm';
 import backvideo from '../assets/events.mp4';
 import AftermovieCard from '../components/AftermovieCard';
 import Aboutus from '../components/Aboutus';

@@ -1,5 +1,5 @@
 import React from 'react';
-import about from '../assets/about.mp4';
+import about from '../assets/about.webm';
 export default function About() {
   return (
     <div className="relative w-full min-h-screen">
@@ -14,7 +14,7 @@ export default function About() {
       />
       
       {/* Overlay to ensure text readability */}
-      <div className="fixed inset-0 z-0 backdrop-blur-[3px] "></div>
+      <div className="fixed inset-0 z-0 bg-black-800/50 backdrop-blur-[5px] "></div>
 
       {/* Main Content Container with top margin */}
       <div className="relative z-10 w-full h-full flex flex-col pt-20 px-6 md:px-12 lg:px-20">

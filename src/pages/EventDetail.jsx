@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; // Import useState
 import { useParams, Link } from 'react-router-dom';
-import eventdetail from '../assets/eventdetail.mp4'; 
+import eventdetail from '../assets/eventdetail.webm'; 
 
 const calculateTotalPrize = (prize1, prize2) => {
     const cleanPrize = (p) => parseInt(p.replace(/[^\d]/g, ''), 10) || 0;
@@ -284,7 +284,7 @@ export default function EventDetail() {
       <div className="fixed inset-0 z-[-1] "></div>
 
       {/* Main Content Container - Elevated above background */}
-        <div className="relative z-10 max-w-4xl mx-auto px-6   rounded-lg p-8  border border-cyan-700/30 bg-gradient-to-br from-[#1a1a3a]/40 to-[#0a0a2a]/40">
+        <div className="relative z-10 max-w-4xl mx-auto px-6   rounded-lg p-8  border border-cyan-700/60 bg-gradient-to-br from-[#1a1a3a]/60 to-[#0a0a2a]/60">
         
         <Link 
           to="/events" 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import loginVideo from '../assets/login.mp4'; 
+import loginVideo from '../assets/login.webm'; 
 import nitLogo from '../assets/logo2.png'; 
 
 const setSessionData = (data) => {

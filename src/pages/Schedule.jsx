@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'; // <-- Imported useCallback
-import schedule from '../assets/schedule.mp4';
+import schedule from '../assets/schedule.webm';
 
 // --- Utility Function: Calculates time difference ---
 const calculateTimeLeft = (targetDate) => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import aboutvideo from '../assets/contact.mp4';
+import aboutvideo from '../assets/contact.webm';
 import { FaInstagram, FaEnvelope, FaLinkedinIn } from 'react-icons/fa';
 
 export default function Contact() {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import backvideo from '../assets/eventback.mp4';
+import backvideo from '../assets/eventback.webm';
 import { Link } from 'react-router-dom';
 
 export default function Events() {
