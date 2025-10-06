@@ -8,19 +8,19 @@ export default function Events() {
       id: "code",
       title: "Code Raze",
       prize: "₹ 22,000/-",
-      image: "/event/coding.jpg"  
+      image: "/event/coding.png"  
     },
     {
       id: "digital",
       title: "Digital Art",
       prize: "₹ 10,000/-",
-      image: "/event/art.jpg"
+      image: "/event/art.png"
     },
     {
       id: "aerial",
       title: "Aerial Adrenaline",
       prize: "₹ 19,000",
-      image: "/event/drone.jpg"
+      image: "/event/drone.png"
     },
     {
       id: "circuit",
@@ -32,61 +32,61 @@ export default function Events() {
       id: "bug",
       title: "Bug Hunt",
       prize: "₹ 15,000/-",
-      image: "/event/bughunt.jpg"
+      image: "/event/bughunt.png"
     },
     {
       id: "animation",
       title: "Animation",
       prize: "₹ 11,000/-",
-      image: "/event/animation.webp"
+      image: "/event/animation.png"
     },
     {
       id: "bgmi",
       title: "BGMI",
       prize: "₹ 20,000/-",
-      image: "/event/bgmi.jpg"
+      image: "/event/bgmi.png"
     },
     {
       id: "mlbb",
       title: "MLBB",
       prize: "₹ 20,000",
-      image: "/event/mlbb.jpg"
+      image: "/event/mlbb.png"
     },
     {
       id: "free",
       title: "Free Fire",
       prize: "₹ 17,000/-",
-      image: "/event/freefire.jpg"
+      image: "/event/freefire.png"
     },
     {
       id: "modelling",
       title: "3D Modelling",
       prize: "₹ 8,000/-",
-      image: "/event/3dmodelling.jpg"
+      image: "/event/3dmodelling.png"
     },
     {
       id: "clash",
       title: "Clash of Wheels",
       prize: "₹ 16,000/-",
-      image: "/event/clashofwheels.jpg"
+      image: "/event/clashofwheels.png"
     },
     {
       id: "hackathon",
       title: "Hackathon",
       prize: "₹ 19,000/-",
-      image: "/event/hackathon.jpg"
+      image: "/event/hackathon.png"
     },
     {
       id: "tech",
       title: "Tech Crisis",
       prize: "₹ 8,000",
-      image: "/event/techcrisis.jpg"
+      image: "/event/techcrisis.png"
     },
     {
       id: "infinity",
       title: "Infinity Hunt",
       prize: "₹ 8,000/-",
-      image: "/event/infinityhunt.jpg"
+      image: "/event/infinityhunt.png"
     },
     
   ];
@@ -148,11 +148,11 @@ export default function Events() {
               key={event.id} 
               onMouseMove={(e) => handleMouseMove(e, event.id)}
               onMouseLeave={() => handleMouseLeave(event.id)}
-              className="card-wrapper group relative w-[300px] h-[450px] rounded-2xl overflow-hidden transition-all duration-300 ease-in-out mt-8 mb-8"
+              className="card-wrapper group relative w-[320px] h-[550px] rounded-2xl overflow-hidden transition-all duration-300 ease-in-out mt-8 mb-8"
               style={{ ...tiltStyle[event.id] }} 
             >
               {/* Event Image (Approx 65% of Height, but appears like 90% of visual space) */}
-              <div className="w-full h-[70%] overflow-hidden flex-shrink-0">
+              <div className="w-full h-[77%] overflow-hidden flex-shrink-0">
                 <img 
                   src={event.image} 
                   alt={event.title} 
