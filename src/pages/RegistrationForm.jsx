@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import backvideo from '../assets/detail.webm';
+import backvideo from '../assets/form.WEBP';
 // --- MINIMAL DATA STRUCTURE FOR FORM CONTEXT ---
 const allEventsData = [
   { id: "code", title: "Code Raze" },
@@ -107,13 +107,9 @@ export default function RegistrationForm() {
 
   return (
     <div className="relative min-h-screen pt-32 pb-16  text-white flex flex-col items-center">
-      <video
-              className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-108"
+      <img
+              className="fixed inset-0 w-screen h-screen object-cover z-[-1]"
                 src={backvideo}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
                         />                      
       {/* Background Overlay */}
       <div className="fixed inset-0 z-0 "></div>

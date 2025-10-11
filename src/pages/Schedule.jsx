@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'; // <-- Imported useCallback
-import schedule from '../assets/schedule.webm';
+import schedule from '../assets/clock.jpg';
 
 // --- Utility Function: Calculates time difference ---
 const calculateTimeLeft = (targetDate) => {
@@ -58,6 +58,7 @@ export default function Schedule() {
 
     const scheduleData = [
         { day: "Day 1", date: "31th October 2025", events: [
+            { time: "8:30am-9:00am", activity: "Stock Rise", location: "Classroom 1A" },
             { time: "9:30am-11:30am", activity: "Code Raze", location: "Smart Lab" },
             { time: "9:00am-12:00pm", activity: "Digital Art", location: "VCH" },
             { time: "11:00am-2:00pm", activity: "Aerial Adrenaline", location: "Ground" },
@@ -109,13 +110,9 @@ export default function Schedule() {
 
     return (
         <div className="relative w-full min-h-screen pt-20 pb-20 text-white font-vt323">
-            <video
-                className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-108"
+            <img
+                className="fixed inset-0 w-screen h-screen object-cover z-[-1]"
                 src={schedule}
-                autoPlay
-                loop
-                muted
-                playsInline
             />
             
             {/* Overlay to ensure text readability */}

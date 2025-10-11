@@ -3,7 +3,7 @@ import { FaSortDown, FaFilter, FaRedo, FaSignOutAlt, FaFilePdf,FaCheck,FaTimes, 
 import { useNavigate } from 'react-router-dom';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import backvideo from '../assets/dashboard.webm';
+import backvideo from '../assets/dashboard.jpg';
 const eventOptions = ['All Time', 'Code Raze', 'Hackathon', 'Aerial Adrenaline', 'Circuit X','Digital Art' ,'Bug Hunt','Animation','BGMI','MLBB','Free Fire','3D Modelling','Clash of Wheels','Tech Crisis','Infinity Hunt'];
 const statusOptions = ['All', 'Pending', 'Accepted', 'Rejected'];
 const API_URL = 'https://tech-avinya-backend.onrender.com' || 'http://localhost:8080';
@@ -198,13 +198,9 @@ export default function AdminDashboard() {
 
     return (
         <div className="min-h-screen pt-24 pb-16  text-white px-4 md:px-10 print:pt-0">
-            <video
-                    className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-108"
+            <img
+                    className="fixed inset-0 w-screen h-screen object-cover z-[-1]"
                     src={backvideo}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                   />
                   
             <header className="flex justify-between items-center mb-8 max-w-7xl mx-auto print:hidden">

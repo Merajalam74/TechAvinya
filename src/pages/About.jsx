@@ -1,20 +1,16 @@
 import React from 'react';
-import about from '../assets/about.webm';
+import about from '../assets/building.webp';
 export default function About() {
   return (
     <div className="relative w-full min-h-screen">
       {/* Background Image */}
-      <video
-        className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-135"
+      <img
+        className="fixed inset-0 w-screen h-screen object-cover z-[-1]"
         src={about}
-        autoPlay
-        loop
-        muted
-        playsInline
       />
       
       {/* Overlay to ensure text readability */}
-      <div className="fixed inset-0 z-0 bg-black-800/50 backdrop-blur-[5px] "></div>
+      <div className="fixed inset-0 z-0 bg-black-800/40 backdrop-blur-[2px] "></div>
 
       {/* Main Content Container with top margin */}
       <div className="relative z-10 w-full h-full flex flex-col pt-20 px-6 md:px-12 lg:px-20">

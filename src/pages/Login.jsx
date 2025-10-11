@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import loginVideo from '../assets/login.webm'; 
+import loginVideo from '../assets/login.jpg'; 
 import nitLogo from '../assets/logo2.png'; 
 
 const setSessionData = (data) => {
@@ -73,13 +73,9 @@ export default function Login() {
       
       {/* Background Video */}
       {loginVideo && (
-        <video
-          className="fixed inset-0 w-full h-full object-cover z-[-2] transform scale-108 blur-[2px]"
+        <img
+          className="fixed inset-0 w-full h-full object-cover z-[-2] "
           src={loginVideo} 
-          autoPlay
-          loop
-          muted
-          playsInline
         />
       )}
       

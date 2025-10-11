@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import aboutvideo from '../assets/contact.webm';
+import aboutvideo from '../assets/globe.jpg';
 import { FaInstagram, FaEnvelope, FaLinkedinIn } from 'react-icons/fa';
 
 export default function Contact() {
@@ -168,13 +168,9 @@ export default function Contact() {
   return (
     <div className="relative w-full min-h-screen  text-white overflow-hidden">
       {/* Background Video and Overlay */}
-      <video
-        className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-125"
+      <img
+        className="fixed inset-0 w-screen h-screen object-cover z-[-1]"
         src={aboutvideo}
-        autoPlay
-        loop
-        muted
-        playsInline
       />
       
       {/* Overlay to ensure text readability */}

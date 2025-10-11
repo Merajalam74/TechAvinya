@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import backvideo from '../assets/eventback.webm';
+import backvideo from '../assets/universe.jpg';
 import { Link } from 'react-router-dom';
 
 export default function Events() {
@@ -8,19 +8,19 @@ export default function Events() {
       id: "code",
       title: "Code Raze",
       prize: "₹ 22,000/-",
-      image: "/event/coding.png"  
+      image: "/event/coding.webp"  
     },
     {
       id: "digital",
       title: "Digital Art",
       prize: "₹ 10,000/-",
-      image: "/event/art.png"
+      image: "/event/art.webp"
     },
     {
       id: "aerial",
       title: "Aerial Adrenaline",
       prize: "₹ 19,000",
-      image: "/event/drone.png"
+      image: "/event/drone.webp"
     },
     {
       id: "circuit",
@@ -32,61 +32,67 @@ export default function Events() {
       id: "bug",
       title: "Bug Hunt",
       prize: "₹ 15,000/-",
-      image: "/event/bughunt.png"
+      image: "/event/bughunt.webp"
     },
     {
       id: "animation",
       title: "Animation",
       prize: "₹ 11,000/-",
-      image: "/event/animation.png"
+      image: "/event/animation.webp"
     },
     {
       id: "bgmi",
       title: "BGMI",
       prize: "₹ 20,000/-",
-      image: "/event/bgmi.png"
+      image: "/event/bgmi.webp"
     },
     {
       id: "mlbb",
       title: "MLBB",
       prize: "₹ 20,000",
-      image: "/event/mlbb.png"
+      image: "/event/mlbb.webp"
     },
     {
       id: "free",
       title: "Free Fire",
       prize: "₹ 17,000/-",
-      image: "/event/freefire.png"
+      image: "/event/freefire.webp"
     },
     {
       id: "modelling",
       title: "3D Modelling",
       prize: "₹ 8,000/-",
-      image: "/event/3dmodelling.png"
+      image: "/event/3dmodelling.webp"
     },
     {
       id: "clash",
       title: "Clash of Wheels",
       prize: "₹ 16,000/-",
-      image: "/event/clashofwheels.png"
+      image: "/event/clashofwheels.webp"
     },
     {
       id: "hackathon",
       title: "Hackathon",
       prize: "₹ 19,000/-",
-      image: "/event/hackathon.png"
+      image: "/event/hackathon.webp"
     },
     {
       id: "tech",
       title: "Tech Crisis",
       prize: "₹ 8,000",
-      image: "/event/techcrisis.png"
+      image: "/event/techcrisis.webp"
     },
     {
       id: "infinity",
       title: "Infinity Hunt",
       prize: "₹ 8,000/-",
-      image: "/event/infinityhunt.png"
+      image: "/event/infinityhunt.webp"
+    },
+    {
+      id: "stock",
+      title: "Stock Rise",
+      prize: "₹ 8,000/-",
+      image: "/event/stockrace.webp"
     },
     
   ];
@@ -124,13 +130,9 @@ export default function Events() {
   return (
     <div className="relative w-full min-h-screen  text-white overflow-hidden">
       {/* Background Video and Overlay */}
-      <video
-        className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-108"
+      <img
+        className="fixed inset-0 w-screen h-screen object-cover z-[-1] "
         src={backvideo}
-        autoPlay
-        loop
-        muted
-        playsInline
       />
       <div className="fixed inset-0 z-0 "></div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'; // Import useState
 import { useParams, Link } from 'react-router-dom';
-import eventdetail from '../assets/eventdetail.webm'; 
+import eventdetail from '../assets/eventdetail.jpg'; 
 
 const calculateTotalPrize = (prize1, prize2) => {
     const cleanPrize = (p) => parseInt(p.replace(/[^\d]/g, ''), 10) || 0;
@@ -15,7 +15,7 @@ const allEventsData = [
       secondPrize: "₹ 7,000/-",
       feeNIT: "₹ 99/-", 
       feeOutside: "₹ 250/-", 
-      image: "/event/coding.png",
+      image: "/event/coding.webp",
       date: "31-10-2025",
       time: "9:30am-11:30am",
       venue: "smart lab",
@@ -30,7 +30,7 @@ const allEventsData = [
       secondPrize: "₹ 3,000/-",
       feeNIT: "₹ 99/-", 
       feeOutside: "₹ 250/-", 
-      image: "/event/art.png",
+      image: "/event/art.webp",
       date: "31-10-2025",
       time: "9:00am-12:00pm",
       venue: "vch",
@@ -44,7 +44,7 @@ const allEventsData = [
       prize: "₹ 12,000/-",
       secondPrize: "₹ 7,000/-", 
       feeOutside: "₹ 500/-", 
-      image: "/event/drone.png",
+      image: "/event/drone.webp",
       date: "31-10-2025",
       time: "11:00am-2:00pm",
       venue: "ground",
@@ -74,7 +74,7 @@ const allEventsData = [
       secondPrize: "₹ 5,000/-",
       feeNIT: "₹ 99/-", 
       feeOutside: "₹ 250/-", 
-      image: "/event/bughunt.png",
+      image: "/event/bughunt.webp",
       date: "31-10-2025",
       time: "2:00pm-4:00pm",
       venue: "smart lab",
@@ -89,7 +89,7 @@ const allEventsData = [
       secondPrize: "₹ 4,000/-",
       feeNIT: "₹ 99/-", 
       feeOutside: "₹ 300/-", 
-      image: "/event/animation.png", 
+      image: "/event/animation.webp", 
       date: "31-10-2025",
       time: "3:00pm-4:00pm",
       venue: "bcr 1",
@@ -104,7 +104,7 @@ const allEventsData = [
       secondPrize: "₹ 8,000/-",
       feeNIT: "₹ 500/-", 
       feeOutside: "₹ 1000/-", 
-      image: "/event/bgmi.png", 
+      image: "/event/bgmi.webp", 
       date: "31-10-2025",
       time: "3:00pm-6:00pm",
       venue: "classroom 1a",
@@ -119,7 +119,7 @@ const allEventsData = [
       secondPrize: "₹ 8,000/-",
       feeNIT: "₹ 500/-", 
       feeOutside: "₹ 1000/-", 
-      image: "/event/mlbb.png",
+      image: "/event/mlbb.webp",
       date: "01-11-2025",
       time: "2:00pm-4:30pm",
       venue: "classroom 1b",
@@ -134,7 +134,7 @@ const allEventsData = [
       secondPrize: "₹ 7,000/-",
       feeNIT: "₹ 500/-", 
       feeOutside: "₹ 600/-", 
-      image: "/event/freefire.png",
+      image: "/event/freefire.webp",
       date: "01-11-2025",
       time: "9:00am-11:30am",
       venue: "classroom 1a",
@@ -149,7 +149,7 @@ const allEventsData = [
       secondPrize: "₹ 3,000/-",
       feeNIT: "₹ 99/-", 
       feeOutside: "₹ 300/-", 
-      image: "/event/3dmodelling.png",
+      image: "/event/3dmodelling.webp",
       date: "01-11-2025",
       time: "9:30am-12:00pm",
       venue: "smart lab",
@@ -164,7 +164,7 @@ const allEventsData = [
       secondPrize: "₹ 6,000/-",
       feeNIT: "₹ 199/-", 
       feeOutside: "₹ 400/-", 
-      image: "/event/clashofwheels.png", 
+      image: "/event/clashofwheels.webp", 
       date: "01-11-2025",
       time: "10:30am-12:00pm",
       venue: "ground",
@@ -179,7 +179,7 @@ const allEventsData = [
       secondPrize: "₹ 7,000/-",
       feeNIT: "₹ 200/-", 
       feeOutside: "₹ 600/-", 
-      image: "/event/hackathon.png",
+      image: "/event/hackathon.webp",
       date: "01-11-2025",
       time: "1:00pm-6:00pm",
       venue: "vch",
@@ -194,7 +194,7 @@ const allEventsData = [
       secondPrize: "₹ 3,000/-",
       feeNIT: "₹ 99/-", 
       feeOutside: "₹ 300/-", 
-      image: "/event/techcrisis.png",
+      image: "/event/techcrisis.webp",
       date: "01-11-2025",
       time: "1:30pm-3:30pm",
       venue: "director hall",
@@ -209,9 +209,24 @@ const allEventsData = [
       secondPrize: "₹ 3,000/-",
       feeNIT: "₹ 99/-", 
       feeOutside: "₹ 300/-", 
-      image: "/event/infinityhunt.png",
+      image: "/event/infinityhunt.webp",
       date: "01-11-2025",
       time: "3:30pm-5:30pm",
+      venue: "classroom 1a",
+      description: "An innovative treasure hunt that combines physical clues with online puzzles. Requires both technical skills and physical endurance.",
+      rules: ["All clues must be solved sequentially.", "Teams must use the designated tracking app.", "No splitting teams allowed.", "Time penalties apply for incorrect answers."],
+      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
+    },
+    {
+      id: "stock",
+      title: "Stock Rise",
+      prize: "₹ 5,000/-",
+      secondPrize: "₹ 3,000/-",
+      feeNIT: "₹ 99/-", 
+      feeOutside: "₹ 199/-", 
+      image: "/event/stockrace.webp",
+      date: "31-10-2025",
+      time: "8:30am-9:00am",
       venue: "classroom 1a",
       description: "An innovative treasure hunt that combines physical clues with online puzzles. Requires both technical skills and physical endurance.",
       rules: ["All clues must be solved sequentially.", "Teams must use the designated tracking app.", "No splitting teams allowed.", "Time penalties apply for incorrect answers."],
@@ -271,13 +286,9 @@ export default function EventDetail() {
         
 
       {/* Background Video (Fixed and Scaled) */}
-      <video
-        className="fixed inset-0 w-full h-full object-cover z-[-2] transform scale-108"
+      <img
+        className="fixed inset-0 w-full h-full object-cover z-[-2]"
         src={eventdetail} // Using your provided video
-        autoPlay
-        loop
-        muted
-        playsInline
       />
       
       {/* Dynamic Overlay for readability and depth */}

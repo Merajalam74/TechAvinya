@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaHandsHelping } from 'react-icons/fa'; 
-import sponsorVideo from '../assets/sponsors.webm'; 
+import sponsorVideo from '../assets/sponsors.jpg'; 
 
 // --- Consolidated Sponsor Data ---
 const allSponsors = [
@@ -85,13 +85,9 @@ export default function Sponsors() {
   return (
     <div className="relative w-full min-h-screen text-white overflow-hidden">
       {/* Background Setup (Video/Pattern) */}
-      <video
-        className="fixed inset-0 w-screen h-screen object-cover z-0 opacity-90"
+      <img
+        className="fixed inset-0 w-screen h-screen object-cover z-0"
         src={sponsorVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
       />
       
       <div className="fixed inset-0 z-0 "></div>
