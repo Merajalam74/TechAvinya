@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import backvideo from '../assets/form.WEBP';
+import backvideo from '../assets/form.webp';
 // --- MINIMAL DATA STRUCTURE FOR FORM CONTEXT ---
 const allEventsData = [
   { id: "code", title: "Code Raze" },
