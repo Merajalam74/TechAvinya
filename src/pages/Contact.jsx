@@ -6,10 +6,10 @@ export default function Contact() {
   const contactPersons = [
     {
       id: 1,
-      name: "Nirmal Prajapati",
+      name: "Khrieketouzo Peter Sekhose",
       role: "General Secretary",
       image: "/secretary/general.jpg",
-      contact: "+91 7623063076",
+      contact: "+91 7640859887",
       social: { instagram: "nirmal.pra", linkedin: "nirmal-prajapati", email: "nirmal@example.com" }
     },
     {
