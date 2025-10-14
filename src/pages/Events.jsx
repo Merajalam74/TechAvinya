@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import backvideo from '../assets/universe.jpg';
 import { Link } from 'react-router-dom';
-
+import VantaWavesBackground from '../components/VantaWavesBackground'; 
 export default function Events() {
   const eventData = [
     {
@@ -129,17 +129,13 @@ export default function Events() {
 
   return (
     <div className="relative w-full min-h-screen  text-white overflow-hidden">
-      {/* Background Video and Overlay */}
-      <img
-        className="fixed inset-0 w-screen h-screen object-cover z-[-1] "
-        src={backvideo}
-      />
+      <VantaWavesBackground />
       <div className="fixed inset-0 z-0 "></div>
 
       {/* Main Content Container */}
       <div className="relative z-10 w-full pt-20 pb-12 flex flex-col items-center text-center">
         <h1 className="text-5xl md:text-6xl font-extrabold Graduate font-['Press_Start_2P'] 
-                        text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 
+                        text-transparent bg-clip-text text-white
                         text-shadow-neon-cyan title-rocking mb-8 mt-4">
           Events & Competitions
         </h1>

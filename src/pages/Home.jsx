@@ -4,23 +4,24 @@ import backvideo from '../assets/events.mp4';
 import AftermovieCard from '../components/AftermovieCard';
 import Aboutus from '../components/Aboutus';
 import NitMap from '../components/NitMap';
-
+import VantaNetBackground from '../components/VantaNetBackground';
 export default function Home() {
   return (
     <>
     <div className="relative w-full h-screen">
+      <VantaNetBackground />
       {/* Background Video */}
-      <video
+      {/* <video
         className="fixed inset-0 w-screen h-screen object-cover z-[-1] transform scale-110"
         src={homeVideo}
         autoPlay
         loop
         muted
         playsInline
-      />
+      /> */}
       
       {/* Overlay for Darkness without Blur */}
-      <div className="fixed inset-0 bg-black/1 backdrop-blur-[3px] z-0"></div>
+      <div className="fixed inset-0 bg-black/1 backdrop-blur-[1.8px] z-0"></div>
 
       <div className="relative w-full h-screen">
         {/* The video is contained within this div and will scroll with it */}

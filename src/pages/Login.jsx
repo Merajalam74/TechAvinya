@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import loginVideo from '../assets/login.jpg'; 
 import nitLogo from '../assets/logo2.png'; 
-
+import VantaGlobeBackground from '../components/VantaGlobeBackground';
 const setSessionData = (data) => {
     // 48 hours in milliseconds
     const twoDaysInMs = 48 * 60 * 60 * 1000; 
@@ -70,14 +70,14 @@ export default function Login() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center  text-white overflow-hidden">
-      
+      <VantaGlobeBackground />
       {/* Background Video */}
-      {loginVideo && (
+      {/* {loginVideo && (
         <img
           className="fixed inset-0 w-full h-full object-cover z-[-2] "
           src={loginVideo} 
         />
-      )}
+      )} */}
       
       {/* Dynamic Overlay for depth and clarity */}
       <div className="fixed inset-0 z-0 "></div>

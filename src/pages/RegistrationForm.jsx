@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import backvideo from '../assets/form.webp';
+import VantaGlobeBackground from '../components/VantaGlobeBackground';
 // --- MINIMAL DATA STRUCTURE FOR FORM CONTEXT ---
 const allEventsData = [
   { id: "code", title: "Code Raze" },
@@ -17,6 +17,7 @@ const allEventsData = [
   { id: "hackathon", title: "Hackathon" },
   { id: "tech", title: "Tech Crisis" },
   { id: "infinity", title: "Infinity Hunt" },
+  { id: "stock", title: "Stock Rise" },
 ];
 const API_URL = 'https://tech-avinya-backend.onrender.com' || 'http://localhost:8080';
 
@@ -24,7 +25,7 @@ export default function RegistrationForm() {
   const { eventId } = useParams();
   const event = allEventsData.find(e => e.id === eventId);
   const eventTitle = event ? event.title : 'Selected Event';
-  
+   const [selectedCollegeType, setSelectedCollegeType] = useState('Other College');
   // State for form fields (Initialize leader name and team members)
   const [formData, setFormData] = useState({
     leaderName: '',
@@ -63,11 +64,11 @@ export default function RegistrationForm() {
 
     const formElement = e.target;
     const data = new FormData(formElement);
-
+    const determinedCollege = selectedCollegeType; 
     // 2. Append custom fields (like event ID, which isn't a form field)
     data.append('eventId', eventId);
     data.append('eventTitle', eventTitle);
-    
+    data.append('college', determinedCollege);
     // 3. Manually append team members array as JSON string (or individually)
     // We send only non-empty member names
     const cleanMembers = teamMembers.filter(name => name.trim() !== '');
@@ -107,15 +108,12 @@ export default function RegistrationForm() {
 
   return (
     <div className="relative min-h-screen pt-32 pb-16  text-white flex flex-col items-center">
-      <img
-              className="fixed inset-0 w-screen h-screen object-cover z-[-1]"
-                src={backvideo}
-                        />                      
+      <VantaGlobeBackground />
       {/* Background Overlay */}
       <div className="fixed inset-0 z-0 "></div>
       
       <div className="relative z-10 max-w-3xl w-full mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-extrabold Graduate text-cyan-400 mb-2 font-anton text-center">
+        <h1 className="text-4xl md:text-5xl font-extrabold Graduate text-white mb-2 font-anton text-center">
           Register for {eventTitle}
         </h1>
         <p className="text-lg text-gray-400 mb-8 text-center Gluten">Secure your spot in the competition.</p>
@@ -125,7 +123,9 @@ export default function RegistrationForm() {
           
           {submitMessage && (
             <div className={`p-4 rounded-lg font-semibold ${submitMessage.type === 'success' ? 'bg-green-600/50 border-green-400' : 'bg-red-600/50 border-red-400'} border text-center`}>
-              {submitMessage.text}
+              <div 
+            // 🎯 FIX: Use dangerouslySetInnerHTML to render the structured HTML message
+            dangerouslySetInnerHTML={{ __html: submitMessage.text }} />
             </div>
           )}
 
@@ -138,10 +138,41 @@ export default function RegistrationForm() {
               <input type="text" id="teamName" name="teamName" required className={inputClass} placeholder="E.g., Cyber Knights" onChange={handleInputChange} />
             </div>
 
-            <div>
-              <label htmlFor="college" className={labelClass}>College/University</label>
-              <input type="text" id="college" name="college" required className={inputClass} placeholder="E.g., NIT Nagaland" onChange={handleInputChange} />
-            </div>
+            
+                {/* --- FIX: Replaced College Input with Checkbox with Radio Buttons --- */}
+                <div className="flex flex-col justify-end">
+                  <label className={labelClass}>Affiliation</label>
+                  <div className="flex space-x-6 pt-3">
+                    
+                    {/* NIT Nagaland Radio Option */}
+                    <div className="flex items-center">
+                      <input 
+                        type="radio" 
+                        id="nitNagaland"
+                        name="collegeAffiliation" // Must share the same name attribute
+                        value="NIT Nagaland"
+                        checked={selectedCollegeType === 'NIT Nagaland'}
+                        onChange={() => setSelectedCollegeType('NIT Nagaland')}
+                        className="form-radio h-4 w-4 text-cyan-500 bg-gray-700 border-gray-600 focus:ring-cyan-500"
+                      />
+                      <label htmlFor="nitNagaland" className="ml-2 text-sm text-white">NIT Nagaland</label>
+                    </div>
+
+                    {/* Other College/University Radio Option */}
+                    <div className="flex items-center">
+                      <input 
+                        type="radio" 
+                        id="otherCollege"
+                        name="collegeAffiliation"
+                        value="Other College/University"
+                        checked={selectedCollegeType === 'Other College/University'}
+                        onChange={() => setSelectedCollegeType('Other College/University')}
+                        className="form-radio h-4 w-4 text-cyan-500 bg-gray-700 border-gray-600 focus:ring-cyan-500"
+                      />
+                      <label htmlFor="otherCollege" className="ml-2 text-sm text-white">Other College</label>
+                    </div>
+                  </div>
+                </div>
           </fieldset>
 
           {/* Group 2: Leader's Contact Info */}

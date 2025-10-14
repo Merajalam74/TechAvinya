@@ -1,16 +1,119 @@
 import React from 'react';
 import about from '../assets/building.webp';
+import Particles from 'react-tsparticles';
+import { loadSlim } from 'tsparticles-slim';
+
+
+
+const INTERACTIVE_COLOR = "#FF00FF"; // Magenta for hover effect
+const BASE_COLOR = "#00FFFF";      // Cyan base color
+
+const particlesOptions = {
+    // Canvas background is black, set transparently
+    background: {
+        color: { value: "#000000" },
+        opacity: 0.0, // Make it transparent to allow underlying CSS/Video background to show
+    },
+    fullScreen: {
+        enable: false, // Control sizing via parent div
+    },
+    fpsLimit: 60,
+    particles: {
+        color: {
+            value: BASE_COLOR,
+            animation: {
+                enable: true,
+                speed: 10,
+                sync: true,
+            }
+        },
+        links: {
+            color: BASE_COLOR,
+            distance: 120, // Draw lines up to 120px away
+            enable: true,
+            opacity: 0.5,
+            width: 1,
+            triangles: {
+                enable: true, // Optional: for a geometric look
+                color: BASE_COLOR,
+                opacity: 0.05
+            }
+        },
+        move: {
+            enable: true,
+            speed: 0.5, // Slow, subtle drift
+        },
+        number: {
+            density: { enable: true, area: 800 },
+            value: 80, // Number of initial particles
+        },
+        opacity: {
+            value: 0.8,
+        },
+        size: {
+            value: 3, // Base size
+        },
+    },
+    interactivity: {
+        events: {
+            onHover: {
+                enable: true,
+                mode: ["repulse", "bubble"], // Use modes that allow dynamic property changes
+            },
+            // Push mode for a subtle explosion on click (optional)
+            onClick: {
+                enable: true,
+                mode: "push",
+            },
+            resize: true,
+        },
+        modes: {
+            // 1. Bubble Mode: Changes size and color on proximity
+            bubble: {
+                distance: 250, // Activation distance
+                size: 8,       // New particle size (larger)
+                duration: 2,
+                opacity: 1,
+                color: {
+                    value: INTERACTIVE_COLOR // Change color to Magenta on hover/bubble
+                }
+            },
+            // 2. Repulse Mode: Makes particles move away from the cursor
+            repulse: {
+                distance: 100, // Activation distance
+                duration: 0.4,
+            },
+            // 3. Grab Mode: Draw stronger lines connecting to the cursor (Optional)
+            grab: {
+                distance: 150,
+                links: {
+                    opacity: 1
+                }
+            },
+        },
+    },
+};
 export default function About() {
+  const particlesInit = async (main) => {
+    await loadSlim(main);
+  };
+
   return (
     <div className="relative w-full min-h-screen">
+      <Particles
+            id="tsparticles"
+            init={particlesInit}
+            options={particlesOptions}
+            className="fixed inset-0 w-screen h-screen z-[-1]"
+        />
       {/* Background Image */}
-      <img
+      {/* <img
         className="fixed inset-0 w-screen h-screen object-cover z-[-1]"
         src={about}
       />
-      
+       */}
       {/* Overlay to ensure text readability */}
-      <div className="fixed inset-0 z-0 bg-black-800/40 backdrop-blur-[2px] "></div>
+      <div className="fixed inset-0 z-0"></div>
 
       {/* Main Content Container with top margin */}
       <div className="relative z-10 w-full h-full flex flex-col pt-20 px-6 md:px-12 lg:px-20">

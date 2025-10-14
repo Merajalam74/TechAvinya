@@ -45,6 +45,7 @@ export default function ScheduleClean() {
       day: "Day 1",
       date: "31st October 2025",
       events: [
+        { time: "8:30am-9:00am", activity: "Stock Rise", location: "Smart Lab" },
         { time: "9:30am-11:30am", activity: "Code Raze", location: "Smart Lab" },
         { time: "9:00am-12:00pm", activity: "Digital Art", location: "VCH" },
         { time: "11:00am-2:00pm", activity: "Aerial Adrenaline", location: "Ground" },
@@ -98,7 +99,7 @@ export default function ScheduleClean() {
       {stars.map((s) => (
         <motion.div
           key={s.id}
-          className="absolute bg-white rounded-full"
+          className="fixed bg-white rounded-full"
           style={{ width: s.size, height: s.size, top: `${s.top}%`, left: `${s.left}%` }}
           animate={{ x: ["0px", `${Math.random() * 50 - 25}px`, "0px"], y: ["0px", `${Math.random() * 50 - 25}px`, "0px"] }}
           transition={{ repeat: Infinity, duration: s.duration, repeatType: "mirror" }}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; // Import useState
 import { useParams, Link } from 'react-router-dom';
 import eventdetail from '../assets/eventdetail.jpg'; 
-
+import VantaNetBackground from '../components/VantaNetBackground';
 const calculateTotalPrize = (prize1, prize2) => {
     const cleanPrize = (p) => parseInt(p.replace(/[^\d]/g, ''), 10) || 0;
     return `₹ ${(cleanPrize(prize1) + cleanPrize(prize2)).toLocaleString('en-IN')}/-`;
@@ -18,9 +18,10 @@ const allEventsData = [
       image: "/event/coding.webp",
       date: "31-10-2025",
       time: "9:30am-11:30am",
-      venue: "smart lab",
-      description: "Code Raze will feature a series of coding questions for participants to solve, testing their problem-solving abilities and programming skills across different levels of difficulty. Join us to tackle these challenges and enhance your coding expertise!",
-      rules: ["Participants must compete individually.", "The competition consists of a single round with multiple programming problems.", "The coding round will last 2 hours.", "All submissions must be made before the deadline.","Participants may use any programming language of their choice.","Plagiarism, AI-generated or copied solutions, cheating, or collaboration will result in immediate disqualification.","The decision of the judges is final and binding."],
+      venue: "smart lab or HackerRank platform",
+      rulebook: "/rulebooks/code_raze.pdf",
+      description: " Code Raze will feature a series of coding questions for participants to solve, testing their problem-solving abilities and programming skills across different levels of difficulty. Join us to tackle these challenges and enhance your coding expertise! ",
+      rules: ["Participants must compete individually.", "The competition consists of a single round with multiple programming problems.", "The coding round will last 2 hours.", "All submissions must be made before the deadline.","Participants may use any programming language of their choice.","Plagiarism, AI-generated or copied solutions, cheating, or collaboration will result in immediate disqualification.","Each question will be assigned a specific weight, contributing to the overall score."],
       generalRules: "Open to all college students and independent coders. Use of external tools is restricted. Plagiarism will result in immediate disqualification.",
     },
     {
@@ -34,9 +35,10 @@ const allEventsData = [
       date: "31-10-2025",
       time: "9:00am-12:00pm",
       venue: "vch",
-      description: "Unleash your creativity and skill in digital design. This competition challenges artists to transform ideas into stunning visual realities using modern digital tools.",
-      rules: ["Submissions must be high-resolution.", "Originality is judged heavily.", "Theme announced one week prior."],
-      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
+      rulebook: "/rulebooks/digital_art.pdf",
+      description: "The Digital Art Competition, organized by the Digital Art Club of NIT Nagaland, is a platform where creativity meets innovation. It is designed to encourage participants to push the boundaries of imagination and showcase their artistic vision through 2D digital mediums. Using tools such as Adobe Photoshop, Illustrator, Procreate, Krita, and drawing tablets, participants will bring their concepts to life with skill and originality. ",
+      rules: [" Participation is individual; team entries are not allowed", "Participants must bring their own device.", "The duration of the competition is 3 hours; no extra time will be provided.","The theme is “Exploring the Metaverse” and artworks must strictly follow it. ","Each participant must create and submit an original artwork during the competition. ","Software allowed includes Adobe Photoshop, Illustrator, Procreate, Krita, or equivalent 2D digital art software."],
+      generalRules: "The competition is open to all "
     },
     {
       id: "aerial",
@@ -48,6 +50,7 @@ const allEventsData = [
       date: "31-10-2025",
       time: "11:00am-2:00pm",
       venue: "ground",
+      rulebook: "/rulebooks/code_raze_rules.pdf",
       description: "A high-speed drone racing challenge that pushes the limits of piloting skills and custom drone engineering. Navigate complex courses against the clock.",
       rules: ["Drones must meet specified weight limits.", "Pilot must pass safety inspection.", "No FPV goggles allowed (line-of-sight only).", "All teams must complete a minimum of 3 laps."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
@@ -63,6 +66,7 @@ const allEventsData = [
       date: "31-10-2025",
       time: "1:00pm-3:00pm",
       venue: "electric lab",
+      rulebook: "/rulebooks/code_raze_rules.pdf",
       description: "Design and build the most efficient and innovative electronic circuits. Test your knowledge of components and troubleshooting in a competitive environment.",
       rules: ["Must use provided component kit.", "Final circuit must be tested by judges.", "Design simplicity is a factor in judging.", "Maximum time limit of 4 hours."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
@@ -78,6 +82,7 @@ const allEventsData = [
       date: "31-10-2025",
       time: "2:00pm-4:00pm",
       venue: "smart lab",
+      rulebook: "/rulebooks/code_raze_rules.pdf",
       description: "A cybersecurity challenge where participants race to find and exploit vulnerabilities in a mock web application. Speed and exploit novelty determine the winner.",
       rules: ["No denial-of-service attacks allowed.", "All findings must be reported in detail.", "Scoring based on severity of bug found.", "Teams must sign an NDA."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
@@ -93,9 +98,10 @@ const allEventsData = [
       date: "31-10-2025",
       time: "3:00pm-4:00pm",
       venue: "bcr 1",
-      description: "Create a short animated film on a given theme. This event judges creativity, storytelling, and technical proficiency in animation software.",
-      rules: ["Film must be under 3 minutes.", "Must use original artwork.", "Software choice is free.", "All submissions are final."],
-      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
+      rulebook: "/rulebooks/animation.pdf",
+      description: "The Animation Making Competition is a celebration of creativity, storytelling, and digital artistry. It provides a platform for aspiring animators, designers, and storytellers to bring their imagination to life through motion and visuals. Participants are challenged to combine artistic expression, technical skill, and innovative thinking to produce original animated works that captivate and inspire. ",
+      rules: ["The animation must be pre-made before the presentation day. No editing, endering, or changes are allowed during the judging session.", "he animation must be original and created by the participant(s). Plagiarism or use of uncredited third-party content will result in disqualification. ", "Software choice is free.", "Duration of the animation should be between [2–5 minutes].","Participants must present their animation using their own device (e.g., laptop, tablet, or phone)on the event day itself. "],
+      generalRules: "The competition is open to all registered participants. Participants may compete individually or in teams (maximum of [insert number, e.g., 3–5 members] per team)."
     },
     {
       id: "bgmi",
@@ -108,6 +114,7 @@ const allEventsData = [
       date: "31-10-2025",
       time: "3:00pm-6:00pm",
       venue: "classroom 1a",
+      rulebook: "/rulebooks/code_raze_rules.pdf",
       description: "Battlegrounds Mobile India tournament. Standard competitive gaming rules apply. Compete for ultimate supremacy and cash prizes.",
       rules: ["Standard BGMI competitive rules.", "Cheating is grounds for instant ban.", "Teams must have a designated leader.", "All matches are best of 3."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
@@ -123,6 +130,7 @@ const allEventsData = [
       date: "01-11-2025",
       time: "2:00pm-4:30pm",
       venue: "classroom 1b",
+      rulebook: "/rulebooks/code_raze_rules.pdf",
       description: "Mobile Legends: Bang Bang competition. Team strategy and execution will be tested in a series of intense arena battles.",
       rules: ["Standard MLBB competitive rules.", "Drafting phase is mandatory.", "No player substitutions after the first match.", "Minimum rank requirement applies."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
@@ -138,6 +146,7 @@ const allEventsData = [
       date: "01-11-2025",
       time: "9:00am-11:30am",
       venue: "classroom 1a",
+      rulebook: "/rulebooks/code_raze_rules.pdf",
       description: "Garena Free Fire tournament. Survival skills, quick reflexes, and teamwork are essential to secure the top spot.",
       rules: ["Standard Free Fire competitive rules.", "All decisions by the admin are final.", "Must use personal accounts.", "VPN usage is prohibited."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
@@ -153,9 +162,10 @@ const allEventsData = [
       date: "01-11-2025",
       time: "9:30am-12:00pm",
       venue: "smart lab",
-      description: "A design challenge focused on 3D digital art and modeling. Participants create models based on a specific theme.",
-      rules: ["Final submission must be in a standard 3D file format.", "Theme is announced on Day 1.", "Software choice is free.", "Models must be textured."],
-      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
+      rulebook: "/rulebooks/3d_modelling.pdf",
+      description: "3D Modelling is a competition that challenges participants to design and develop a threedimensional digital model using computer-aided design (CAD) or 3D modelling software. The event aims to test the participants’ creativity, innovation, and technical proficiency in visualizing and representing real-world or conceptual objects in 3D form.",
+      rules: ["Participation is individual; team entries are not allowed ", "Participants must bring their own device.", "The duration of the competition is 3 hours; no extra time will be provided.", "Theme- Participants are free to create model of their own choice. ","Each participant must create and submit an original design during the competition. ","Software allowed includes Blender, Fusion 360, SolidWorks, AutoCAD, TinkerCAD, etc."],
+      generalRules: "The competition is open to all"
     },
     {
       id: "clash",
@@ -168,6 +178,7 @@ const allEventsData = [
       date: "01-11-2025",
       time: "10:30am-12:00pm",
       venue: "ground",
+      rulebook: "/rulebooks/code_raze_rules.pdf",
       description: "The ultimate robotics event: build and battle remote-controlled combat vehicles. Strategy and durable design are key to victory.",
       rules: ["Bot dimensions must not exceed X size.", "Bots must be powered by battery only.", "Structural modifications are allowed during the tournament.", "Safety gear must be worn."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
@@ -183,9 +194,10 @@ const allEventsData = [
       date: "01-11-2025",
       time: "1:00pm-6:00pm",
       venue: "vch",
-      description: "A general-purpose hackathon focused on solving community and regional problems using technology. Teams develop a prototype solution.",
-      rules: ["Project must be original.", "Final presentation is mandatory.", "Team sizes are limited to 4 members.", "Project code must be open source."],
-      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
+      rulebook: "/rulebooks/hackathon.pdf",
+      description: "A 5-hour coding sprint where creativity meets technology! Participants form teams and build innovative solutions to real-world problems within a limited time. The event encourages problem-solving, teamwork, and technical skills under pressure. Projects will be judged on innovation, functionality, technical implementation, and presentation. ",
+      rules: ["Teams must register before the event starts.", "Each team submits a team name and project idea/theme at the beginning.", "Total duration: 5 hours (strict) ", "Project must be built during the hackathon. ","Copy-paste from GitHub is discouraged—originality is important.","Use of open-source libraries, APIs, or pre-built tools is allowed. "],
+      generalRules: "Open to all college students. Teams of 3–5 members (no solo entries)."
     },
     {
       id: "tech",
@@ -198,9 +210,10 @@ const allEventsData = [
       date: "01-11-2025",
       time: "1:30pm-3:30pm",
       venue: "director hall",
-      description: "A crisis management simulation where teams use technology and quick thinking to resolve simulated emergencies.",
-      rules: ["Teams must use the provided communication channels.", "All solutions must be documented.", "No external internet research is allowed after the start.", "Judging based on efficiency and teamwork."],
-      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
+      rulebook: "/rulebooks/tech_crisis.pdf",
+      description: "Tech Crisis is an exciting technical case study competition that challenges participants to think analytically, work collaboratively, and devise solutions to real-world engineering and technology problems.",
+      rules: ["Cross-institutional teams are not allowed - all team members must belong to the same institution. ","Participants may be from different departments or years within the same institution. ", "A participant can only be part of one team.", "Teams must register in advance under a unique team name."],
+      generalRules: "he event is open to students of NIT Nagaland and other invited institutes. "
     },
     {
       id: "infinity",
@@ -213,9 +226,10 @@ const allEventsData = [
       date: "01-11-2025",
       time: "3:30pm-5:30pm",
       venue: "classroom 1a",
-      description: "An innovative treasure hunt that combines physical clues with online puzzles. Requires both technical skills and physical endurance.",
-      rules: ["All clues must be solved sequentially.", "Teams must use the designated tracking app.", "No splitting teams allowed.", "Time penalties apply for incorrect answers."],
-      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
+      rulebook: "/rulebooks/infinity_hunt.pdf",
+      description: "Infinity Hunt is the event which is conducted by RoboForge club ,NIT Nagaland.This  is the competition where participants have to solve integrals fastly  and accurately . It  is designed to test participant’s skills in solving integrals quickly and accurately. The event promotes mathematical thinking, problem-solving ability and speed under pressure.",
+      rules: [" Each participant must register before the deadline. ", ".No use of mobile phones .pens are  allowed but no paper and notebook or any electronic devices is not allowed. ", ". Participants must solve problems within the allotted time. ", " Buzzing before the question is fully displayed is allowed but a wrong answer results in negative marking."," In case of ties, tie-breaker integrals will be given. ","The decision of the organizers will be final. "],
+      generalRules: "Open to all college students."
     },
     {
       id: "stock",
@@ -228,9 +242,10 @@ const allEventsData = [
       date: "31-10-2025",
       time: "8:30am-9:00am",
       venue: "classroom 1a",
-      description: "An innovative treasure hunt that combines physical clues with online puzzles. Requires both technical skills and physical endurance.",
-      rules: ["All clues must be solved sequentially.", "Teams must use the designated tracking app.", "No splitting teams allowed.", "Time penalties apply for incorrect answers."],
-      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
+      rulebook: "/rulebooks/stock_rise.pdf",
+      description: "Stock Rise is an individual stock market simulation where participants experience real-time trading in a risk-free virtual environment. Using a pre-announced stock simulation app, participants will analyse market trends, execute trades, and aim to maximize their virtual portfolio value within the designated trading window.",
+      rules: ["Open to students from NIT Nagaland and other invited institutes.","This is an individual event — only one participant per team.", "Each participant must register in advance. ", "The simulation platform/app will be announced prior to the event."],
+      generalRules: "Internet use is permitted only for accessing the simulation app. Any malpractice, plagiarism, or multiple accounts will result in disqualification. "
     },
 ];
 
@@ -285,11 +300,7 @@ export default function EventDetail() {
         {/* CSS for Side-to-Side Moving Title Effect */}
         
 
-      {/* Background Video (Fixed and Scaled) */}
-      <img
-        className="fixed inset-0 w-full h-full object-cover z-[-2]"
-        src={eventdetail} // Using your provided video
-      />
+      <VantaNetBackground />
       
       {/* Dynamic Overlay for readability and depth */}
       <div className="fixed inset-0 z-[-1] "></div>
@@ -414,7 +425,17 @@ export default function EventDetail() {
                     <p className="text-xl font-bold text-purple-400 ">{event.feeOutside || 'Free'}</p>
                 </div>
             </div>
-            <div className="flex justify-center mt-8">
+            <div className=' mt-8 p-3  rounded-lg border-l-4 border-cyan-500 flex  items-center text-lg '>Download Rulebook : 
+                      <a
+                            href={event.rulebook} // Use the specific path from data
+                            download 
+                            className="inline-flex items-center justify-center px-6 py-3 text-cyan-400 cursor-pointer"
+                        >
+                          click here  
+                        </a>
+              </div>
+            <div className="flex justify-center mt-8 gap-8">
+              
           <Link 
               to={`/register/${event.id}`}
               className="relative group py-3 px-8 Graduate text-lg font-semibold uppercase tracking-widest rounded-lg overflow-hidden

@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaHandsHelping } from 'react-icons/fa'; 
 import sponsorVideo from '../assets/sponsors.jpg'; 
-
+import VantaWavesBackground from '../components/VantaWavesBackground'; 
 // --- Consolidated Sponsor Data ---
 const allSponsors = [
-  { id: 1, name: "sponsor 1", logo: "#", link: "#", description: "sponsor 1" },
-  { id: 2, name: "sponsor 2", logo: "#", link: "#", description: "sponsor 2"},
-  { id: 3, name: "sponsor 3", logo: "#", link: "#", description: "sponsor 3"},
-  { id: 4, name: "sponsor 4", logo: "#", link: "#", description: "sponsor 4"},
-  { id: 5, name: "sponsor 5", logo: "#", link: "#", description: "sponsor 5"},
-  { id: 6, name: "sponsor 6", logo: "#", link: "#", description: "sponsor 6"},
-  { id: 7, name: "sponsor 7", logo: "#", link: "#", description: "sponsor 7"},
-  { id: 8, name: "sponsor 8", logo: "#", link: "#", description: "sponsor 8"},
-  { id: 9, name: "sponsor 9", logo: "#", link: "#", description: "sponsor 9"},
-  { id: 10, name: "sponsor 10", logo: "#", link: "#", description: "sponsor 10"},
-  { id: 11, name: "sponsor 11", logo: "#", link: "#", description: "sponsor 11"},
-  { id: 12, name: "sponsor 12", logo: "#", link: "#", description: "sponsor 12"},
+  { id: 1, name: "sponsor 1", logo: "#",  description: "sponsor 1" },
+  { id: 2, name: "sponsor 2", logo: "#", description: "sponsor 2"},
+  { id: 3, name: "sponsor 3", logo: "#",  description: "sponsor 3"},
+  { id: 4, name: "sponsor 4", logo: "#", description: "sponsor 4"},
+  { id: 5, name: "sponsor 5", logo: "#",  description: "sponsor 5"},
+  { id: 6, name: "sponsor 6", logo: "#",  description: "sponsor 6"},
+  { id: 7, name: "sponsor 7", logo: "#", description: "sponsor 7"},
+  { id: 8, name: "sponsor 8", logo: "#", description: "sponsor 8"},
+  { id: 9, name: "sponsor 9", logo: "#", description: "sponsor 9"},
+  { id: 10, name: "sponsor 10", logo: "#", description: "sponsor 10"},
+  { id: 11, name: "sponsor 11", logo: "#", description: "sponsor 11"},
+  { id: 12, name: "sponsor 12", logo: "#",  description: "sponsor 12"},
 ];
 
 export default function Sponsors() {
@@ -84,12 +84,13 @@ export default function Sponsors() {
 
   return (
     <div className="relative w-full min-h-screen text-white overflow-hidden">
+      <VantaWavesBackground />
       {/* Background Setup (Video/Pattern) */}
-      <img
+      {/* <img
         className="fixed inset-0 w-screen h-screen object-cover z-0"
         src={sponsorVideo}
       />
-      
+       */}
       <div className="fixed inset-0 z-0 "></div>
       
       {/* Main Content Wrapper */}
@@ -117,12 +118,10 @@ export default function Sponsors() {
             };
 
             return (
-              <a
+              <div
                 key={sponsor.id}
                 ref={el => elementRefs.current[index] = el}
                 data-id={sponsor.id}
-                href={sponsor.link}
-                target="_blank"
                 rel="noopener noreferrer"
                 
                 // Dynamic Tilt Handlers
@@ -163,7 +162,7 @@ export default function Sponsors() {
                 <div className="absolute inset-0 rounded-xl border-2 border-transparent 
                                 group-hover:border-cyan-400/50 transition-colors duration-300 
                                 shadow-glow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </a>
+              </div>
             );
           })}
         </div>
