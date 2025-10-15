@@ -355,7 +355,7 @@ export default function AdminDashboard() {
             <p className="mt-4 text-sm text-gray-500 text-right max-w-7xl mx-auto ">Total Entries: {registrations.length}</p>
 {/* Full Details Modal (Preview) */}
             {previewData && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center  p-4">
+                <div className="absolute mt-18 inset-0 z-50 flex items-center justify-center  p-4">
                     <div className="bg-gray-700/95 border border-cyan-700/50 rounded-xl max-w-lg w-full p-6 space-y-4 shadow-2xl">
                         <div className="flex justify-between items-start">
                             <h2 className="text-2xl font-bold text-cyan-400">{previewData.teamName}</h2>
@@ -364,7 +364,7 @@ export default function AdminDashboard() {
                         
                         {/* Image Section */}
                         <div className="w-full border-b border-gray-700 pb-4">
-                            <h3 className="text-lg font-bold text-gray-300 mb-2">Team Photo / Logo</h3>
+                            <h3 className="text-lg font-bold text-gray-300 mb-2">Payment Screenshot</h3>
                             <img 
                                 src={previewData.imageUrl} 
                                 alt={`${previewData.teamName} Team`}
@@ -374,25 +374,39 @@ export default function AdminDashboard() {
                         </div>
                         
                         {/* Details Section */}
-                        <div className="space-y-2 text-left">
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Leader:</span> <span className="text-teal-400">{previewData.leaderName}</span></p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Registration Id :</span> {previewData.registrationId}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">College:</span> {previewData.college}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Roll No:</span> {previewData.rollNumber}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Email:</span> {previewData.email}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Contact:</span> {previewData.phone}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Payment Amount :</span> {previewData.paymentAmount}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Status:</span> <span className={`p-1 px-2 rounded-lg text-xs font-semibold ${getStatusColor(previewData.status)}`}>{previewData.status}</span></p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Time:</span> {formatTimestamp(previewData.registrationTime)}</p>
-                        </div>
+            <div className="border-t border-gray-700 pt-4 space-y-2 text-left">
+                {/* Standard Leader Data */}
+                <p className="text-sm"><span className="font-semibold text-gray-400">Leader:</span> <span className="text-teal-400">{previewData.leaderName}</span></p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Registration ID:</span> {previewData.registrationId}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">College:</span> {previewData.college}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Roll No (Leader):</span> {previewData.rollNumber}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Email:</span> {previewData.email}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Contact:</span> {previewData.phone}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Payment Amount:</span> ₹ {previewData.paymentAmount}.00</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Status:</span> <span className={`p-1 px-2 rounded-lg text-xs font-semibold ${getStatusColor(previewData.status)}`}>{previewData.status}</span></p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Time:</span> {formatTimestamp(previewData.registrationTime)}</p>
+            </div>
 
-                        {/* Team Members List */}
-                        <div className="mt-4 border-t border-gray-700 pt-4">
-                            <h3 className="text-lg font-bold text-gray-300 mb-2">Team Members:</h3>
-                            <ul className="list-disc list-inside text-sm text-gray-400 ml-4">
-                                {previewData.teamMembers && previewData.teamMembers.map((member, index) => <li key={index}>{member}</li>)}
-                            </ul>
-                        </div>
+                        {/* Team Members List (ITERATING OVER STRUCTURED OBJECTS) */}
+            <div className="mt-4 border-t border-gray-700 pt-4">
+                <h3 className="text-lg font-bold text-gray-300 mb-2">Team Members:</h3>
+                <ul className="list-disc list-inside text-sm text-gray-400 ml-4 space-y-1">
+                    {previewData.teamMembers && previewData.teamMembers.map((member, index) => (
+                        <li key={index}>
+                            {/* Check if fields exist before displaying */}
+                            <strong>{member.name || `Member ${index + 1}`}:</strong>
+                            {(member.rollNumber || member.inGameID) && (
+                                <span className="ml-2 text-gray-500">
+                                    (
+                                    {member.rollNumber && `Reg No: ${member.rollNumber}`}
+                                    {member.inGameID && ` | ID: ${member.inGameID}`}
+                                    )
+                                </span>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </div>
                         {previewData.status === 'Pending' && (
     <div className="mt-6 border-t border-gray-700 pt-4 flex space-x-6 text-lg justify-center">
         
