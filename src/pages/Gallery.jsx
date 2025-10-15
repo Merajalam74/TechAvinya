@@ -3,7 +3,7 @@ import gallary from '../assets/gallary.png';
 
 export default function Gallery() {
   const [photos] = useState([
-    { id: 1, src: '/gallary/1.webp', alt: 'TechFest Event 1' },
+    { id: 1, src: '/gallary/1.jpg', alt: 'TechFest Event 1' },
     { id: 2, src: '/gallary/2.webp', alt: 'TechFest Event 2' },
     { id: 3, src: '/gallary/3.webp', alt: 'TechFest Event 3' },
     { id: 4, src: '/gallary/4.webp', alt: 'TechFest Event 4' },
@@ -48,7 +48,8 @@ export default function Gallery() {
     { id: 43, src: '/gallary/43.webp', alt: 'TechFest Event 43' },
     { id: 44, src: '/gallary/44.jpg', alt: 'TechFest Event 44' },
     { id: 45, src: '/gallary/45.jpg', alt: 'TechFest Event 45' },
-    { id: 46, src: '/gallary/46.jpg', alt: 'TechFest Event 46' }
+    { id: 46, src: '/gallary/46.jpg', alt: 'TechFest Event 46' },
+    { id: 47, src: '/gallary/47.webp', alt: 'TechFest Event 47' }
   ]);
   const [isVisible, setIsVisible] = useState({});
   const photoRefs = useRef([]);
