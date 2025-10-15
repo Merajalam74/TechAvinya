@@ -6,7 +6,6 @@ const allEventsData = [
   { id: "code", title: "Code Raze" },
   { id: "digital", title: "Digital Art" },
   { id: "aerial", title: "Aerial Adrenaline" },
-  { id: "circuit", title: "Circuit X" },
   { id: "bug", title: "Bug Hunt" },
   { id: "animation", title: "Animation" },
   { id: "bgmi", title: "BGMI" },
@@ -19,7 +18,7 @@ const allEventsData = [
   { id: "infinity", title: "Infinity Hunt" },
   { id: "stock", title: "Stock Rise" },
 ];
-const API_URL = 'https://tech-avinya-backend.onrender.com' || 'http://localhost:8080';
+const API_URL = 'http://localhost:8080' || 'https://tech-avinya-backend.onrender.com' ;
 
 export default function RegistrationForm() {
   const { eventId } = useParams();

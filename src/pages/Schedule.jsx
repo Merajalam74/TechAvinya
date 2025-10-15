@@ -49,7 +49,6 @@ export default function ScheduleClean() {
         { time: "9:30am-11:30am", activity: "Code Raze", location: "Smart Lab" },
         { time: "9:00am-12:00pm", activity: "Digital Art", location: "VCH" },
         { time: "11:00am-2:00pm", activity: "Aerial Adrenaline", location: "Ground" },
-        { time: "1:00pm-3:00pm", activity: "Circuit X", location: "Electric Lab" },
         { time: "2:00pm-4:00pm", activity: "Bug Hunt", location: "Smart Lab" },
         { time: "3:00pm-4:00pm", activity: "Animation", location: "BCR 1" },
         { time: "3:00pm-6:00pm", activity: "BGMI", location: "Classroom 1A" },

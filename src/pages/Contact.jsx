@@ -10,7 +10,7 @@ export default function Contact() {
       role: "General Secretary",
       image: "/secretary/general.jpg",
       contact: "+91 7640859887",
-      social: { instagram: "nirmal.pra", linkedin: "nirmal-prajapati", email: "nirmal@example.com" }
+      social: { instagram: "https://www.instagram.com/khrieketouzosekhose/", linkedin: "nirmal-prajapati", email: "khrieketouzopetersekhose@gmail.com" }
     },
     {
       id: 2,
@@ -30,10 +30,10 @@ export default function Contact() {
     },
     {
       id: 4,
-      name: "VISHAL KUMAR",
+      name: "Satyam Singh",
       role: "Coding Club Secretary",
       image: "/secretary/coding.jpg",
-      contact: "+91 9876543210",
+      contact: "+91 9918437706",
       social: { instagram: "vishal.k", linkedin: "vishal-kumar", email: "vishal@example.com" }
     },
     {
@@ -70,10 +70,10 @@ export default function Contact() {
     },
     {
       id: 9,
-      name: "SAURABH KUMAR",
+      name: "Aviji Singson",
       role: "Entrepreneurship Club Secretary",
       image: "/secretary/ecell2.jpg",
-      contact: "+91 9876543210",
+      contact: "+91 6909697937",
       social: { instagram: "saurabh.k", linkedin: "saurabh-kumar", email: "saurabh@example.com" }
     },
     {
@@ -86,10 +86,10 @@ export default function Contact() {
     },
     {
       id: 11,
-      name: "SAURABH KUMAR",
+      name: "Ajay Singh",
       role: "Esports Secretary",
       image: "/secretary/esport2.jpg",
-      contact: "+91 9876543210",
+      contact: "+91 8769275797",
       social: { instagram: "saurabh.k", linkedin: "saurabh-kumar", email: "saurabh@example.com" }
     },
     {
@@ -119,7 +119,7 @@ export default function Contact() {
     {
       id: 15,
       name: "Divyanshu mishra",
-      role: "Animation designer",
+      role: "creator",
       image: "/secretary/web1.jpg",
       contact: "+91 7755803253",
       social: { instagram: "https://www.instagram.com/divyanshu_mishra_1911/", linkedin: "https://www.linkedin.com/in/divyanshu-mishra-nit20241033/", email: "kesogiseb@gmail.com" }

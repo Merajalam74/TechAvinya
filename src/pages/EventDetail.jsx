@@ -56,22 +56,6 @@ const allEventsData = [
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
     },
     {
-      id: "circuit",
-      title: "Circuit X",
-      prize: "₹ 4,000/-",
-      secondPrize: "₹ 2,000/-",
-      feeNIT: "₹ 99/-", 
-      feeOutside: "₹ 250/-", 
-      image: "/event/circuit.jpg",
-      date: "31-10-2025",
-      time: "1:00pm-3:00pm",
-      venue: "electric lab",
-      rulebook: "/rulebooks/code_raze_rules.pdf",
-      description: "Design and build the most efficient and innovative electronic circuits. Test your knowledge of components and troubleshooting in a competitive environment.",
-      rules: ["Must use provided component kit.", "Final circuit must be tested by judges.", "Design simplicity is a factor in judging.", "Maximum time limit of 4 hours."],
-      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
-    },
-    {
       id: "bug",
       title: "Bug Hunt",
       prize: "₹ 10,000/-",

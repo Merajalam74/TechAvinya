@@ -360,10 +360,12 @@ export default function AdminDashboard() {
                         {/* Details Section */}
                         <div className="space-y-2 text-left">
                             <p className="text-sm"><span className="font-semibold text-gray-400">Leader:</span> <span className="text-teal-400">{previewData.leaderName}</span></p>
+                            <p className="text-sm"><span className="font-semibold text-gray-400">Registration Id :</span> {previewData.registrationId}</p>
                             <p className="text-sm"><span className="font-semibold text-gray-400">College:</span> {previewData.college}</p>
                             <p className="text-sm"><span className="font-semibold text-gray-400">Roll No:</span> {previewData.rollNumber}</p>
                             <p className="text-sm"><span className="font-semibold text-gray-400">Email:</span> {previewData.email}</p>
                             <p className="text-sm"><span className="font-semibold text-gray-400">Contact:</span> {previewData.phone}</p>
+                            <p className="text-sm"><span className="font-semibold text-gray-400">Payment Amount :</span> {previewData.paymentAmount}</p>
                             <p className="text-sm"><span className="font-semibold text-gray-400">Status:</span> <span className={`p-1 px-2 rounded-lg text-xs font-semibold ${getStatusColor(previewData.status)}`}>{previewData.status}</span></p>
                             <p className="text-sm"><span className="font-semibold text-gray-400">Time:</span> {formatTimestamp(previewData.registrationTime)}</p>
                         </div>

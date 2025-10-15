@@ -23,12 +23,6 @@ export default function Events() {
       image: "/event/drone.webp"
     },
     {
-      id: "circuit",
-      title: "Circuit X",
-      prize: "₹ 6,000/-",
-      image: "/event/circuit.jpg"
-    },
-    {
       id: "bug",
       title: "Bug Hunt",
       prize: "₹ 15,000/-",
