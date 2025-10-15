@@ -10,7 +10,7 @@ export default function Contact() {
       role: "General Secretary",
       image: "/secretary/general.jpg",
       contact: "+91 7640859887",
-      social: { instagram: "nirmal.pra", linkedin: "nirmal-prajapati", email: "nirmal@example.com" }
+      social: { instagram: "https://www.instagram.com/khrieketouzosekhose", linkedin: "NIL", email: "khrieketouzopetersekhose@gmail.com" }
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ export default function Contact() {
     },
     {
       id: 3,
-      name: "Akhil Naik",
+      name: "Lanuyanger Aier",
       role: "Technical Secretary",
       image: "/secretary/technical2.jpg",
       contact: "+91 9730934366",
@@ -30,7 +30,7 @@ export default function Contact() {
     },
     {
       id: 4,
-      name: "VISHAL KUMAR",
+      name: "Satyam Singh",
       role: "Coding Club Secretary",
       image: "/secretary/coding.jpg",
       contact: "+91 9876543210",
@@ -38,7 +38,7 @@ export default function Contact() {
     },
     {
       id: 5,
-      name: "Chubamanen jamir",
+      name: "Chubamanen Jamir",
       role: "Coding Club Secretary",
       image: "/secretary/coding2.png",
       contact: "+91 8798585322",
