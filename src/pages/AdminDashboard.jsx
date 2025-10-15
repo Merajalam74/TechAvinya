@@ -113,26 +113,42 @@ export default function AdminDashboard() {
         setFilteredData(filtered);
     };
     const handleStatusUpdate = async (id, newStatus) => {
-        if (!window.confirm(`Are you sure you want to change the status to "${newStatus}"?`)) {
-            return;
-        }
-        
-        try {
-            await fetch(`${API_URL}/api/admin/registration/status/${id}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ status: newStatus }),
-            });
+    // 1. User confirmation check
+    if (!window.confirm(`Are you sure you want to change the status to "${newStatus}"?`)) {
+        return;
+    }
+    
+    // NOTE: Assuming API_URL and fetchRegistrationData() are defined in the component scope
+    const API_ENDPOINT = `/api/admin/registration/status/${id}`;
 
-            if (response.ok) {
-                fetchRegistrationData(); // Refresh data on success
-            } else {
-                alert("Status update failed on server.");
-            }
-        } catch (e) {
-            alert("Could not connect to server to update status.");
+    try {
+        // 2. Perform the PUT request and assign it to the 'response' variable
+        const response = await fetch(API_URL + API_ENDPOINT, { 
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: newStatus }),
+        });
+
+        // 3. Handle non-OK status codes (e.g., 400, 404, 500)
+        if (!response.ok) {
+            const errorData = await response.json();
+            // Throw a new error to jump to the catch block
+            throw new Error(errorData.message || `HTTP error! Status: ${response.status}`);
         }
-    };
+
+        // 4. Success: Refresh Data
+        await fetchRegistrationData(); 
+
+    } catch (e) {
+        // 5. Display failure message based on the error received
+        if (e.message.includes('HTTP error')) {
+             alert(`Update Failed: ${e.message}`);
+        } else {
+             alert(`Could not connect to the server. Please check your network.`);
+             console.error("Network Error:", e);
+        }
+    }
+};
 
     const handlePreview = (item) => {
         setPreviewData(item);
@@ -159,12 +175,12 @@ export default function AdminDashboard() {
     const title = `Tech Avinya Registration Report: ${filterEvent}`;
     
     const headers = [
-        ['Team Name', 'Event', 'Leader', 'College', 'Registered At']
+        ['ID', 'Event', 'Leader', 'College', 'Registered At']
     ];
     
     // The mapping logic remains the same
     const data = filteredData.map(item => [
-        item.teamName,
+        item.registrationId,
         item.eventTitle,
         item.leaderName,
         item.college,
@@ -269,7 +285,7 @@ export default function AdminDashboard() {
                 <table className="min-w-full table-auto border-collapse">
                     <thead>
                         <tr className="bg-gray-700/80 text-cyan-400 uppercase text-sm leading-normal font-bold ">
-                            <th className="py-3 px-6 text-left">Team Name</th>
+                            <th className="py-3 px-6 text-left">ID</th>
                             <th className="py-3 px-6 text-left">Event</th>
                             <th className="py-3 px-6 text-left">Leader</th>
                             <th className="py-3 px-6 text-left">College</th>
@@ -304,7 +320,7 @@ export default function AdminDashboard() {
         // Data Rows (Correctly mapped with item.id as key)
         filteredData.map(item => (
             <tr key={item._id} className="border-b border-gray-700/50 hover:bg-gray-700/40 ">
-                <td className="py-3 px-6 text-left whitespace-nowrap font-semibold">{item.teamName}</td>
+                <td className="py-3 px-6 text-left whitespace-nowrap font-semibold">{item.registrationId}</td>
                 <td className="py-3 px-6 text-left">{item.eventTitle}</td>
                 <td className="py-3 px-6 text-left text-teal-400 ">{item.leaderName}</td>
                 <td className="py-3 px-6 text-left">{item.college}</td>

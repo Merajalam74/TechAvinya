@@ -120,7 +120,7 @@ export default function Contact() {
       id: 15,
       name: "Divyanshu mishra",
       role: "creator",
-      image: "/secretary/web1.jpg",
+      image: "/secretary/web2.jpg",
       contact: "+91 7755803253",
       social: { instagram: "https://www.instagram.com/divyanshu_mishra_1911/", linkedin: "https://www.linkedin.com/in/divyanshu-mishra-nit20241033/", email: "kesogiseb@gmail.com" }
     },

@@ -66,10 +66,10 @@ const allEventsData = [
       date: "31-10-2025",
       time: "2:00pm-4:00pm",
       venue: "smart lab",
-      rulebook: "/rulebooks/code_raze_rules.pdf",
-      description: "A cybersecurity challenge where participants race to find and exploit vulnerabilities in a mock web application. Speed and exploit novelty determine the winner.",
-      rules: ["No denial-of-service attacks allowed.", "All findings must be reported in detail.", "Scoring based on severity of bug found.", "Teams must sign an NDA."],
-      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
+      rulebook: "/rulebooks/bug_hunt.pdf",
+      description: "Bug Hunt is a 2-hour debugging challenge where participants must fix buggy programs across multiple languages — C, Python, and Java. Each language folder contains a small multi-file project with syntax, logic, and case-based errors. Participants must debug all repositories to make the programs fully functional and pass all test cases. This event tests coding accuracy, logical thinking, and multi-language debugging skills under pressure.",
+      rules: ["Duration: 2 hours (strict). ", "Participants will be given access to a main repository containing three(3) folders : /C ,/Python ,/Java ", "Each folder contains 1 buggy project with multiple interconnected files.", "Participants must try to debug all three projects completely within the given time. "],
+      generalRules: "Open to all students with basic knowledge of programming. "
     },
     {
       id: "animation",
