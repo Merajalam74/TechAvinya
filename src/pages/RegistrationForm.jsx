@@ -18,7 +18,7 @@ const allEventsData = [
   { id: "infinity", title: "Infinity Hunt" },
   { id: "stock", title: "Stock Rise" },
 ];
-const API_URL = 'http://localhost:8080' || 'https://tech-avinya-backend.onrender.com' ;
+const API_URL = 'https://tech-avinya-backend.onrender.com' || 'http://localhost:8080'  ;
 
 export default function RegistrationForm() {
   const { eventId } = useParams();
