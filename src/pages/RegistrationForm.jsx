@@ -302,7 +302,7 @@ export default function RegistrationForm() {
                         )}
                     </fieldset>
                 )}
-                {eventTitle !== 'Aerial Adrenaline' || selectedCollegeType !== 'NIT Nagaland' && (
+                {eventTitle !== 'Aerial Adrenaline' && selectedCollegeType !== 'NIT Nagaland' && (
                     <div>
                         <label htmlFor="imageUpload" className={labelClass}>Upload Payment Screenshot</label>
                         <input type="file" id="imageUpload" name="imageUpload" accept="image/*" className="w-full p-3 rounded-lg Gluten bg-gray-800/80 border border-gray-700 text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-500/20 file:text-cyan-400 hover:file:bg-cyan-500/30 transition-colors" />
