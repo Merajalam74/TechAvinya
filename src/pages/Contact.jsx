@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import aboutvideo from '../assets/globe.jpg';
-import { FaInstagram, FaEnvelope, FaLinkedinIn } from 'react-icons/fa';
+import { FaInstagram, FaEnvelope, FaLinkedinIn, FaPhone } from 'react-icons/fa';
 
 export default function Contact() {
   const contactPersons = [
@@ -49,7 +49,7 @@ export default function Contact() {
       name: "Dev yadav",
       role: "Robotics Club Secretary",
       image: "/secretary/robotics.jpg",
-      contact : "+91 9350229098",
+      contact: "+91 9350229098",
       social: { instagram: "#", linkedin: "https://www.linkedin.com/in/dev-yadav-2207022", email: "dev2025roboforge@gmail.com" }
     },
     {
@@ -129,58 +129,81 @@ export default function Contact() {
   const teamCategories = [
     { name: "General", members: contactPersons.slice(0, 1) },
     { name: "Technical Board", members: contactPersons.slice(1, 3) },
-    { name: "Coding Club", members: contactPersons.slice(3,5) },
-    { name: "Robotics Club", members: contactPersons.slice(5,7) },
-    { name: "Entrepreneurship Club", members: contactPersons.slice(7,9) },
-    { name: "Esports Arena", members: contactPersons.slice(9,11) },
-    { name: "Digital Art Club", members: contactPersons.slice(11,13) },
-    { name: "Web Team", members: contactPersons.slice(13,16) }
+    { name: "Coding Club", members: contactPersons.slice(3, 5) },
+    { name: "Robotics Club", members: contactPersons.slice(5, 7) },
+    { name: "Entrepreneurship Club", members: contactPersons.slice(7, 9) },
+    { name: "Esports Arena", members: contactPersons.slice(9, 11) },
+    { name: "Digital Art Club", members: contactPersons.slice(11, 13) },
+    { name: "Web Team", members: contactPersons.slice(13, 16) }
   ];
 
+  
+  const formatLink = (platform, value) => {
+    if (!value || value === '#') return null;
+    const hasProtocol = /^https?:\/\//i.test(value);
+    if (platform === 'instagram') {
+      return hasProtocol ? value : `https://www.instagram.com/${value.replace(/^@/, '')}`;
+    }
+    if (platform === 'linkedin') {
+      return hasProtocol ? value : `https://www.linkedin.com/in/${value}`;
+    }
+    return value;
+  };
+
   const [tiltStyle, setTiltStyle] = useState({});
+  const [flipped, setFlipped] = useState({}); 
 
   const handleMouseMove = (e, id) => {
     const card = e.currentTarget;
     const { width, height, left, top } = card.getBoundingClientRect();
     const x = e.clientX - left;
     const y = e.clientY - top;
-    const rotateX = (y / height - 0.5) * 26;
-    const rotateY = (x / width - 0.5) * -26;
+    const rotateX = (y / height - 0.5) * 16; // slightly reduced for smoother feel
+    const rotateY = (x / width - 0.5) * -16;
+
     setTiltStyle(prev => ({
       ...prev,
       [id]: {
-        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`,
-        boxShadow: '0 20px 40px rgba(0, 255, 255, 0.5)',
+        transform: `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`,
+        boxShadow: '0 20px 40px rgba(0, 255, 255, 0.25)',
       }
     }));
+  };
+
+  const handleMouseEnter = (id) => {
+    setFlipped(prev => ({ ...prev, [id]: true }));
   };
 
   const handleMouseLeave = (id) => {
     setTiltStyle(prev => ({
       ...prev,
       [id]: {
-        transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)',
+        transform: 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)',
         boxShadow: '0 10px 20px rgba(0, 0, 0, 0.5)',
       }
     }));
+    setFlipped(prev => ({ ...prev, [id]: false }));
+  };
+
+  const toggleFlip = (id) => {
+    setFlipped(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
   return (
-    <div className="relative w-full min-h-screen  text-white overflow-hidden">
-      {/* Background Video and Overlay */}
+    <div className="relative w-full min-h-screen text-white overflow-hidden">
+      
       <img
         className="fixed inset-0 w-screen h-screen object-cover z-[-1]"
         src={aboutvideo}
+        alt="Background"
       />
-      
-      {/* Overlay to ensure text readability */}
-      <div className="fixed inset-0 z-0"></div>
 
-      {/* Main Content Container */}
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80" />
+
       <div className="relative z-10 w-full pt-20 pb-12 flex flex-col items-center text-center">
         <h1 className="text-5xl md:text-6xl font-extrabold Graduate font-['Press_Start_2P'] 
-                        text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 
-                        text-shadow-neon-cyan title-rocking">
+                       text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 
+                       text-shadow-neon-cyan title-rocking">
           TEAM TECH AVINYA'25
         </h1>
         <p className="mt-2 text-lg md:text-xl max-w-2xl mx-auto mb-16 Gluten text-gray-300">
@@ -188,48 +211,164 @@ export default function Contact() {
         </p>
 
         {teamCategories.map((category, catIndex) => (
-  <div key={catIndex} className="w-full mb-16">
-    <h2 className="text-3xl md:text-4xl font-bold text-teal-400 mb-8 font-vt323 tracking-wide">
-      {category.name}
-    </h2>
-    <div className=" gap-8 px-4 max-w-6xl mx-auto flex flex-wrap justify-center items-center">
-      {category.members.map(person => (
-        <div
-          key={person.id}
-          onMouseMove={(e) => handleMouseMove(e, person.id)}
-          onMouseLeave={() => handleMouseLeave(person.id)}
-          className="card-wrapper group relative w-[280px] h-[360px] mx-auto p-1 rounded-2xl overflow-hidden transition-all duration-300 ease-in-out flex justify-center items-center"
-          style={tiltStyle[person.id]}
-        >
-          <div className="relative rounded-xl h-full flex flex-col items-center justify-center p-6 text-center transition-colors duration-300 group-hover:border-cyan-500">
+          <div key={catIndex} className="w-full mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-teal-400 mb-8 font-vt323 tracking-wide">
+              {category.name}
+            </h2>
+            <div className="gap-8 px-4 max-w-6xl mx-auto flex flex-wrap justify-center items-center">
+              {category.members.map(person => {
+                const ig = formatLink('instagram', person.social.instagram);
+                const li = formatLink('linkedin', person.social.linkedin);
+                const email = person.social.email;
+                const isFlipped = !!flipped[person.id];
+
+                return (
+                  <div
+                    key={person.id}
+                    onMouseMove={(e) => handleMouseMove(e, person.id)}
+                    onMouseEnter={() => handleMouseEnter(person.id)}
+                    onMouseLeave={() => handleMouseLeave(person.id)}
+                    onClick={() => toggleFlip(person.id)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleFlip(person.id)}
+                    className="group relative w-[280px] h-[380px] mx-auto cursor-pointer select-none"
+                    style={tiltStyle[person.id]}
+                  >
+                    
+                    <div className="absolute inset-0 rounded-2xl p-[2px] bg-gradient-to-br from-cyan-400/60 via-teal-500/40 to-blue-600/60 shadow-[0_15px_40px_rgba(0,255,255,0.15)]">
+                     
+                      <div className="relative h-full w-full rounded-2xl bg-slate-900/60 backdrop-blur-md border border-white/10 overflow-hidden">
+                      
+                        <div
+                          className="absolute inset-0 transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)] will-change-transform"
+                          style={{
+                            transformStyle: 'preserve-3d',
+                            transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
+                          }}
+                        >
+                          
+                          <div
+                            className="absolute inset-0 flex flex-col"
+                            style={{ backfaceVisibility: 'hidden' }}
+                          >
+                            <div className="relative w-full h-[50%] overflow-hidden">
+                              <img
+                                src={person.image}
+                                alt={person.name}
+                                className="w-full h-full object-cover"
+                              />
+                              
+                              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
+                            </div>
+
+                            <div className="flex-grow flex flex-col items-center justify-center p-5 text-center">
+                              <h3 className="text-xl md:text-2xl font-semibold Graduate text-white">
+                                {person.name}
+                              </h3>
+                              <p className="mt-1 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-cyan-400/15 text-cyan-300 border border-cyan-400/30">
+                                {person.role}
+                              </p>
+                              <a
+                                href={`tel:${person.contact.replace(/\s+/g, '')}`}
+                                className="mt-3 inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 transition-colors"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <FaPhone className="text-sm" />
+                                <span className="Gluten">{person.contact}</span>
+                              </a>
+
+                              <p className="mt-4 text-xs text-gray-400">
+                                Hover or tap to flip for socials
+                              </p>
+                            </div>
+                          </div>
+
+                      
+                          <div
+                            className="absolute inset-0 p-5 flex flex-col items-center justify-between"
+                            style={{
+                              transform: 'rotateY(180deg)',
+                              backfaceVisibility: 'hidden'
+                            }}
+                          >
+                            
+                            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/15 via-blue-600/10 to-emerald-500/10" />
+
+                            <div className="relative w-full">
+                              <h3 className="text-lg font-semibold Graduate text-white">
+                                Connect with {person.name.split(' ')[0]}
+                              </h3>
+                              <p className="text-sm text-gray-300 Gluten">{person.role}</p>
+                            </div>
+
+                            <div className="relative flex flex-col items-center gap-4">
+                              <div className="flex items-center gap-5">
+                                {/* Email */}
+                                {email && (
+                                  <a
+                                    href={`mailto:${email}`}
+                                    aria-label="Email"
+                                    className="grid place-items-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-cyan-300 hover:text-cyan-100 hover:border-cyan-400/40 hover:bg-cyan-400/10 transition-colors"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <FaEnvelope className="text-xl" />
+                                  </a>
+                                )}
+                                
+                                {ig && (
+                                  <a
+                                    href={ig}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Instagram"
+                                    className="grid place-items-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-pink-300 hover:text-pink-200 hover:border-pink-400/40 hover:bg-pink-400/10 transition-colors"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <FaInstagram className="text-xl" />
+                                  </a>
+                                )}
+                                
+                                {li && (
+                                  <a
+                                    href={li}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="LinkedIn"
+                                    className="grid place-items-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-blue-300 hover:text-blue-200 hover:border-blue-400/40 hover:bg-blue-400/10 transition-colors"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <FaLinkedinIn className="text-xl" />
+                                  </a>
+                                )}
+                              </div>
+
+                              <div className="text-center text-xs text-gray-400">
+                                Tip: Click phone/email to contact directly
+                              </div>
+                            </div>
+
+                            <div className="relative w-full">
+                              <a
+                                href={`tel:${person.contact.replace(/\s+/g, '')}`}
+                                className="inline-flex items-center justify-center w-full py-2 rounded-lg bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-cyan-200 border border-cyan-400/30 hover:from-cyan-500/30 hover:to-blue-600/30 hover:border-cyan-400/50 transition-colors Gluten"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                <FaPhone className="mr-2" /> Call
+                              </a>
+                            </div>
+                          </div>
+                        </div>
             
-            <div className="w-full h-1/2 overflow-hidden flex items-center justify-center rounded-t-xl flex-shrink-0">
-              <img
-                src={person.image}
-                alt={person.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            <div className="flex-grow flex flex-col justify-center p-4">
-              <h3 className="text-xl md:text-2xl font-semibold Graduate text-white transition-colors duration-300 group-hover:text-cyan-300">
-                {person.name}
-              </h3>
-              <p className="text-sm md:text-base Gluten text-gray-300 mt-1">{person.role}</p>
-              <p className="text-md font-medium Gluten text-cyan-400 mt-2 mb-6">{person.contact}</p>
-            </div>
-
-            <div className="absolute inset-x-0 bottom-4 flex justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <a href={`mailto:${person.social.email}`} aria-label="Email" className="text-cyan-400 hover:text-cyan-200"><FaEnvelope className="text-xl" /></a>
-              <a href={person.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-cyan-400 hover:text-cyan-200"><FaInstagram className="text-xl" /></a>
-              <a href={person.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-cyan-400 hover:text-cyan-200"><FaLinkedinIn className="text-xl" /></a>
+                        <div className="pointer-events-none absolute -inset-px rounded-2xl shadow-[inset_0_0_60px_rgba(20,200,220,0.08)]" />
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
-        </div>
-      ))}
-    </div>
-  </div>
-))}
+        ))}
       </div>
     </div>
   );
