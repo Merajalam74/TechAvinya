@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaInstagram, FaFacebookF, FaLinkedinIn, FaGithub, FaYoutube, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaLinkedinIn, FaGithub, FaYoutube, FaEnvelope, FaPhone, FaCode } from 'react-icons/fa';
 
 export default function Footer() {
   return (
     <footer className="relative bg-black/10 backdrop-blur-sm text-gray-300 py-4 px-6 sm:px-10 lg:px-20 border-t border-white/20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-        {/* Column 1: Logo and About */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <img src="/image/logo2.png" alt="Tech Avinya Logo" className="h-20 w-auto mb-4" />
           <h3 className="text-xl font-semibold text-white mb-2 variable">About Tech Avinya</h3>
@@ -16,19 +15,17 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Column 2: Quick Links */}
         <div className="text-center md:text-left variable">
-        <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
-        <ul className="space-y-2 ">
+          <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
+          <ul className="space-y-2">
             <li><Link to="/home" className="hover:text-cyan-400 transition cursor-pointer">Home</Link></li>
             <li><Link to="/events" className="hover:text-cyan-400 transition cursor-pointer">Events</Link></li>
             <li><Link to="/gallery" className="hover:text-cyan-400 transition cursor-pointer">Gallery</Link></li>
             <li><Link to="/about" className="hover:text-cyan-400 transition cursor-pointer">About</Link></li>
             <li><Link to="/contact" className="hover:text-cyan-400 transition cursor-pointer">Contact</Link></li>
-        </ul>
+          </ul>
         </div>
 
-        {/* Column 3: Contact Us */}
         <div className="text-center md:text-left">
           <h3 className="text-xl font-semibold text-white mb-4 variable">Contact Us</h3>
           <p className="text-sm rokkitt">
@@ -48,8 +45,23 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Column 4: Social Media Icons */}
         <div className="text-center md:text-left">
+          <h3 className="text-xl font-semibold text-white mb-4 variable">Affiliations</h3>
+          <div className="mb-6">
+            <a
+              href="https://www.coding-club-nitn.tech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center md:justify-start space-x-2 text-cyan-400 hover:text-cyan-300 transition-all group"
+            >
+              <FaCode className="text-xl group-hover:scale-110 transition-transform" />
+              <span className="font-medium underline">NIT Nagaland Coding Club</span>
+            </a>
+            <p className="text-xs mt-2 text-gray-400 max-w-[200px] mx-auto md:mx-0">
+              Where innovation meets tradition
+            </p>
+          </div>
+
           <h3 className="text-xl font-semibold text-white mb-4 variable">Follow Us</h3>
           <div className="flex justify-center md:justify-start space-x-6">
             <a href="https://www.instagram.com/techavinya_/" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 hover:scale-125 transition-all duration-300">
@@ -67,13 +79,12 @@ export default function Footer() {
             <a href="https://github.com/Coding-Club-NIT-Nagaland" aria-label="GitHub" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 hover:scale-125 transition-all duration-300">
               <FaGithub className="text-2xl" />
             </a>
-            
           </div>
         </div>
       </div>
-      <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
+      <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-300">
         <p>&copy; 2025 Tech Avinya. All rights reserved.</p>
-        <p>Developed By Ankit Kumar</p>
+        <p>Developed By Web Team</p>
       </div>
     </footer>
   );

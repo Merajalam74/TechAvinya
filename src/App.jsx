@@ -11,7 +11,10 @@ import Gallery from './pages/Gallery';
 import Schedule from './pages/Schedule';
 import EventDetail from './pages/EventDetail';
 import RegistrationForm from './pages/RegistrationForm';
-
+import Login from './pages/Login';
+import AdminDashboard from './pages/AdminDashboard';
+import Sponsors from './pages/Sponsors';
+import ProtectedAdminRoute from './components/ProtectedAdminRoute';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -36,6 +39,16 @@ function App() {
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/events/:eventId" element={<EventDetail />} />
             <Route path="/register/:eventId" element={<RegistrationForm />} />
+            <Route path="/login" element={<Login />} />
+            <Route 
+                path="/admin/dashboard" 
+                element={
+                    <ProtectedAdminRoute>
+                        <AdminDashboard />
+                    </ProtectedAdminRoute>
+                } 
+            />
+            <Route path="/sponsors" element={<Sponsors />} />
           </Routes>
           <Footer/>
         </>

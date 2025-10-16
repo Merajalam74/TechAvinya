@@ -5,12 +5,14 @@ export default function NitMap() {
 
   return (
     <div className="relative w-full py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold Graduate text-cyan-400 neon-text text-center mb-8">
+      <div className="max-w-7xl  flex flex-col items-center justify-center">
+        <h2 className="text-4xl md:text-5xl font-extrabold Graduate font-['Press_Start_2P'] 
+                        text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 
+                        text-shadow-neon-cyan title-rocking mb-8">
           Find Us
         </h2>
         {/* Responsive container for the iframe */}
-        <div className="relative w-full h-[350px] md:h-[450px] md:w-1/2 mx-auto rounded-lg overflow-hidden shadow-xl">
+        <div className="relative w-full h-[350px] md:h-[450px] md:w-3/4  rounded-lg overflow-hidden shadow-xl">
           <iframe
             src={googleMapsEmbedUrl}
             className="absolute top-0 left-0 w-full h-full rounded-lg shadow-xl"

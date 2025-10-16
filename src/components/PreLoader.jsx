@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import animatedVideo from '../assets/animated.mp4';
+import animatedVideo from '../assets/animated.webm';
 
 export default function PreLoader({ onAnimationFinish }) {
   const [animationFinished, setAnimationFinished] = useState(false);
