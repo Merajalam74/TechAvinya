@@ -18,14 +18,14 @@ const VantaWavesBackground = ({ options }) => {
           gyroControls: false,
           minHeight: 200.00,
           minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.20,
-          color: 0x00f0ff,
-          shininess: 45.00,
-          waveHeight: 22.00,
-          waveSpeed: 1.80,
-          zoom: 0.95,
-          backgroundColor: 0x0a0f1a,
+          scale: 1.30,
+          scaleMobile: 1.10,
+          color: 0x2563eb,
+          shininess: 60.00,
+          waveHeight: 28.00,
+          waveSpeed: 1.20,
+          zoom: 0.85,
+          backgroundColor: 0x020617,
           ...options
         });
       }
@@ -48,8 +48,8 @@ const VantaWavesBackground = ({ options }) => {
       document.head.appendChild(script2);
 
       return () => {
-        document.head.removeChild(script1);
-        document.head.removeChild(script2);
+        if (document.head.contains(script1)) document.head.removeChild(script1);
+        if (document.head.contains(script2)) document.head.removeChild(script2);
       };
     }
 
