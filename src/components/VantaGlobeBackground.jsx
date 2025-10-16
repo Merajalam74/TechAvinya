@@ -1,9 +1,9 @@
 // src/components/VantaGlobeBackground.jsx
 
-import React, { useRef, useEffect } from 'react';
 
-// Define the name of the global VANTA object
+import React, { useRef, useEffect } from 'react';
 const GLOBAL_VANTA_FUNC_NAME = 'VANTA';
+
 
 export default function VantaGlobeBackground() {
   const vantaRef = useRef(null);
@@ -11,55 +11,74 @@ export default function VantaGlobeBackground() {
 
   useEffect(() => {
     let intervalId;
-
     const initializeVantaEffect = () => {
-      // 1. Check if the global VANTA object is loaded and the component container is ready
       if (window[GLOBAL_VANTA_FUNC_NAME] && vantaRef.current) {
-        
-        // Stop the polling interval once loaded
-        if (intervalId) {
-          clearInterval(intervalId);
-        }
-
-        // 2. Initialize the Vanta Globe animation on the target div
+        if (intervalId) clearInterval(intervalId);
         if (!vantaEffectRef.current) {
           vantaEffectRef.current = window.VANTA.GLOBE({
-            el: vantaRef.current, // Use the ref to target the div
+            el: vantaRef.current,
             mouseControls: true,
             touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x3f62ff, // The specified color (a deep purple/blue)
-            backgroundColor: 0x0a0a2a, // Deep black-blue background
+            gyroControls: true,
+            minHeight: 0,
+            minWidth: 0,
+            scale: window.innerWidth < 640 ? 1.2 : 1.0,
+            scaleMobile: 1.3,
+            color: 0x00ffd0,
+            color2: 0xff00c8,
+            backgroundColor: 0x07072a,
+            size: window.innerWidth < 640 ? 1.5 : 1.2,
+            points: window.innerWidth < 640 ? 12.0 : 18.0,
+            maxDistance: window.innerWidth < 640 ? 18.0 : 25.0,
+            spacing: window.innerWidth < 640 ? 18.0 : 20.0,
+            showDots: true,
+            showLines: true,
+            brightness: 1.1,
+            zoom: window.innerWidth < 640 ? 1.1 : 1.0,
+            backgroundAlpha: 0.9,
+            globeAlpha: 0.8,
+            speed: 2.0,
           });
         }
       }
     };
-    
-    // Start polling every 100ms
     intervalId = setInterval(initializeVantaEffect, 100);
-    initializeVantaEffect(); // Initial check
-
-    // 3. Cleanup function: Destroys the animation and clears the interval
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
+    initializeVantaEffect();
+    const handleResize = () => {
+      if (vantaEffectRef.current && vantaEffectRef.current.setOptions) {
+        vantaEffectRef.current.setOptions({
+          scale: window.innerWidth < 640 ? 1.2 : 1.0,
+          scaleMobile: 1.3,
+          size: window.innerWidth < 640 ? 1.5 : 1.2,
+          points: window.innerWidth < 640 ? 12.0 : 18.0,
+          maxDistance: window.innerWidth < 640 ? 18.0 : 25.0,
+          spacing: window.innerWidth < 640 ? 18.0 : 20.0,
+          zoom: window.innerWidth < 640 ? 1.1 : 1.0,
+        });
       }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      if (intervalId) clearInterval(intervalId);
       if (vantaEffectRef.current && vantaEffectRef.current.destroy) {
         vantaEffectRef.current.destroy();
         vantaEffectRef.current = null;
       }
+      window.removeEventListener('resize', handleResize);
     };
-  }, []); 
+  }, []);
 
-  // Render a dark div as the container for the Vanta animation
   return (
-    <div 
-      ref={vantaRef} 
-      className="fixed inset-0 w-screen h-screen z-0 bg-black" 
+    <div
+      ref={vantaRef}
+      className="fixed inset-0 w-screen h-screen z-0 bg-gradient-to-br from-[#07072a] via-[#1a1a40] to-[#00ffd0]"
+      style={{
+        transition: 'background 0.5s',
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+        touchAction: 'none',
+      }}
     />
   );
 }
