@@ -18,8 +18,8 @@ export default function MobileMenu({ open, setOpen, navItems }) {
         </div>
 
         {/* Menu Items */}
-        <nav className="flex-1 overflow-y-auto w-full mt-8">
-          <ul className="space-y-4 text-lg uppercase font-medium">
+        <nav className="flex-1 overflow-y-auto w-full">
+          <ul className="space-y-3 text-lg uppercase font-medium">
             {navItems.map((item) => (
               <li key={item.name} className="relative">
                 <Link to={item.path} onClick={closeMenu} className="flex items-center justify-end py-3 px-5 rounded-md transition-all duration-300 group hover:bg-teal-700 hover:bg-opacity-10">

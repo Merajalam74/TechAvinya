@@ -113,26 +113,42 @@ export default function AdminDashboard() {
         setFilteredData(filtered);
     };
     const handleStatusUpdate = async (id, newStatus) => {
-        if (!window.confirm(`Are you sure you want to change the status to "${newStatus}"?`)) {
-            return;
-        }
-        
-        try {
-            await fetch(`${API_URL}/api/admin/registration/status/${id}`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ status: newStatus }),
-            });
+    // 1. User confirmation check
+    if (!window.confirm(`Are you sure you want to change the status to "${newStatus}"?`)) {
+        return;
+    }
+    
+    // NOTE: Assuming API_URL and fetchRegistrationData() are defined in the component scope
+    const API_ENDPOINT = `/api/admin/registration/status/${id}`;
 
-            if (response.ok) {
-                fetchRegistrationData(); // Refresh data on success
-            } else {
-                alert("Status update failed on server.");
-            }
-        } catch (e) {
-            alert("Could not connect to server to update status.");
+    try {
+        // 2. Perform the PUT request and assign it to the 'response' variable
+        const response = await fetch(API_URL + API_ENDPOINT, { 
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: newStatus }),
+        });
+
+        // 3. Handle non-OK status codes (e.g., 400, 404, 500)
+        if (!response.ok) {
+            const errorData = await response.json();
+            // Throw a new error to jump to the catch block
+            throw new Error(errorData.message || `HTTP error! Status: ${response.status}`);
         }
-    };
+
+        // 4. Success: Refresh Data
+        await fetchRegistrationData(); 
+
+    } catch (e) {
+        // 5. Display failure message based on the error received
+        if (e.message.includes('HTTP error')) {
+             alert(`Update Failed: ${e.message}`);
+        } else {
+             alert(`Could not connect to the server. Please check your network.`);
+             console.error("Network Error:", e);
+        }
+    }
+};
 
     const handlePreview = (item) => {
         setPreviewData(item);
@@ -159,12 +175,12 @@ export default function AdminDashboard() {
     const title = `Tech Avinya Registration Report: ${filterEvent}`;
     
     const headers = [
-        ['Team Name', 'Event', 'Leader', 'College', 'Registered At']
+        ['ID', 'Event', 'Leader', 'College', 'Registered At']
     ];
     
     // The mapping logic remains the same
     const data = filteredData.map(item => [
-        item.teamName,
+        item.registrationId,
         item.eventTitle,
         item.leaderName,
         item.college,
@@ -269,7 +285,7 @@ export default function AdminDashboard() {
                 <table className="min-w-full table-auto border-collapse">
                     <thead>
                         <tr className="bg-gray-700/80 text-cyan-400 uppercase text-sm leading-normal font-bold ">
-                            <th className="py-3 px-6 text-left">Team Name</th>
+                            <th className="py-3 px-6 text-left">ID</th>
                             <th className="py-3 px-6 text-left">Event</th>
                             <th className="py-3 px-6 text-left">Leader</th>
                             <th className="py-3 px-6 text-left">College</th>
@@ -304,7 +320,7 @@ export default function AdminDashboard() {
         // Data Rows (Correctly mapped with item.id as key)
         filteredData.map(item => (
             <tr key={item._id} className="border-b border-gray-700/50 hover:bg-gray-700/40 ">
-                <td className="py-3 px-6 text-left whitespace-nowrap font-semibold">{item.teamName}</td>
+                <td className="py-3 px-6 text-left whitespace-nowrap font-semibold">{item.registrationId}</td>
                 <td className="py-3 px-6 text-left">{item.eventTitle}</td>
                 <td className="py-3 px-6 text-left text-teal-400 ">{item.leaderName}</td>
                 <td className="py-3 px-6 text-left">{item.college}</td>
@@ -339,7 +355,7 @@ export default function AdminDashboard() {
             <p className="mt-4 text-sm text-gray-500 text-right max-w-7xl mx-auto ">Total Entries: {registrations.length}</p>
 {/* Full Details Modal (Preview) */}
             {previewData && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center  p-4">
+                <div className="absolute mt-18 inset-0 z-50 flex items-center justify-center  p-4">
                     <div className="bg-gray-700/95 border border-cyan-700/50 rounded-xl max-w-lg w-full p-6 space-y-4 shadow-2xl">
                         <div className="flex justify-between items-start">
                             <h2 className="text-2xl font-bold text-cyan-400">{previewData.teamName}</h2>
@@ -348,7 +364,7 @@ export default function AdminDashboard() {
                         
                         {/* Image Section */}
                         <div className="w-full border-b border-gray-700 pb-4">
-                            <h3 className="text-lg font-bold text-gray-300 mb-2">Team Photo / Logo</h3>
+                            <h3 className="text-lg font-bold text-gray-300 mb-2">Payment Screenshot</h3>
                             <img 
                                 src={previewData.imageUrl} 
                                 alt={`${previewData.teamName} Team`}
@@ -358,25 +374,39 @@ export default function AdminDashboard() {
                         </div>
                         
                         {/* Details Section */}
-                        <div className="space-y-2 text-left">
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Leader:</span> <span className="text-teal-400">{previewData.leaderName}</span></p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Registration Id :</span> {previewData.registrationId}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">College:</span> {previewData.college}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Roll No:</span> {previewData.rollNumber}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Email:</span> {previewData.email}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Contact:</span> {previewData.phone}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Payment Amount :</span> {previewData.paymentAmount}</p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Status:</span> <span className={`p-1 px-2 rounded-lg text-xs font-semibold ${getStatusColor(previewData.status)}`}>{previewData.status}</span></p>
-                            <p className="text-sm"><span className="font-semibold text-gray-400">Time:</span> {formatTimestamp(previewData.registrationTime)}</p>
-                        </div>
+            <div className="border-t border-gray-700 pt-4 space-y-2 text-left">
+                {/* Standard Leader Data */}
+                <p className="text-sm"><span className="font-semibold text-gray-400">Leader:</span> <span className="text-teal-400">{previewData.leaderName}</span></p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Registration ID:</span> {previewData.registrationId}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">College:</span> {previewData.college}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Roll No (Leader):</span> {previewData.rollNumber}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Email:</span> {previewData.email}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Contact:</span> {previewData.phone}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Payment Amount:</span> ₹ {previewData.paymentAmount}.00</p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Status:</span> <span className={`p-1 px-2 rounded-lg text-xs font-semibold ${getStatusColor(previewData.status)}`}>{previewData.status}</span></p>
+                <p className="text-sm"><span className="font-semibold text-gray-400">Time:</span> {formatTimestamp(previewData.registrationTime)}</p>
+            </div>
 
-                        {/* Team Members List */}
-                        <div className="mt-4 border-t border-gray-700 pt-4">
-                            <h3 className="text-lg font-bold text-gray-300 mb-2">Team Members:</h3>
-                            <ul className="list-disc list-inside text-sm text-gray-400 ml-4">
-                                {previewData.teamMembers && previewData.teamMembers.map((member, index) => <li key={index}>{member}</li>)}
-                            </ul>
-                        </div>
+                        {/* Team Members List (ITERATING OVER STRUCTURED OBJECTS) */}
+            <div className="mt-4 border-t border-gray-700 pt-4">
+                <h3 className="text-lg font-bold text-gray-300 mb-2">Team Members:</h3>
+                <ul className="list-disc list-inside text-sm text-gray-400 ml-4 space-y-1">
+                    {previewData.teamMembers && previewData.teamMembers.map((member, index) => (
+                        <li key={index}>
+                            {/* Check if fields exist before displaying */}
+                            <strong>{member.name || `Member ${index + 1}`}:</strong>
+                            {(member.rollNumber || member.inGameID) && (
+                                <span className="ml-2 text-gray-500">
+                                    (
+                                    {member.rollNumber && `Reg No: ${member.rollNumber}`}
+                                    {member.inGameID && ` | ID: ${member.inGameID}`}
+                                    )
+                                </span>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </div>
                         {previewData.status === 'Pending' && (
     <div className="mt-6 border-t border-gray-700 pt-4 flex space-x-6 text-lg justify-center">
         
