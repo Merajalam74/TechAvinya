@@ -1,14 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, User, LogOut, Home, Calendar, Users, Info, Phone, Camera, Heart } from 'lucide-react';
+import { Menu, X, User, LogOut, Home, Calendar, Users, Info, Phone, Camera, Heart, ChevronRight } from 'lucide-react';
 
 const getSessionData = () => {
-  const itemStr = localStorage.getItem('admin_session');
+  const itemStr = sessionStorage.getItem('admin_session');
   if (!itemStr) return null;
   const item = JSON.parse(itemStr);
   const now = new Date();
   if (now.getTime() > item.expiry) {
-    localStorage.removeItem('admin_session');
+    sessionStorage.removeItem('admin_session');
     return null;
   }
   return item.value;
@@ -51,17 +51,19 @@ export default function Navbar() {
   }, [checkAuth]);
 
   const handleLogout = () => {
-    localStorage.removeItem('admin_session');
+    sessionStorage.removeItem('admin_session');
     setIsLoggedIn(false);
     window.dispatchEvent(new CustomEvent('authStatusChange'));
   };
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    const original = document.body.style.overflow;
-    document.body.style.overflow = open ? 'hidden' : original;
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
     return () => {
-      document.body.style.overflow = original;
+      document.body.style.overflow = 'unset';
     };
   }, [open]);
 
@@ -80,7 +82,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Center nav (desktop) - scrollable if items overflow */}
+          {/* Center nav (desktop) */}
           <div className="hidden lg:flex items-center mx-2 sm:mx-4 lg:mx-8 flex-1 min-w-0 justify-center">
             <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 overflow-x-auto whitespace-nowrap">
               {baseNavItems.map((item) => {
@@ -154,63 +156,97 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile menu: sits below navbar, scrollable */}
-      {open && (
-        <div className="fixed inset-x-0 top-16 bottom-0 bg-black/95 z-40 lg:hidden overflow-y-auto">
-          <div className="flex flex-col items-center justify-start p-6 space-y-6">
-            {baseNavItems.map((item) => {
-              const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
-              return (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`flex items-center space-x-3 px-8 py-4 rounded-xl transition-all duration-300 transform
-                    ${isActive
-                      ? 'bg-gradient-to-r from-cyan-600/40 to-blue-700/40 text-cyan-300 scale-105 shadow-cyan-400/20 shadow-lg'
-                      : 'bg-white/5 hover:bg-gradient-to-r hover:from-teal-500/20 hover:to-cyan-500/20 text-white hover:scale-105'}
-                  `}
-                  onClick={() => setOpen(false)}
-                >
-                  <item.icon size={24} className={isActive ? 'text-cyan-300 drop-shadow-glow' : 'text-cyan-400'} />
-                  <span>{item.name}</span>
-                </Link>
-              );
-            })}
+      {/* Mobile Sidebar Overlay */}
+      <div
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300 ${open ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        onClick={() => setOpen(false)}
+      ></div>
 
+      {/* Mobile Sidebar */}
+      <div
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 z-50 lg:hidden transition-transform duration-300 ease-out shadow-2xl ${open ? 'translate-x-0' : 'translate-x-full'
+          }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Sidebar Header */}
+          <div className="flex items-center justify-between p-6 border-b border-slate-700/50">
+            <div className="flex items-center space-x-3">
+              <img src="/image/logo2.png" alt="Logo" className="h-10 w-auto" />
+            </div>
+            <button
+              onClick={() => setOpen(false)}
+              className="p-2 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 text-white transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Sidebar Navigation */}
+          <div className="flex-1 overflow-y-auto py-6 px-4">
+            <div className="space-y-2">
+              {baseNavItems.map((item) => {
+                const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className={`group flex items-center justify-between px-4 py-3.5 rounded-xl transition-all duration-300 ${isActive
+                        ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 shadow-lg shadow-cyan-500/10'
+                        : 'text-slate-300 hover:bg-slate-800/50 hover:text-white'
+                      }`}
+                    onClick={() => setOpen(false)}
+                  >
+                    <div className="flex items-center space-x-3">
+                      <div className={`p-2 rounded-lg transition-colors ${isActive ? 'bg-cyan-500/20' : 'bg-slate-800/50 group-hover:bg-slate-700/50'
+                        }`}>
+                        <item.icon size={20} className={isActive ? 'text-cyan-400' : 'text-slate-400 group-hover:text-cyan-400'} />
+                      </div>
+                      <span className="font-medium">{item.name}</span>
+                    </div>
+                    <ChevronRight size={18} className={`transition-transform ${isActive ? 'text-cyan-400 translate-x-1' : 'text-slate-500 group-hover:translate-x-1'}`} />
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Sidebar Footer */}
+          <div className="p-4 border-t border-slate-700/50 space-y-3">
             {isLoggedIn ? (
               <>
                 <Link
                   to="/admin/dashboard"
-                  className="flex items-center space-x-3 px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 text-white text-xl font-medium transition-all duration-300 transform hover:scale-105"
+                  className="flex items-center justify-center space-x-2 px-4 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30"
                   onClick={() => setOpen(false)}
                 >
-                  <User size={24} />
-                  <span>DASHBOARD</span>
+                  <User size={20} />
+                  <span>Dashboard</span>
                 </Link>
                 <button
                   onClick={() => {
                     handleLogout();
                     setOpen(false);
                   }}
-                  className="flex items-center space-x-3 px-8 py-4 rounded-xl bg-red-600 text-white text-xl font-medium transition-all duration-300 transform hover:scale-105"
+                  className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-rose-500/30"
                 >
-                  <LogOut size={24} />
-                  <span>LOGOUT</span>
+                  <LogOut size={20} />
+                  <span>Logout</span>
                 </button>
               </>
             ) : (
               <Link
                 to="/login"
-                className="flex items-center space-x-3 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl font-medium transition-all duration-300 transform hover:scale-105"
+                className="flex items-center justify-center space-x-2 px-4 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-purple-500 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-violet-500/30"
                 onClick={() => setOpen(false)}
               >
-                <User size={24} />
-                <span>ADMIN LOGIN</span>
+                <User size={20} />
+                <span>Admin Login</span>
               </Link>
             )}
           </div>
         </div>
-      )}
+      </div>
 
       {/* Spacer for fixed navbar */}
       <div className="h-16"></div>

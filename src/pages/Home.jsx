@@ -6,18 +6,56 @@ import VantaNetBackground from '../components/VantaNetBackground';
 
 export default function Home() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
     const video = document.getElementById('home-video');
     if (video) {
-      video.addEventListener('loadeddata', () => setIsVideoLoaded(true));
+      video.addEventListener('loadeddata', () => {
+        setIsVideoLoaded(true);
+        // Delay hiding loader slightly for smooth transition
+        setTimeout(() => setShowLoader(false), 500);
+      });
     }
+
+    // Fallback: hide loader after 5 seconds even if video doesn't load
+    const fallbackTimer = setTimeout(() => {
+      setShowLoader(false);
+    }, 5000);
+
+    return () => clearTimeout(fallbackTimer);
   }, []);
 
   return (
     <>
-      
+      {/* Loading Screen */}
+      {showLoader && (
+        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+          <div className="text-center space-y-6">
+            {/* Animated Logo or Spinner */}
+            <div className="relative w-24 h-24 mx-auto">
+              <div className="absolute inset-0 border-4 border-cyan-500/30 rounded-full"></div>
+              <div className="absolute inset-0 border-4 border-transparent border-t-cyan-500 rounded-full animate-spin"></div>
+              <div className="absolute inset-2 border-4 border-transparent border-t-blue-500 rounded-full animate-spin-slow"></div>
+            </div>
+
+            {/* Loading Text */}
+            <div className="space-y-2">
+              <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Loading Experience
+              </h2>
+              <div className="flex items-center justify-center space-x-2">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse delay-150"></div>
+                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse delay-300"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="relative w-full h-screen overflow-hidden">
+        {/* Always show VantaNetBackground as fallback */}
         <VantaNetBackground />
 
         <div className="absolute inset-0">
@@ -29,9 +67,11 @@ export default function Home() {
             loop
             muted
             playsInline
+            preload="auto"
           />
         </div>
 
+        {/* Optional: Uncomment if you want overlay text */}
         {/* <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 z-10"></div>
 
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
@@ -75,6 +115,27 @@ export default function Home() {
         
         .animate-fade-in-up {
           animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .animate-spin-slow {
+          animation: spin-slow 2s linear infinite;
+        }
+
+        .delay-150 {
+          animation-delay: 150ms;
+        }
+
+        .delay-300 {
+          animation-delay: 300ms;
         }
       `}</style>
     </>

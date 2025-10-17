@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
 
@@ -90,6 +91,9 @@ export default function About() {
   const [currentCard, setCurrentCard] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [slideDirection, setSlideDirection] = useState('right');
+  const [cardHeight, setCardHeight] = useState(600);
+  const firstCardRef = useRef(null);
+  const secondCardRef = useRef(null);
 
   const particlesInit = async (main) => {
     await loadSlim(main);
@@ -110,6 +114,24 @@ export default function About() {
     setCurrentCard(0);
   };
 
+  const updateCardHeight = useCallback(() => {
+    const activeCard = currentCard === 0 ? firstCardRef.current : secondCardRef.current;
+    if (activeCard) {
+      const measuredHeight = activeCard.scrollHeight || 600;
+      setCardHeight(Math.max(measuredHeight, 600));
+    }
+  }, [currentCard]);
+
+  useEffect(() => {
+    updateCardHeight();
+  }, [updateCardHeight]);
+
+  useEffect(() => {
+    const handleResize = () => updateCardHeight();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [updateCardHeight]);
+
   return (
     <div className="relative w-full min-h-screen bg-black overflow-hidden">
       <Particles
@@ -124,8 +146,8 @@ export default function About() {
           className={`w-full max-w-4xl lg:max-w-5xl transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
             }`}
         >
-          <div className="relative w-full overflow-hidden" style={{ minHeight: '600px' }}>
-            
+          <div className="relative w-full overflow-hidden" style={{ height: `${cardHeight}px` }}>
+
             <div
               className={`absolute inset-0 w-full transition-all duration-700 ease-in-out ${currentCard === 0
                   ? 'translate-x-0 opacity-100'
@@ -134,8 +156,7 @@ export default function About() {
                     : 'translate-x-full opacity-0'
                 }`}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gradient-to-br from-cyan-900/20 to-blue-900/20 backdrop-blur-sm rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl shadow-cyan-500/20 h-full">
-                
+              <div ref={firstCardRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gradient-to-br from-cyan-900/20 to-blue-900/20 backdrop-blur-sm rounded-3xl overflow-hidden border border-cyan-500/30 shadow-2xl shadow-cyan-500/20 h-full">
                 <div className="relative p-6 md:p-10 flex flex-col justify-center order-2 lg:order-1 bg-gradient-to-br from-black/40 to-transparent">
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
                   <h2 className="text-4xl md:text-5xl font-extrabold font-['Press_Start_2P'] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 mb-6 leading-tight">
@@ -176,12 +197,13 @@ export default function About() {
                     : '-translate-x-full opacity-0'
                 }`}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gradient-to-br from-purple-900/20 to-pink-900/20 backdrop-blur-sm rounded-3xl overflow-hidden border border-purple-500/30 shadow-2xl shadow-purple-500/20 h-full">
+              <div ref={secondCardRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gradient-to-br from-purple-900/20 to-pink-900/20 backdrop-blur-sm rounded-3xl overflow-hidden border border-purple-500/30 shadow-2xl shadow-purple-500/20 h-full">
                 <div className="group relative bg-black h-[260px] sm:h-[320px] lg:h-full">
                   <img
                     src="/about/nitn.png"
                     alt="NIT Nagaland"
                     className="absolute inset-0 w-full h-full object-cover object-center"
+                    onLoad={updateCardHeight}
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-purple-600 to-pink-700 opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
