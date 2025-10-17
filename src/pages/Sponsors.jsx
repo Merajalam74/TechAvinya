@@ -2,9 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaHandsHelping } from 'react-icons/fa'; 
 import sponsorVideo from '../assets/sponsors.jpg'; 
 import VantaWavesBackground from '../components/VantaWavesBackground'; 
+
+
+
 // --- Consolidated Sponsor Data ---
 const allSponsors = [
-  { id: 1, name: "sponsor 1", logo: "#",  description: "sponsor 1" },
+  { id: 1, name: "sponsor 1", logo: "sponsorVideo",  description: "sponsor 1" },
   { id: 2, name: "sponsor 2", logo: "#", description: "sponsor 2"},
   { id: 3, name: "sponsor 3", logo: "#",  description: "sponsor 3"},
   { id: 4, name: "sponsor 4", logo: "#", description: "sponsor 4"},
