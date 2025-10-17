@@ -98,7 +98,7 @@ const allEventsData = [
       date: "31-10-2025",
       time: "3:00pm-6:00pm",
       venue: "classroom 1a",
-      rulebook: "/rulebooks/code_raze_rules.pdf",
+      rulebook: "/rulebooks/BGMI Rules.pdf",
       description: "Battlegrounds Mobile India tournament. Standard competitive gaming rules apply. Compete for ultimate supremacy and cash prizes.",
       rules: ["Standard BGMI competitive rules.", "Cheating is grounds for instant ban.", "Teams must have a designated leader.", "All matches are best of 3."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
@@ -130,7 +130,7 @@ const allEventsData = [
       date: "01-11-2025",
       time: "9:00am-11:30am",
       venue: "classroom 1a",
-      rulebook: "/rulebooks/code_raze_rules.pdf",
+      rulebook: "/rulebooks/freefire_rules.pdf",
       description: "Garena Free Fire tournament. Survival skills, quick reflexes, and teamwork are essential to secure the top spot.",
       rules: ["Standard Free Fire competitive rules.", "All decisions by the admin are final.", "Must use personal accounts.", "VPN usage is prohibited."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
