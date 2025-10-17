@@ -100,7 +100,7 @@ const allEventsData = [
       venue: "classroom 1a",
       rulebook: "/rulebooks/BGMI Rules.pdf",
       description: "Battlegrounds Mobile India tournament. Standard competitive gaming rules apply. Compete for ultimate supremacy and cash prizes.",
-      rules: ["Standard BGMI competitive rules.", "Cheating is grounds for instant ban.", "Teams must have a designated leader.", "All matches are best of 3."],
+      rules: ["Standard BGMI competitive rules.", "Cheating is grounds for instant ban.", "Teams must have a designated leader.", "Kindly Refer Rool Book for Match Rules"],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
     },
     {
