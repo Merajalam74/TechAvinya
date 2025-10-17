@@ -4,12 +4,9 @@ import { Menu, X, User, LogOut, Home, Calendar, Users, Info, Phone, Camera, Hear
 
 const getSessionData = () => {
   const itemStr = localStorage.getItem('admin_session');
-  if (!itemStr) {
-    return null;
-  }
+  if (!itemStr) return null;
   const item = JSON.parse(itemStr);
   const now = new Date();
-
   if (now.getTime() > item.expiry) {
     localStorage.removeItem('admin_session');
     return null;
@@ -43,9 +40,7 @@ export default function Navbar() {
     const interval = setInterval(checkAuth, 60000);
     window.addEventListener('authStatusChange', checkAuth);
 
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -55,62 +50,49 @@ export default function Navbar() {
     };
   }, [checkAuth]);
 
-  const getFinalNavItems = () => {
-    let authLink;
-    if (isLoggedIn) {
-      authLink = {
-        name: "DASHBOARD",
-        path: "/admin/dashboard",
-        icon: User,
-        isAuth: true
-      };
-    } else {
-      authLink = {
-        name: "ADMIN LOGIN",
-        path: "/login",
-        icon: User,
-        isAuth: false
-      };
-    }
-    return [...baseNavItems, authLink];
-  };
-
-  const finalNavItems = getFinalNavItems();
-
   const handleLogout = () => {
     localStorage.removeItem('admin_session');
     setIsLoggedIn(false);
     window.dispatchEvent(new CustomEvent('authStatusChange'));
   };
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    const original = document.body.style.overflow;
+    document.body.style.overflow = open ? 'hidden' : original;
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [open]);
+
   return (
     <>
-      <nav className={`fixed w-full z-50 backdrop-blur-md bg-black/80 border-b transition-all duration-300 ease-in-out h-16 ${scrolled ? 'border-white/30 shadow-xl' : 'border-white/20'
-        }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center w-full h-full">
+      <nav className={`fixed w-full z-50 backdrop-blur-md bg-black/80 border-b transition-all duration-300 ease-in-out h-16 ${scrolled ? 'border-white/30 shadow-xl' : 'border-white/20'}`}>
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex justify-between items-center w-full h-full">
           {/* Logo */}
           <div className="flex items-center flex-shrink-0">
             <Link to="/" className="flex items-center space-x-2 group">
               <img
-                src='/image/logo2.png'
+                src="/image/logo2.png"
                 alt="Econ Logo"
                 className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
           </div>
 
-          <div className="hidden lg:flex items-center space-x-2 mx-8 flex-1 justify-center">
-            <div className="flex items-center space-x-2 px-6 py-2 rounded-xl bg-white/5 border border-white/10">
+          {/* Center nav (desktop) - scrollable if items overflow */}
+          <div className="hidden lg:flex items-center mx-2 sm:mx-4 lg:mx-8 flex-1 min-w-0 justify-center">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 overflow-x-auto whitespace-nowrap">
               {baseNavItems.map((item) => {
                 const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
                 return (
                   <Link
                     key={item.name}
                     to={item.path}
-                    className={`group relative px-3 py-2 rounded-lg transition-all duration-300
-                      ${isActive ?
-                        'bg-gradient-to-r from-cyan-600/40 to-blue-700/40 shadow-lg shadow-cyan-400/20 scale-105' :
-                        'hover:bg-gradient-to-r hover:from-teal-500/20 hover:to-cyan-500/20 hover:shadow-lg hover:shadow-teal-500/20'}
+                    className={`group relative px-3 py-2 rounded-lg transition-all duration-300 flex-shrink-0
+                      ${isActive
+                        ? 'bg-gradient-to-r from-cyan-600/40 to-blue-700/40 shadow-lg shadow-cyan-400/20 scale-105'
+                        : 'hover:bg-gradient-to-r hover:from-teal-500/20 hover:to-cyan-500/20 hover:shadow-lg hover:shadow-teal-500/20'}
                     `}
                   >
                     <div className="flex items-center space-x-2">
@@ -125,6 +107,7 @@ export default function Navbar() {
             </div>
           </div>
 
+          {/* Right side buttons */}
           <div className="flex items-center space-x-2 flex-shrink-0">
             {isLoggedIn ? (
               <>
@@ -153,78 +136,83 @@ export default function Navbar() {
               </Link>
             )}
 
+            {/* Mobile menu toggle */}
             <button
               onClick={() => setOpen(!open)}
               className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors relative"
+              aria-label="Toggle menu"
+              aria-expanded={open}
             >
               {open ? (
                 <X className="w-6 h-6" />
               ) : (
                 <Menu className="w-6 h-6" />
               )}
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></span>
+              {!open && <span className="absolute -top-1 -right-1 w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></span>}
             </button>
           </div>
         </div>
+      </nav>
 
-        {open && (
-          <div className="fixed inset-0 bg-black/95 z-40 lg:hidden">
-            <div className="flex flex-col items-center justify-center h-full space-y-8">
-              {baseNavItems.map((item) => {
-                const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
-                return (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    className={`flex items-center space-x-3 px-8 py-4 rounded-xl transition-all duration-300 transform
-                      ${isActive ?
-                        'bg-gradient-to-r from-cyan-600/40 to-blue-700/40 text-cyan-300 scale-105 shadow-cyan-400/20 shadow-lg' :
-                        'bg-white/5 hover:bg-gradient-to-r hover:from-teal-500/20 hover:to-cyan-500/20 text-white hover:scale-105'}
-                    `}
-                    onClick={() => setOpen(false)}
-                  >
-                    <item.icon size={24} className={isActive ? 'text-cyan-300 drop-shadow-glow' : 'text-cyan-400'} />
-                    <span>{item.name}</span>
-                  </Link>
-                );
-              })}
-
-              {isLoggedIn ? (
-                <>
-                  <Link
-                    to="/admin/dashboard"
-                    className="flex items-center space-x-3 px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 text-white text-xl font-medium transition-all duration-300 transform hover:scale-105"
-                    onClick={() => setOpen(false)}
-                  >
-                    <User size={24} />
-                    <span>DASHBOARD</span>
-                  </Link>
-                  <button
-                    onClick={() => {
-                      handleLogout();
-                      setOpen(false);
-                    }}
-                    className="flex items-center space-x-3 px-8 py-4 rounded-xl bg-red-600 text-white text-xl font-medium transition-all duration-300 transform hover:scale-105"
-                  >
-                    <LogOut size={24} />
-                    <span>LOGOUT</span>
-                  </button>
-                </>
-              ) : (
+      {/* Mobile menu: sits below navbar, scrollable */}
+      {open && (
+        <div className="fixed inset-x-0 top-16 bottom-0 bg-black/95 z-40 lg:hidden overflow-y-auto">
+          <div className="flex flex-col items-center justify-start p-6 space-y-6">
+            {baseNavItems.map((item) => {
+              const isActive = location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path));
+              return (
                 <Link
-                  to="/login"
-                  className="flex items-center space-x-3 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl font-medium transition-all duration-300 transform hover:scale-105"
+                  key={item.name}
+                  to={item.path}
+                  className={`flex items-center space-x-3 px-8 py-4 rounded-xl transition-all duration-300 transform
+                    ${isActive
+                      ? 'bg-gradient-to-r from-cyan-600/40 to-blue-700/40 text-cyan-300 scale-105 shadow-cyan-400/20 shadow-lg'
+                      : 'bg-white/5 hover:bg-gradient-to-r hover:from-teal-500/20 hover:to-cyan-500/20 text-white hover:scale-105'}
+                  `}
+                  onClick={() => setOpen(false)}
+                >
+                  <item.icon size={24} className={isActive ? 'text-cyan-300 drop-shadow-glow' : 'text-cyan-400'} />
+                  <span>{item.name}</span>
+                </Link>
+              );
+            })}
+
+            {isLoggedIn ? (
+              <>
+                <Link
+                  to="/admin/dashboard"
+                  className="flex items-center space-x-3 px-8 py-4 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 text-white text-xl font-medium transition-all duration-300 transform hover:scale-105"
                   onClick={() => setOpen(false)}
                 >
                   <User size={24} />
-                  <span>ADMIN LOGIN</span>
+                  <span>DASHBOARD</span>
                 </Link>
-              )}
-            </div>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setOpen(false);
+                  }}
+                  className="flex items-center space-x-3 px-8 py-4 rounded-xl bg-red-600 text-white text-xl font-medium transition-all duration-300 transform hover:scale-105"
+                >
+                  <LogOut size={24} />
+                  <span>LOGOUT</span>
+                </button>
+              </>
+            ) : (
+              <Link
+                to="/login"
+                className="flex items-center space-x-3 px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xl font-medium transition-all duration-300 transform hover:scale-105"
+                onClick={() => setOpen(false)}
+              >
+                <User size={24} />
+                <span>ADMIN LOGIN</span>
+              </Link>
+            )}
           </div>
-        )}
-      </nav>
+        </div>
+      )}
 
+      {/* Spacer for fixed navbar */}
       <div className="h-16"></div>
     </>
   );
