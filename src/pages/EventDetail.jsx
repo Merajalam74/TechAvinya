@@ -164,7 +164,7 @@ const allEventsData = [
       venue: "ground",
       rulebook: "/rulebooks/code_raze_rules.pdf",
       description: "The ultimate robotics event: build and battle remote-controlled combat vehicles. Strategy and durable design are key to victory.",
-      rules: ["Bot dimensions must not exceed X size.", "Bots must be powered by battery only.", "Structural modifications are allowed during the tournament.", "Safety gear must be worn."],
+      rules: ["Bot dimensions must not exceed X size.", "Bots must be powered by battery only.", "Structural modifications are allowed during the tournament.", "Safety gear must be worn." , "Kindly Share Your PPT/PDF to dev2025roboforge@gmail.com"],
       generalRules: "Note : Kindly Mention Your Bot Specifications followed by Your Team Members Name and Their Registartion Number (in case of NIT Nagaland Student) . All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
     },
     {
