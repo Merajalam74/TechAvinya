@@ -162,7 +162,7 @@ const allEventsData = [
       date: "01-11-2025",
       time: "10:30am-12:00pm",
       venue: "ground",
-      rulebook: "/rulebooks/code_raze_rules.pdf",
+      rulebook: "/rulebooks/clash_of_wheels.pdf",
       description: "The ultimate robotics event: build and battle remote-controlled combat vehicles. Strategy and durable design are key to victory.",
       rules: ["Bot dimensions must not exceed X size.", "Bots must be powered by battery only.", "Structural modifications are allowed during the tournament.", "Safety gear must be worn." , "Kindly Share Your PPT/PDF to dev2025roboforge@gmail.com"],
       generalRules: "Note : Kindly Mention Your Bot Specifications followed by Your Team Members Name and Their Registartion Number (in case of NIT Nagaland Student) . All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
