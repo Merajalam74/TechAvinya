@@ -10,7 +10,7 @@ export default function Contact() {
       role: "General Secretary",
       image: "/secretary/general.jpg",
       contact: "+91 7640859887",
-      social: { instagram: "https://www.instagram.com/khrieketouzosekhose/", linkedin: "nirmal-prajapati", email: "khrieketouzopetersekhose@gmail.com" }
+      social: { instagram: "https://www.instagram.com/khrieketouzosekhose/", linkedin: "NULL", email: "khrieketouzopetersekhose@gmail.com" }
     },
     {
       id: 2,
