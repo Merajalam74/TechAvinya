@@ -127,7 +127,7 @@ export default function Contact() {
   ];
 
   const teamCategories = [
-    { name: "General", members: contactPersons.slice(0, 1) },
+    { name: "Convener", members: contactPersons.slice(0, 1) },
     { name: "Technical Board", members: contactPersons.slice(1, 3) },
     { name: "Coding Club", members: contactPersons.slice(3, 5) },
     { name: "Robotics Club", members: contactPersons.slice(5, 7) },
