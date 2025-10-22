@@ -10,15 +10,7 @@ const allSponsors = [
   { id: 1, name: "Fingerprint", logo: "/fingerprint.png",  description: "Printing Partner" },
   { id: 2, name: "Instudia", logo: "/instudia.png", description: "CodeRaze Partner"},
   { id: 3, name: "Nagabot", logo: "/nagabot.jpeg",  description: "RoboForge Partner"},
-  { id: 4, name: "sponsor 4", logo: "#", description: "sponsor 4"},
-  { id: 5, name: "sponsor 5", logo: "#",  description: "sponsor 5"},
-  { id: 6, name: "sponsor 6", logo: "#",  description: "sponsor 6"},
-  { id: 7, name: "sponsor 7", logo: "#", description: "sponsor 7"},
-  { id: 8, name: "sponsor 8", logo: "#", description: "sponsor 8"},
-  { id: 9, name: "sponsor 9", logo: "#", description: "sponsor 9"},
-  { id: 10, name: "sponsor 10", logo: "#", description: "sponsor 10"},
-  { id: 11, name: "sponsor 11", logo: "#", description: "sponsor 11"},
-  { id: 12, name: "sponsor 12", logo: "#",  description: "sponsor 12"},
+  
 ];
 
 export default function Sponsors() {
