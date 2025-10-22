@@ -50,7 +50,7 @@ const allEventsData = [
       date: "31-10-2025",
       time: "11:00am-2:00pm",
       venue: "ground",
-      rulebook: "/rulebooks/code_raze_rules.pdf",
+      rulebook: "/rulebooks/aerial.pdf",
       description: "A high-speed drone racing challenge that pushes the limits of piloting skills and custom drone engineering. Navigate complex courses against the clock.",
       rules: ["Drones must meet specified weight limits.", "Pilot must pass safety inspection.", "No FPV goggles allowed (line-of-sight only).", "All teams must complete a minimum of 3 laps."],
       generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
