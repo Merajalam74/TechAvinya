@@ -88,7 +88,7 @@ export default function Contact() {
       id: 11,
       name: "Ajay Singh",
       role: "Esports Secretary",
-      image: "/secretary/esport2.jpg",
+      image: "/secretary/ajay.jpg",
       contact: "+91 8769275797",
       social: { instagram: "saurabh.k", linkedin: "saurabh-kumar", email: "saurabh@example.com" }
     },
