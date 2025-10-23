@@ -84,7 +84,8 @@ const allEventsData = [
       venue: "bcr 1",
       rulebook: "/rulebooks/animation.pdf",
       description: "The Animation Making Competition is a celebration of creativity, storytelling, and digital artistry. It provides a platform for aspiring animators, designers, and storytellers to bring their imagination to life through motion and visuals. Participants are challenged to combine artistic expression, technical skill, and innovative thinking to produce original animated works that captivate and inspire. ",
-      rules: ["The animation must be pre-made before the presentation day. No editing, endering, or changes are allowed during the judging session.", "he animation must be original and created by the participant(s). Plagiarism or use of uncredited third-party content will result in disqualification. ", "Software choice is free.", "Duration of the animation should be between [2–5 minutes].","Participants must present their animation using their own device (e.g., laptop, tablet, or phone)on the event day itself. "],
+      rules: ["All work must be done within the event time", "No pre-made or AI-generated content.", "Software choice is FlipaClip, Clip Studio Paint, Procreate, Adobe Animate, Blender (2D).", "Duration of the animation should be between 30 seconds – 2 minutes","Participants must present their animation using their own device (e.g., laptop, tablet, or phone)on the event day itself. " ,"No plagiarism – all work must be original." ,"Submit in .mp4 or .mov format (1080p).
+" , "Decision of judges is final"],
       generalRules: "The competition is open to all registered participants. Participants may compete individually or in teams (maximum of [insert number, e.g., 3–5 members] per team)."
     },
     {
