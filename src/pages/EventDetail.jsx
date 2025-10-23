@@ -72,22 +72,33 @@ const allEventsData = [
       generalRules: "Open to all students with basic knowledge of programming. "
     },
     {
-      id: "animation",
-      title: "Animation",
-      prize: "₹ 7,000/-",
-      secondPrize: "₹ 4,000/-",
-      feeNIT: "₹ 99/-", 
-      feeOutside: "₹ 300/-", 
-      image: "/event/animation.webp", 
-      date: "31-10-2025",
-      time: "2:00pm-4:00pm",
-      venue: "bcr 1",
-      rulebook: "/rulebooks/animation.pdf",
-      description: "The Animation Making Competition is a celebration of creativity, storytelling, and digital artistry. It provides a platform for aspiring animators, designers, and storytellers to bring their imagination to life through motion and visuals. Participants are challenged to combine artistic expression, technical skill, and innovative thinking to produce original animated works that captivate and inspire. ",
-      rules: ["All work must be done within the event time", "No pre-made or AI-generated content.", "Software choice is FlipaClip, Clip Studio Paint, Procreate, Adobe Animate, Blender (2D).", "Duration of the animation should be between 30 seconds – 2 minutes","Participants must present their animation using their own device (e.g., laptop, tablet, or phone)on the event day itself. " ,"No plagiarism – all work must be original." ,"Submit in .mp4 or .mov format (1080p).
-" , "Decision of judges is final"],
-      generalRules: "The competition is open to all registered participants. Participants may compete individually or in teams (maximum of [insert number, e.g., 3–5 members] per team)."
-    },
+  id: "animation",
+  title: "Animation",
+  prize: "₹ 7,000/-",
+  secondPrize: "₹ 4,000/-",
+  feeNIT: "₹ 99/-",
+  feeOutside: "₹ 300/-",
+  image: "/event/animation.webp",
+  date: "31-10-2025",
+  time: "2:00pm-4:00pm",
+  venue: "BCR 1",
+  rulebook: "/rulebooks/animation.pdf",
+  description:
+    "The Animation Making Competition is a celebration of creativity, storytelling, and digital artistry. It provides a platform for aspiring animators, designers, and storytellers to bring their imagination to life through motion and visuals. Participants are challenged to combine artistic expression, technical skill, and innovative thinking to produce original animated works that captivate and inspire.",
+  rules: [
+    "All work must be done within the event time.",
+    "No pre-made or AI-generated content.",
+    "Software choice is FlipaClip, Clip Studio Paint, Procreate, Adobe Animate, or Blender (2D).",
+    "Duration of the animation should be between 30 seconds – 2 minutes.",
+    "Participants must present their animation using their own device (e.g., laptop, tablet, or phone) on the event day itself.",
+    "No plagiarism – all work must be original.",
+    "Submit in .mp4 or .mov format (1080p).",
+    "Decision of judges is final."
+  ],
+  generalRules:
+    "The competition is open to all registered participants. Participants may compete individually or in teams (maximum of 3–5 members per team)."
+}
+
     {
       id: "bgmi",
       title: "BGMI",
