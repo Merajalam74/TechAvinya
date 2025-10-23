@@ -80,7 +80,7 @@ const allEventsData = [
       feeOutside: "₹ 300/-", 
       image: "/event/animation.webp", 
       date: "31-10-2025",
-      time: "3:00pm-4:00pm",
+      time: "2:00pm-4:00pm",
       venue: "bcr 1",
       rulebook: "/rulebooks/animation.pdf",
       description: "The Animation Making Competition is a celebration of creativity, storytelling, and digital artistry. It provides a platform for aspiring animators, designers, and storytellers to bring their imagination to life through motion and visuals. Participants are challenged to combine artistic expression, technical skill, and innovative thinking to produce original animated works that captivate and inspire. ",
