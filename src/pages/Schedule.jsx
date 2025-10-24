@@ -47,7 +47,7 @@ export default function ScheduleClean() {
       events: [
         { time: "8:30am-9:00am", activity: "Stock Rise", location: "Smart Lab" },
         { time: "9:30am-11:30am", activity: "Code Raze", location: "Smart Lab" },
-        { time: "9:00am-12:00pm", activity: "Digital Art", location: "VCH" },
+        { time: "9:00am-12:00pm", activity: "Digital Art", location: "EDC Laboratory" },
         { time: "11:00am-2:00pm", activity: "Aerial Adrenaline", location: "Ground" },
         { time: "2:00pm-4:00pm", activity: "Bug Hunt", location: "Smart Lab" },
         { time: "2:00pm-4:00pm", activity: "Animation", location: "BCR 1" },
