@@ -99,22 +99,27 @@ const allEventsData = [
     "The competition is open to all registered participants. Participants may compete individually or in teams (maximum of 3–5 members per team)."
 },
 
-    {
-      id: "bgmi",
-      title: "BGMI",
-      prize: "₹ 12,000/-",
-      secondPrize: "₹ 8,000/-",
-      feeNIT: "₹ 500/-", 
-      feeOutside: "₹ 1000/-", 
-      image: "/event/bgmi.webp", 
-      date: "31-10-2025",
-      time: "3:00pm-6:00pm",
-      venue: "classroom 1a",
-      rulebook: "/rulebooks/BGMI Rules.pdf",
-      description: "Battlegrounds Mobile India tournament. Standard competitive gaming rules apply. Compete for ultimate supremacy and cash prizes.",
-      rules: ["Standard BGMI competitive rules.", "Cheating is grounds for instant ban.", "Teams must have a designated leader.", "Kindly Refer Rule Book for Match Rules"],
-      generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
-    },
+     id: "bgmi",
+    title: "BGMI",
+    prize: "₹ 12,000/-",
+    secondPrize: "₹ 8,000/-",
+    feeNIT: "₹ 500/-", 
+    feeOutside: "₹ 1000/-", 
+    image: "/event/bgmi.webp", 
+    date: "31-10-2025",
+    time: "3:00pm-6:00pm",
+    venue: "Classroom 1a",
+    rulebook: "/rulebooks/BGMI Rules.pdf",
+    description: "Battlegrounds Mobile India tournament. Standard competitive gaming rules apply. Compete for ultimate supremacy and cash prizes.",
+    rules: [
+      "Standard BGMI competitive rules.",
+      "Cheating is grounds for instant ban.",
+      "Teams must have a designated leader.",
+      "Kindly refer Rule Book for Match Rules.",
+      "You can join the WhatsApp group: <a href='https://chat.whatsapp.com/H3kwXg5VWa6BGWsHEXIuLp?mode=wwt' target='_blank'>Join Here</a>"
+    ],
+    generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
+  },
     {
       id: "mlbb",
       title: "MLBB",
