@@ -22,7 +22,7 @@ const allEventsData = [
       rulebook: "/rulebooks/code_raze.pdf",
       description: " Code Raze will feature a series of coding questions for participants to solve, testing their problem-solving abilities and programming skills across different levels of difficulty. Join us to tackle these challenges and enhance your coding expertise! ",
       rules: ["Participants must compete individually.", "The competition consists of a single round with multiple programming problems.", "The coding round will last 2 hours.", "All submissions must be made before the deadline.","Participants may use any programming language of their choice.","Plagiarism, AI-generated or copied solutions, cheating, or collaboration will result in immediate disqualification.","Each question will be assigned a specific weight, contributing to the overall score."],
-      generalRules: "Open to all college students and independent coders. Use of external tools is restricted. Plagiarism will result in immediate disqualification.",
+      generalRules: "Open to all college students and independent coders. Use of external tools is restricted. Plagiarism will result in immediate disqualification.You can join the WhatsApp group: https://chat.whatsapp.com/H3kwXg5VWa6BGWsHEXIuLp?mode=wwt"
     },
     {
       id: "digital",
