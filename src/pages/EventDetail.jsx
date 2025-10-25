@@ -98,7 +98,7 @@ const allEventsData = [
   generalRules:
     "The competition is open to all registered participants. Participants may compete individually or in teams (maximum of 3–5 members per team)."
 },
-
+    {
      id: "bgmi",
     title: "BGMI",
     prize: "₹ 12,000/-",
