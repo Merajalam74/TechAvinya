@@ -110,13 +110,12 @@ const allEventsData = [
     time: "3:00pm-6:00pm",
     venue: "Classroom 1a",
     rulebook: "/rulebooks/BGMI Rules.pdf",
-    description: "Battlegrounds Mobile India tournament. Standard competitive gaming rules apply. Compete for ultimate supremacy and cash prizes.",
+    description: "Battlegrounds Mobile India tournament. Standard competitive gaming rules apply. Compete for ultimate supremacy and cash prizes. You can join the WhatsApp group: https://chat.whatsapp.com/H3kwXg5VWa6BGWsHEXIuLp?mode=wwt",
     rules: [
       "Standard BGMI competitive rules.",
       "Cheating is grounds for instant ban.",
       "Teams must have a designated leader.",
-      "Kindly refer Rule Book for Match Rules.",
-      "You can join the WhatsApp group: https://chat.whatsapp.com/H3kwXg5VWa6BGWsHEXIuLp?mode=wwt"
+      "Kindly refer Rule Book for Match Rules."
     ],
     generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
   },
