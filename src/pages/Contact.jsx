@@ -122,7 +122,7 @@ export default function Contact() {
       role: "Developer",
       image: "/secretary/web2.jpg",
       contact: "+91 7755803253",
-      social: { instagram: "https://www.instagram.com/divyanshu_mishra_1911/", linkedin: "https://www.linkedin.com/in/divyanshu-mishra-nit20241033/", email: "kesogiseb@gmail.com" }
+      social: { instagram: "https://www.instagram.com/divyanshu_mishra_1911/", linkedin: "https://www.linkedin.com/in/divyanshu-mishra-nit20241033/", email: "divyanshu.nit.28@gmail.com" }
     },
     {
       id: 16,
