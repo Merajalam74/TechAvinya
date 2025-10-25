@@ -116,7 +116,7 @@ const allEventsData = [
       "Cheating is grounds for instant ban.",
       "Teams must have a designated leader.",
       "Kindly refer Rule Book for Match Rules.",
-      "You can join the WhatsApp group: <a href='https://chat.whatsapp.com/H3kwXg5VWa6BGWsHEXIuLp?mode=wwt' target='_blank'>Join Here</a>"
+      "You can join the WhatsApp group: https://chat.whatsapp.com/H3kwXg5VWa6BGWsHEXIuLp?mode=wwt"
     ],
     generalRules: "All participants must be currently enrolled in an undergraduate or postgraduate program. Use of external tools is restricted. Plagiarism will result in immediate disqualification."
   },
