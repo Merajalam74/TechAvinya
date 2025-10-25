@@ -111,7 +111,7 @@ export default function Contact() {
     {
       id: 14,
       name: "Ankit Kumar",
-      role: "Website creator",
+      role: "Developer",
       image: "/secretary/web.jpg",
       contact: "+91 9229434627",
       social: { instagram: "https://www.instagram.com/raj_ankit_95/", linkedin: "https://www.linkedin.com/in/ankit-kumar-922ankit/", email: "ankitkumar43975@gmail.com" }
@@ -119,11 +119,19 @@ export default function Contact() {
     {
       id: 15,
       name: "Divyanshu mishra",
-      role: "creator",
+      role: "Developer",
       image: "/secretary/web2.jpg",
       contact: "+91 7755803253",
       social: { instagram: "https://www.instagram.com/divyanshu_mishra_1911/", linkedin: "https://www.linkedin.com/in/divyanshu-mishra-nit20241033/", email: "kesogiseb@gmail.com" }
     },
+    {
+      id: 16,
+      name: "Meraj Alam",
+      role: "Developer",
+      image: "/secretary/web3.jpg",
+      contact: "+91 9534342082",
+      social: { instagram: "https://www.instagram.com/_.meraj___/", linkedin: "https://www.linkedin.com/in/meraj-alam-12we/", email: "merajalamnazeeri@gmail.com" }
+    }
   ];
 
   const teamCategories = [
