@@ -23,8 +23,8 @@ function AppContent() {
   const showTicker = location.pathname === '/' || location.pathname === '/home';
   const updates = [
     'Registrations are open — sign up for events now!',
-    'New: Workshop schedule published in the Schedule page.',
-    'Early bird discounts end soon — don\'t miss out.',
+    'Updated Venue for Digital Arts is EDC Lab ',
+    '🔔 Registration will remain open until 8:30 PM, 29 Oct 2025',
   ];
 
   return (
