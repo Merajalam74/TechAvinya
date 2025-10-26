@@ -15,7 +15,6 @@ import Login from './pages/Login';
 import AdminDashboard from './pages/AdminDashboard';
 import Sponsors from './pages/Sponsors';
 import ProtectedAdminRoute from './components/ProtectedAdminRoute';
-import Promos from './pages/Promos.jsx';
 import UpdatesTicker from './components/UpdatesTicker';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
