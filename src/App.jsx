@@ -15,6 +15,7 @@ import Login from './pages/Login';
 import AdminDashboard from './pages/AdminDashboard';
 import Sponsors from './pages/Sponsors';
 import ProtectedAdminRoute from './components/ProtectedAdminRoute';
+import Promos from './pages/Promos.jsx';
 import UpdatesTicker from './components/UpdatesTicker';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
@@ -23,8 +24,8 @@ function AppContent() {
   const showTicker = location.pathname === '/' || location.pathname === '/home';
   const updates = [
     'Registrations are open — sign up for events now!',
-    'Updated Venue for Digital Arts is EDC Lab ',
-    '🔔 Registration will remain open until 8:30 PM, 29 Oct 2025',
+    'New: Workshop schedule published in the Schedule page.',
+    'Early bird discounts end soon — don\'t miss out.',
   ];
 
   return (
@@ -45,7 +46,7 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/schedule" element={<Schedule />} />
-        
+        <Route path="/promos" element={<Promos />} />
         <Route path="/events/:eventId" element={<EventDetail />} />
         <Route path="/register/:eventId" element={<RegistrationForm />} />
         <Route path="/login" element={<Login />} />
