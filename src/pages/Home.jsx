@@ -65,7 +65,7 @@ export default function Home() {
       <div className="fixed top-16 left-0 right-0 z-[100]">
         <UpdatesTicker items={updates} className="shadow-lg" />
       </div>
-      <div className="h-12" />
+      <div className="h-10" />
 
       <div className="relative w-full h-screen overflow-hidden">
         {/* Always show VantaNetBackground as fallback */}
