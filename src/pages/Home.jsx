@@ -3,6 +3,7 @@ import backvideo from '../assets/events.mp4';
 import AftermovieCard from '../components/AftermovieCard';
 import Aboutus from '../components/Aboutus';
 import VantaNetBackground from '../components/VantaNetBackground';
+import UpdatesTicker from '../components/UpdatesTicker';
 
 export default function Home() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -25,6 +26,12 @@ export default function Home() {
 
     return () => clearTimeout(fallbackTimer);
   }, []);
+
+  const updates = [
+    'Registrations are open — sign up for events now!',
+    'New: Workshop schedule published in the Schedule page.',
+    'Early bird discounts end soon — don\'t miss out.',
+  ];
 
   return (
     <>
@@ -53,6 +60,11 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      <div className="fixed top-16 left-0 right-0 z-[100]">
+        <UpdatesTicker items={updates} className="shadow-lg" />
+      </div>
+      <div className="h-12" />
 
       <div className="relative w-full h-screen overflow-hidden">
         {/* Always show VantaNetBackground as fallback */}
