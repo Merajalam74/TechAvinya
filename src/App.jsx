@@ -42,7 +42,6 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/schedule" element={<Schedule />} />
-        <Route path="/promos" element={<Promos />} />
         <Route path="/events/:eventId" element={<EventDetail />} />
         <Route path="/register/:eventId" element={<RegistrationForm />} />
         <Route path="/login" element={<Login />} />
