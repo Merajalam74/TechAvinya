@@ -3,7 +3,11 @@ import React from 'react';
 export default function Promos() {
   const promos = [
     // Add your event promos here. Example format below:
-     { title: 'Tech Avinya 2025 Promo', instagramUrl: 'https://www.instagram.com/reel/DQJurHVAWUD/?igsh=bXVqdDJscmg2aTN1' },
+     { title: 'Tech Avinya 2025 Promo', instagramUrl: 'https://www.instagram.com/reel/DQHgmXhAevT/?igsh=MWR3bGxqOThzZTFvaQ==' },
+    { title: 'Codessey Promo', instagramUrl: 'https://www.instagram.com/reel/DQMWzCBAZH2/?igsh=cXhqMHJ4aTJtemM3' },
+    { title: 'RoboForge Promo', instagramUrl: 'https://www.instagram.com/reel/DQOyXloEp2k/?igsh=MWNodnRpdGZ4eGN5Yw==' },
+    { title: 'ESports Promo', instagramUrl: 'https://www.instagram.com/reel/DQJurHVAWUD/?igsh=MWs0YzQ3eXhlcTJ3Nw==' },
+    { title: 'E Cell Promo', instagramUrl: 'https://www.instagram.com/reel/DQRgKYBAd-w/?igsh=aGJnaGRnNGdrenJl' },
     // { title: 'Hackathon', instagramUrl: 'https://www.instagram.com/reel/yyyy' },
   ];
 
