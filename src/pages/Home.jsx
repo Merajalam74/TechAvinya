@@ -28,9 +28,10 @@ export default function Home() {
   }, []);
 
   const updates = [
+    'Welcome to the official Site of Tech Avinya 2025',
     'Registrations are open — sign up for events now!',
-    'New: Workshop schedule published in the Schedule page.',
-    'Early bird discounts end soon — don\'t miss out.',
+    'Venue for Digital Art has been changed to EDC Lab',
+    'Registration will remain open until 8:30 P.M. on 29th October 2025.',
   ];
 
   return (
