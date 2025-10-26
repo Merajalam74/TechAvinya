@@ -30,9 +30,12 @@ function AppContent() {
   return (
     <>
       {showTicker && (
-        <div className="relative z-0">
-          <UpdatesTicker items={updates} className="shadow-lg" />
-        </div>
+        <>
+          <div className="fixed top-16 left-0 right-0 z-30">
+            <UpdatesTicker items={updates} className="shadow-lg" />
+          </div>
+          <div className="h-10" />
+        </>
       )}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -42,6 +45,7 @@ function AppContent() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/schedule" element={<Schedule />} />
+        
         <Route path="/events/:eventId" element={<EventDetail />} />
         <Route path="/register/:eventId" element={<RegistrationForm />} />
         <Route path="/login" element={<Login />} />
