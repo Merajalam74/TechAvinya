@@ -3,7 +3,6 @@ import backvideo from '../assets/events.mp4';
 import AftermovieCard from '../components/AftermovieCard';
 import Aboutus from '../components/Aboutus';
 import VantaNetBackground from '../components/VantaNetBackground';
-import UpdatesTicker from '../components/UpdatesTicker';
 
 export default function Home() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -27,13 +26,6 @@ export default function Home() {
     return () => clearTimeout(fallbackTimer);
   }, []);
 
-  const updates = [
-    'Welcome to the official Site of Tech Avinya 2025',
-    'Registrations are open — sign up for events now!',
-    'Venue for Digital Art has been changed to EDC Lab',
-    'Registration will remain open until 8:30 P.M. on 29th October 2025.',
-  ];
-
   return (
     <>
       {/* Loading Screen */}
@@ -55,17 +47,11 @@ export default function Home() {
               <div className="flex items-center justify-center space-x-2">
                 <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
                 <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse delay-150"></div>
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse delay-300"></div>
               </div>
             </div>
           </div>
         </div>
       )}
-
-      <div className="fixed top-16 left-0 right-0 z-[100]">
-        <UpdatesTicker items={updates} className="shadow-lg" />
-      </div>
-      <div className="h-8" />
 
       <div className="relative w-full h-screen overflow-hidden">
         {/* Always show VantaNetBackground as fallback */}
@@ -74,7 +60,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <video
             id="home-video"
-            className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute inset-0 w-full h-full object-cover object-center z-0 transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
             src={backvideo}
             autoPlay
             loop
