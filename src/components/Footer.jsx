@@ -23,6 +23,7 @@ export default function Footer() {
             <li><Link to="/gallery" className="hover:text-cyan-400 transition cursor-pointer">Gallery</Link></li>
             <li><Link to="/about" className="hover:text-cyan-400 transition cursor-pointer">About</Link></li>
             <li><Link to="/contact" className="hover:text-cyan-400 transition cursor-pointer">Contact</Link></li>
+            <li><Link to="/promos" className="hover:text-cyan-400 transition cursor-pointer">Promos</Link></li>
           </ul>
         </div>
 
