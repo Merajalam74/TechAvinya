@@ -26,6 +26,7 @@ function AppContent() {
     'Registrations are open — sign up for events now!',
     'Updated Venue for Digital Arts Event is EDC Lab',
     '🔹🆕 🕗 Registration closes: 8:30 PM, 29 Oct 2025',
+'Registration for Internal NIT Students is temporarily on Hold ! It will be resumed Soon',
   ];
 
   return (
