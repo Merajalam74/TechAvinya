@@ -7,9 +7,10 @@ import VantaWavesBackground from '../components/VantaWavesBackground';
 
 // --- Consolidated Sponsor Data ---
 const allSponsors = [
-  { id: 1, name: "Fingerprint", logo: "/fingerprint.png",  description: "Printing Partner" },
-  { id: 2, name: "Instudia", logo: "/instudia.png", description: "CodeRaze Partner"},
-  { id: 3, name: "Nagabot", logo: "/nagabot.jpeg",  description: "RoboForge Partner"},
+  { id: 1, name: "GeeksForGeeks", logo: "/gfg.png",  description: "Title Sponsor" },
+  { id: 2, name: "Fingerprint", logo: "/fingerprint.png",  description: "Printing Partner" },
+  { id: 3, name: "Instudia", logo: "/instudia.png", description: "CodeRaze Partner"},
+  { id: 4, name: "Nagabot", logo: "/nagabot.jpeg",  description: "RoboForge Partner"},
   
 ];
 
