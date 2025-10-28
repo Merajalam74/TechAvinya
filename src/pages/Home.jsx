@@ -3,6 +3,7 @@ import backvideo from '../assets/events.mp4';
 import AftermovieCard from '../components/AftermovieCard';
 import Aboutus from '../components/Aboutus';
 import VantaNetBackground from '../components/VantaNetBackground';
+import HeroSection from '../components/HeroSection';
 
 export default function Home() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -57,18 +58,9 @@ export default function Home() {
         {/* Always show VantaNetBackground as fallback */}
         <VantaNetBackground />
 
-        <div className="absolute inset-0">
-          <video
-            id="home-video"
-            className={`absolute inset-0 w-full h-full object-cover object-center z-0 transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
-            src={backvideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          />
-        </div>
+        <HeroSection />
+
+
 
         {/* Optional: Uncomment if you want overlay text */}
         {/* <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 z-10"></div>
