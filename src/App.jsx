@@ -26,7 +26,8 @@ function AppContent() {
     'Registrations are open — sign up for events now!',
     'Updated Venue for Digital Arts Event is EDC Lab',
     '🔹🆕 🕗 Registration closes: 8:30 PM, 29 Oct 2025',
-'Registration for Internal NIT Students is Resumed Now !','NIT Student can now purchase Club Bundle to participate in any event organized by that Club',
+'Registration for Internal NIT Students is Resumed Now !','NIT Nagaland Student can now purchase Club Bundle to participate in any event organized by that Club',
+    'Stay Tuned for further Updates',
   ];
 
   return (
