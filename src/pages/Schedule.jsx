@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function ScheduleClean() {
   const [mounted, setMounted] = useState(false);
-
+  const showSchedule = false;
   const scheduleData = [
     {
       day: "Day 1",
@@ -73,40 +73,59 @@ export default function ScheduleClean() {
         />
       ))}
 
-      {/* --- LIVE NOW Banner --- */}
-      <motion.h1
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
-        className="text-7xl font-extrabold text-center mb-12 text-red-500 drop-shadow-lg animate-pulse"
-      >
-        🚀 LIVE NOW 🚀
-      </motion.h1>
+      {/* --- CONDITIONAL RENDERING USING showSchedule --- */}
+      {showSchedule ? (
+        <>
+          {/* --- LIVE NOW Banner --- */}
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="text-7xl font-extrabold text-center mb-12 text-red-500 drop-shadow-lg animate-pulse"
+          >
+            🚀 LIVE NOW 🚀
+          </motion.h1>
 
-      {/* --- Schedule Section --- */}
-      {scheduleData.map((dayData, idx) => (
-        <div key={idx} className="max-w-5xl mx-auto mb-16 px-4">
-          <h2 className="text-4xl md:text-5xl font-bold mb-10 uppercase text-center text-white">
-            {dayData.day} - {dayData.date}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {dayData.events.map((event, ei) => (
-              <div
-                key={ei}
-                className="p-6 rounded-3xl border-2 shadow-md transform transition duration-300 hover:scale-105"
-                style={{
-                  borderImage: "linear-gradient(45deg,#ff00ff,#00ffff) 1",
-                  background: "rgba(0,0,0,0.85)",
-                }}
-              >
-                <p className="text-lg text-blue-400 mb-2">{event.time}</p>
-                <p className="text-2xl font-bold text-pink-400 mb-2">{event.activity}</p>
-                <p className="text-md text-lime-400">{event.location}</p>
+          {/* --- Schedule Section --- */}
+          {scheduleData.map((dayData, idx) => (
+            <div key={idx} className="max-w-5xl mx-auto mb-16 px-4">
+              <h2 className="text-4xl md:text-5xl font-bold mb-10 uppercase text-center text-white">
+                {dayData.day} - {dayData.date}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {dayData.events.map((event, ei) => (
+                  <div
+                    key={ei}
+                    className="p-6 rounded-3xl border-2 shadow-md transform transition duration-300 hover:scale-105"
+                    style={{
+                      borderImage: "linear-gradient(45deg,#ff00ff,#00ffff) 1",
+                      background: "rgba(0,0,0,0.85)",
+                    }}
+                  >
+                    <p className="text-lg text-blue-400 mb-2">{event.time}</p>
+                    <p className="text-2xl font-bold text-pink-400 mb-2">{event.activity}</p>
+                    <p className="text-md text-lime-400">{event.location}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </>
+      ) : (
+        /* --- PLACEHOLDER SHOWN WHEN showSchedule IS FALSE --- */
+        <div className="relative z-10 max-w-3xl mx-auto my-20 p-12 text-center bg-gradient-to-br from-gray-900/80 via-cyan-950/40 to-gray-900/80 border border-cyan-500/40 rounded-2xl backdrop-blur-md shadow-2xl">
+          <h2 className="text-4xl font-extrabold text-cyan-400 mb-4 tracking-wider">
+            SCHEDULE RELEASING SOON!
+          </h2>
+          <p className="text-gray-300 text-lg">
+            The event timeline and activity schedules for Tech Avinya are being finalized. Stay tuned!
+            till then explore <a href="/gallery" className="text-cyan-400 hover:text-cyan-300 underline"> gallery</a>
+          </p>
+
         </div>
-      ))}
+      )}
     </div>
   );
 }
+
+  
