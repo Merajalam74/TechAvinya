@@ -176,11 +176,9 @@ export default function Events() {
                         Explore
                       </Link>
 
-                      <a
-                        href="https://www.coding-club-nitn.tech/events"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Apply to Coding Club - ${event.title}`}
+                      <Link
+                        to={`/enroll/${event.id}`}
+                        aria-label={`Enroll for ${event.title}`}
                         className="relative group w-1/2 text-center rounded-lg py-2 px-3 text-sm font-semibold uppercase tracking-widest overflow-hidden
                                   bg-gradient-to-br Gluten from-red-900/40 to-pink-900/40 border border-red-700/60 text-red-300 backdrop-blur-sm
                                   transition-all duration-500 ease-in-out
@@ -189,7 +187,7 @@ export default function Events() {
                                   active:scale-95 active:shadow-sm"
                       >
                         Apply
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -207,17 +205,15 @@ export default function Events() {
                       Explore
                     </Link>
 
-                    <a
-                      href="https://www.coding-club-nitn.tech/events"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Apply to Coding Club - ${event.title}`}
+                    <Link
+                      to={`/enroll/${event.id}`}
+                      aria-label={`Enroll for ${event.title}`}
                       className="w-full text-center rounded-lg py-2 px-3 text-sm font-semibold uppercase tracking-widest
                                 bg-gradient-to-br from-red-900/40 to-pink-900/40 border border-red-700/60 text-red-300 backdrop-blur-sm
                                 hover:from-red-700/60 hover:to-pink-700/60 hover:text-white"
                     >
                       Apply
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
