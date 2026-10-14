@@ -92,7 +92,7 @@ export default function Events() {
   ];
 
   const [tiltStyle, setTiltStyle] = useState({});
-
+  const showEvents = false;
   const handleMouseMove = (e, id) => {
     const card = e.currentTarget;
     const { width, height, left, top } = card.getBoundingClientRect();
@@ -134,7 +134,8 @@ export default function Events() {
         </h1>
 
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 mb-8">
-          {eventData.map(event => (
+        {showEvents ? (
+          eventData.map(event => (
             <div 
               key={event.id} 
               onMouseMove={(e) => handleMouseMove(e, event.id)}
@@ -230,9 +231,19 @@ export default function Events() {
                 .card-back { transform: rotateY(180deg); }
               `}</style>
             </div>
-          ))}
-        </div>
+          ))
+        ) : (
+          <div className="col-span-full my-12 p-12 text-center bg-gradient-to-br from-gray-900/80 via-cyan-950/40 to-gray-900/80 border border-cyan-500/40 rounded-2xl max-w-2xl mx-auto backdrop-blur-md shadow-2xl">
+           <h2 className="text-3xl md:text-4xl font-extrabold text-cyan-400 mb-4 tracking-wider">
+              coming soon...
+           </h2>
+           <p className="text-gray-300 text-lg">
+              We are updating event details and prize pools. Stay tuned!
+           </p>
+          </div>
+        )}
       </div>
     </div>
+  </div>
   );
 }

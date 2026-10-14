@@ -1,6 +1,10 @@
 import React from "react";
-import gfg from "../assets/gfg.png";
+//import gfg from "../assets/gfg.png";
 import { useNavigate } from "react-router-dom";
+
+
+          // <---comments on line 2, 60 and 69---> 
+
 
 export default function HeroSection() {
   const navigate = useNavigate();
@@ -17,6 +21,13 @@ export default function HeroSection() {
       <link
         href="https://fonts.googleapis.com/css2?family=Michroma:wght@400;700;900&display=swap"
         rel="stylesheet"
+      />
+      <link rel="preconnect" href="https://fonts.googleapis.com"
+      />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin
+      />
+      <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Cinzel:wght@600&display=swap" 
+      rel="stylesheet"
       />
 
       <div
@@ -57,32 +68,30 @@ export default function HeroSection() {
         ></div>
         <div className="relative z-10 text-center max-w-6xl">
           <div className="mb-8 sm:mb-10 md:mb-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <img
+            {/* <img
               src={gfg}
               alt="GeeksforGeeks Logo"
               className="h-10 sm:h-12 md:h-16 object-contain"
-            />
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white tracking-wide">
-              GeeksforGeeks
-            </h2>
+            /> */}
+           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white tracking-wide">
+              coming soon
+           </h2>
           </div>
-          <h2 className="text-xl sm:text-2xl md:text-4xl font-light text-cyan-400 tracking-[0.4em] sm:tracking-[0.5em] mb-8 sm:mb-10 md:mb-12">
+          {/* <h2 className="text-xl sm:text-2xl md:text-4xl font-light text-cyan-400 tracking-[0.4em] sm:tracking-[0.5em] mb-8 sm:mb-10 md:mb-12">
             PRESENTS
-          </h2>
-          <h1
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 sm:mb-8 tracking-wide sm:tracking-wider whitespace-normal sm:whitespace-nowrap"
+          </h2> */}
+         <h1
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-100 via-sky-300 to-cyan-500 drop-shadow-[0_10px_25px_rgba(6,182,212,0.6)] capitalize py-2"
             style={{
-              color: "transparent",
-              WebkitTextStroke: "1.5px #0ff",
-              fontFamily: "Orbitron, sans-serif",
+              fontFamily: "'Kaushan Script', cursive",
             }}
           >
-            TECH AVINYA 2025
+            Tech Avinya <span className="text-3xl sm:text-5xl md:text-6xl">2026</span>
           </h1>
           <p
-            className="text-base sm:text-lg md:text-2xl text-cyan-400 tracking-[0.2em] sm:tracking-[0.3em] mb-12 sm:mb-16 font-light px-2"
+            className="text-base sm:text-lg md:text-xl text-cyan-200/90 tracking-[0.2em] sm:tracking-[0.3em] mb-12 sm:mb-16 font-light px-2"
             style={{
-              fontFamily: "Michroma",
+              fontFamily: "'Cinzel', serif",
             }}
           >
             WHERE INNOVATION MEETS INSPIRATION

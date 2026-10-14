@@ -6,132 +6,148 @@ export default function Contact() {
   const contactPersons = [
     {
       id: 1,
-      name: "Khrieketouzo Peter Sekhose",
+      name: "",
       role: "General Secretary",
       image: "/secretary/general.jpg",
-      contact: "+91 7640859887",
-      social: { instagram: "https://www.instagram.com/khrieketouzosekhose/", linkedin: "NULL", email: "khrieketouzopetersekhose@gmail.com" }
+      contact: "+91 ",
+      social: { instagram: "", linkedin: "", email: "" }
     },
     {
       id: 2,
-      name: "Hrishabh Raj",
+      name: "Diviyanshu Mishra",
       role: "Technical Secretary",
-      image: "/secretary/technical.jpg",
-      contact: "+91 6203754637",
-      social: { instagram: "https://www.instagram.com/i_hrishabhr", linkedin: "https://www.linkedin.com/in/hrishabhxcode", email: "hrishabhtest@gmail.com" }
-    },
-    {
-      id: 3,
-      name: "Lanuyanger Aier",
-      role: "Technical Secretary",
-      image: "/secretary/technical2.jpg",
-      contact: "+91 9730934366",
-      social: { instagram: "akhil.n", linkedin: "akhil-naik", email: "akhil@example.com" }
-    },
-    {
-      id: 4,
-      name: "Satyam Singh",
-      role: "Coding Club Secretary",
-      image: "/secretary/coding.jpg",
-      contact: "+91 9918437706",
-      social: { instagram: "vishal.k", linkedin: "vishal-kumar", email: "vishal@example.com" }
-    },
-    {
-      id: 5,
-      name: "Chubamanen Jamir",
-      role: "Coding Club Secretary",
-      image: "/secretary/coding2.png",
-      contact: "+91 8798585322",
-      social: { instagram: "swapnil.s", linkedin: "https://www.linkedin.com/in/chuba-manen-39241a1b8", email: "Chunamanen572@gmail.com" }
-    },
-    {
-      id: 6,
-      name: "Dev yadav",
-      role: "Robotics Club Secretary",
-      image: "/secretary/robotics.jpg",
-      contact: "+91 9350229098",
-      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/dev-yadav-2207022", email: "dev2025roboforge@gmail.com" }
-    },
-    {
-      id: 7,
-      name: "Mhademo R Kikon",
-      role: "Robotics Club Secretary",
-      image: "/secretary/robotics2.jpg",
-      contact: "+91 9362725370",
-      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/mhademo-r-kikon-5478992a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "mhademok034@gmail.com" }
-    },
-    {
-      id: 8,
-      name: "Richa Das",
-      role: "Entrepreneurship Club Secretary",
-      image: "/secretary/ecell.jpeg",
-      contact: "+91 9864541768",
-      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/richa-das-22636a387", email: "dasricha454@gmail.com" }
-    },
-    {
-      id: 9,
-      name: "Aviji Singson",
-      role: "Entrepreneurship Club Secretary",
-      image: "/secretary/ecell2.jpg",
-      contact: "+91 6909697937",
-      social: { instagram: "saurabh.k", linkedin: "saurabh-kumar", email: "saurabh@example.com" }
-    },
-    {
-      id: 10,
-      name: "Elias.s.thonger",
-      role: "Esports Secretary",
-      image: "/secretary/esport.jpg",
-      contact: "+91 7005383559",
-      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/elias-thonger-410a56292", email: "lolobosti@gmail.com" }
-    },
-    {
-      id: 11,
-      name: "Ajay Singh",
-      role: "Esports Secretary",
-      image: "/secretary/ajay.jpg",
-      contact: "+91 8769275797",
-      social: { instagram: "saurabh.k", linkedin: "saurabh-kumar", email: "saurabh@example.com" }
-    },
-    {
-      id: 12,
-      name: "Kesogi Seb ",
-      role: "Digital Art Club Secretary",
-      image: "/secretary/art.jpg",
-      contact: "+91 9362794809",
-      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/kesogi-seb-485375387", email: "kesogiseb@gmail.com" }
-    },
-    {
-      id: 13,
-      name: "Shalu Priya Murmu",
-      role: "Digital Art Club Secretary",
-      image: "/secretary/art2.jpg",
-      contact: "+91 7488269197",
-      social: { instagram: "#", linkedin: "https://www.linkedin.com/in/shalu-priya-murmu-053000313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", email: "shalumurmu.55@gmail.com" }
-    },
-    {
-      id: 14,
-      name: "Ankit Kumar",
-      role: "Developer",
-      image: "/secretary/web.jpg",
-      contact: "+91 9229434627",
-      social: { instagram: "https://www.instagram.com/raj_ankit_95/", linkedin: "https://www.linkedin.com/in/ankit-kumar-922ankit/", email: "ankitkumar43975@gmail.com" }
-    },
-    {
-      id: 15,
-      name: "Divyanshu mishra",
-      role: "Developer",
-      image: "/secretary/web2.jpg",
+      image: "/secretary/technical.jpeg",
       contact: "+91 7755803253",
       social: { instagram: "https://www.instagram.com/divyanshu_mishra_1911/", linkedin: "https://www.linkedin.com/in/divyanshu-mishra-nit20241033/", email: "divyanshu.nit.28@gmail.com" }
     },
     {
-      id: 16,
-      name: "Meraj Alam",
-      role: "Developer",
-      image: "/secretary/web3.jpg",
+      id: 3,
+      name: "Ayito Ladu",
+      role: "Technical Secretary",
+      image: "/secretary/technical2.jpg",
+      contact: "+91 8413065222",
+      social: { instagram: "", linkedin: "https://www.linkedin.com/in/ayito-ladu-a6009430a?utm_source=share_via&utm_content=profile&utm_medium=member_android", email: "AYITO5359@nitnagaland.ac.in" }
+    },
+    {
+      id: 4,
+      name: "Md Meraj Alam",
+      role: "Coding Club Secretary",
+      image: "/secretary/coding.jpg",
       contact: "+91 9534342082",
-      social: { instagram: "https://www.instagram.com/_.meraj___/", linkedin: "https://www.linkedin.com/in/meraj-alam-12we/", email: "merajalamnazeeri@gmail.com" }
-    }
+      social: { instagram: "https://www.instagram.com/_merx_zzzz__/", linkedin: "https://www.linkedin.com/in/meraj-alam75/", email: "merajalamnazeeri@gmail.com" }
+    },
+    {
+      id: 5,
+      name: "Adi Yhor",
+      role: "Coding Club Secretary",
+      image: "/secretary/coding2.jpg",
+      contact: "+91 9233957278",
+      social: { instagram: "https://www.instagram.com/a_yhor002?stkn=MTNnNjdka3lyMG10aQ==", linkedin: "https://www.linkedin.com/in/adi-yhor-a6640b36a?utm_source=share_via&utm_content=profile&utm_medium=member_android", email: "Adiyhor@gmail.com" }
+    },
+    {
+      id: 6,
+      name: "Saurabh Patel",
+      role: "Robotics Club Secretary",
+      image: "/secretary/robo.png",
+      contact: "+91 8708676451",
+      social: { instagram: "", linkedin: "https://www.linkedin.com/in/saurabhp04/", email: "saurabh4366@nitnagaland.ac.in" }
+    },
+    {
+      id: 7,
+      name: "Buti P",
+      role: "Robotics Club Secretary",
+      image: "/secretary/robo2.png",
+      contact: "+91 8119028697",
+      social: { instagram: "https://www.instagram.com/bti_bty?stkn=MTgxN2dkeDRnY3Vscw==", linkedin: "https://www.linkedin.com/in/buti-thai-47596539a?utm_source=share_via&utm_content=profile&utm_medium=member_android", email: "butithai122@gmail.com" }
+    },
+    {
+      id: 8,
+      name: "Pranjal Mishra",
+      role: "Entrepreneurship Club Secretary",
+      image: "/secretary/ecell.jpg",
+      contact: "+91 8545869601",
+      social: { instagram: "https://www.instagram.com/pranjalmishra0601/", linkedin: "https://www.linkedin.com/in/pranjal-mishra-8bb6ab306", email: "mpranjal093@gmail.com" }
+    },
+    {
+      id: 9,
+      name: "Khamthak wangsu ",
+      role: "Entrepreneurship Club Secretary",
+      image: "/secretary/ecell2.jpg",
+      contact: "+91 6003801527",
+      social: { instagram: "https://www.instagram.com/wangsukhamthak?stkn=ZjFzNGE1a3hmbGE3", linkedin: "https://www.linkedin.com/in/khamthak-wangsu-0a5211340?utm_source=share_via&utm_content=profile&utm_medium=member_android", email: "khamthak21@gmail.com" }
+    },
+    {
+      id: 10,
+      name: "",
+      role: "Esports Secretary",
+      image: "/secretary/esport.jpg",
+      contact: "+91 ",
+      social: { instagram: "", linkedin: "", email: "" }
+    },
+    {
+      id: 11,
+      name: "Moachiten",
+      role: "Esports Secretary",
+      image: "/secretary/esports2.jpeg",
+      contact: "+91 9362619196",
+      social: { instagram: "https://www.instagram.com/moa_chiten?stkn=MWszMmFxcDNibDN3ag%3D%3D&utm_source=qr", linkedin: "https://www.linkedin.com/in/moachiten-chiten-17a24b442?utm_source=share_via&utm_content=profile&utm_medium=member_ios", email: "moachiten@gmail.com" }
+    },
+    {
+      id: 12,
+      name: "Ayush Kumar",
+      role: "Finance Secretary",
+      image: "/secretary/finance.png",
+      contact: "+91 7643965792",
+      social: { instagram: "https://www.instagram.com/_.aaayush.__?stkn=MTVmZm8wYmoyd3Zzbw%3D%3D&utm_source=qr", linkedin: "https://www.linkedin.com/in/ayush-kumar-b02255339?utm_source=share_via&utm_content=profile&utm_medium=member_ios", email: "ayushkumarnit15@gmail.com" }
+    },
+    {
+      id: 13,
+      name: "Nuksungla Walling",
+      role: "Finance Secretary",
+      image: "/secretary/finance2.jpg",
+      contact: "+91 9366149673",
+      social: { instagram: "", linkedin: "", email: "" }
+    },
+    {
+      id: 14,
+      name: "Gadde Aajith Sai",
+      role: "Hospitality Secretary",
+      image: "/secretary/hospitality.jpg",
+      contact: "+91 9182634569",
+      social: { instagram: "https://www.instagram.com/aajith_1126?stkn=Y3NtaHloNm9ic2Rp", linkedin: "https://www.linkedin.com/in/aajith-sai-gadde-5432a7329?utm_source=share_via&utm_content=profile&utm_medium=member_android", email: "aajithsaigadde@gmail.com" }
+    },
+    {
+      id: 15,
+      name: "Lolly I Shohe ",
+      role: "Hospitality Secretary",
+      image: "/secretary/hospitality2.jpeg",
+      contact: "+91 9362797457",
+      social: { instagram: "https://www.instagram.com/l0lly.co?stkn=NDl5a3k4NG9jeDFu&utm_source=qr", linkedin: "https://www.linkedin.com/in/lolly-shohe-881823385?utm_source=share_via&utm_content=profile&utm_medium=member_ios", email: "shohelolly@gmail.com" }
+    },
+    // {
+    //   id: 16,
+    //   name: "",
+    //   role: "Developer",
+    //   image: "/secretary/web.jpg",
+    //   contact: "+91 ",
+    //   social: { instagram: "", linkedin: "", email: "" }
+    // },
+    // {
+    //   id: 17,
+    //   name: "",
+    //   role: "Developer",
+    //   image: "/secretary/web2.jpg",
+    //   contact: "+91 ",
+    //   social: { instagram: "https://www.instagram.com/divyanshu_mishra_1911/", linkedin: "https://www.linkedin.com/in/divyanshu-mishra-nit20241033/", email: "divyanshu.nit.28@gmail.com" }
+    // },
+    // {
+    //   id: 18,
+    //   name: "Meraj Alam",
+    //   role: "Developer",
+    //   image: "/secretary/web3.jpg",
+    //   contact: "+91 9534342082",
+    //   social: { instagram: "https://www.instagram.com/_.meraj___/", linkedin: "https://www.linkedin.com/in/meraj-alam-12we/", email: "merajalamnazeeri@gmail.com" }
+    // }
   ];
 
   const teamCategories = [
@@ -141,8 +157,9 @@ export default function Contact() {
     { name: "Robotics Club", members: contactPersons.slice(5, 7) },
     { name: "Entrepreneurship Club", members: contactPersons.slice(7, 9) },
     { name: "Esports Arena", members: contactPersons.slice(9, 11) },
-    { name: "Digital Art Club", members: contactPersons.slice(11, 13) },
-    { name: "Web Team", members: contactPersons.slice(13, 16) }
+    { name: "Finance Team", members: contactPersons.slice(11, 13) },
+    { name: "Hospitality Team", members: contactPersons.slice(13, 15) },
+    //{ name: "Web Team", members: contactPersons.slice(15, 18) }
   ];
 
   
