@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { FaHandsHelping } from 'react-icons/fa'; 
 import sponsorVideo from '../assets/sponsors.jpg'; 
 import VantaWavesBackground from '../components/VantaWavesBackground'; 
@@ -173,16 +174,16 @@ export default function Sponsors() {
           <p className="text-lg text-gray-300 mb-6 Gluten">
             Sponsor with NIT Nagaland to empower bright young minds, enhance your brand's visibility, and contribute to cutting-edge tech education.
           </p>
-          <a 
-            href={`mailto:${contactEmail}`} // MAILTO LINK
+          <Link
+            to="/sponsor-inquiry"
             className="inline-flex items-center justify-center px-8 py-3 
                        bg-gradient-to-r from-teal-500 to-emerald-600 
                        text-white text-lg font-semibold rounded-full 
                        shadow-lg hover:shadow-teal-400/50 transform hover:scale-105 
                        transition-all duration-300 group Gluten"
           >
-            Connect With Us <FaHandsHelping className="ml-3"/>
-          </a>
+            Become a Sponsor <FaHandsHelping className="ml-3"/>
+          </Link>
         </div>
 
       </div>
